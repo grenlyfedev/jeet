@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .card-header {
+            background-color: azure;
+        }
+
+        thead {
+            background-color: azure;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <%- include('nav') %>
+
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>System Settings</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Social Links Settings</h3>
+                                    <div class="card-tools">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-tool dropdown-toggle"
+                                                data-toggle="dropdown">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <a class="dropdown-item" href="#" data-func="unpin">Unpin</a>
+                                                <a class="dropdown-item" href="#" data-func="minimize">Minimize</a>
+                                                <a class="dropdown-item" href="#" data-func="expand">Fullscreen</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+
+
+
+                                    <form id="social_link_settings" name="social_settings" method="post"
+                                    class="form-horizontal new-added-form" enctype="multipart/form-data"
+                                    novalidate="novalidate">
+                                    <input type="hidden" name="csrf_test_name"
+                                        value="50505bea30cfda3a70267c2b9c9de27d">
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="text-start">
+                                                    <label for="telegram">Telegram (Set up for members to use to
+                                                        contact you)</label>
+                                                </div>
+                                                <input type="text" class="form-control" id="telegram"
+                                                    placeholder="Enter Link Telegram" value=""><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="text-start">
+                                                    <label for="whatsapp">WhatsApp (Set up for members to use to
+                                                        contact you)</label>
+                                                </div>
+                                                <input type="text" class="form-control" id="whatsapp"
+                                                    placeholder="Enter Link WhatsApp" value=""><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row mt-4">
+                                        <div class="col-sm-6 offset-sm-2">
+                                            <button class="btn btn-warning btn-block" id="saveSocial">
+                                                <div id="spinner" class="spinner-border text-primary" role="status"
+                                                    style="display: none;">
+                                                    <span class="sr-only">Loading...</span>
+                                                </div>
+                                                Save Changes
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h3 class="card-title">Other Settings</h3>
+                                    <div class="card-tools">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-tool dropdown-toggle"
+                                                data-toggle="dropdown">
+                                                <i class="fas fa-cog"></i>
+                                            </button>
+                                            <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                <a class="dropdown-item" href="#" data-func="unpin">Unpin</a>
+                                                <a class="dropdown-item" href="#" data-func="minimize">Minimize</a>
+                                                <a class="dropdown-item" href="#" data-func="expand">Fullscreen</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    "<%= settings.image1Url %>"
+
+
+                                        <form id="other_settings" name="other_settings" method="post"
+                                            class="form-horizontal new-added-form" enctype="multipart/form-data"
+                                            novalidate="novalidate">
+                                            <input type="hidden" name="csrf_test_name"
+                                                value="50505bea30cfda3a70267c2b9c9de27d">
+
+                                            <div class="form-group row">
+                                                <label class="col-md-12 col-form-label">
+                                                    <h3>User Page Home Screen Banner (Slider Images) :</h3>
+                                                </label>
+
+                                                <div class="col-md-12">
+                                                    <label for="image1">Image 1</label>
+                                                    <input type="file" class="form-control" id="image1" name="image1"
+                                                        accept="image/*"><br>
+                                                    <button type="button" class="btn btn-info mt-2" data-toggle="modal"
+                                                        data-target="#image1Modal">
+                                                        View Saved Image 1
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <label for="image2">Image 2</label>
+                                                    <input type="file" class="form-control" id="image2" name="image2"
+                                                        accept="image/*"><br>
+                                                    <button type="button" class="btn btn-info mt-2" data-toggle="modal"
+                                                        data-target="#image2Modal">
+                                                        View Saved Image 2
+                                                    </button>
+                                                </div>
+
+                                                <div class="col-md-12">
+                                                    <label for="image3">Image 3</label>
+                                                    <input type="file" class="form-control" id="image3" name="image3"
+                                                        accept="image/*"><br>
+                                                    <button type="button" class="btn btn-info mt-2" data-toggle="modal"
+                                                        data-target="#image3Modal">
+                                                        View Saved Image 3
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row mt-4">
+                                                <div class="col-sm-6 offset-sm-2">
+                                                    <button type="submit" class="btn btn-warning btn-block"
+                                                        id="saveChanges">
+                                                        <div id="spinner" class="spinner-border text-primary"
+                                                            role="status" style="display: none;">
+                                                            <span class="sr-only">Loading...</span>
+                                                        </div>
+                                                        Save Changes
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+            <!-- Modals for viewing images -->
+            <div class="modal fade" id="image1Modal" tabindex="-1" aria-labelledby="image1ModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="image3ModalLabel">Saved Image 1</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="<%= settings.image1Url %>" alt="Image 1" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="image2Modal" tabindex="-1" aria-labelledby="image2ModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="image3ModalLabel">Saved Image 2</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="<%= settings.image2Url %>" alt="Image 2" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="image3Modal" tabindex="-1" aria-labelledby="image3ModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="image3ModalLabel">Saved Image 3</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="<%= settings.image3Url %>" alt="Image 3" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    </div>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/dist/js/adminlte.min.js"></script>
+    <script src="/js/admin/admin.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script>
+        $.ajax({
+            type: "POST",
+            url: "/manager/settings/list",
+            data: {
+
+            },
+            dataType: "json",
+            success: function (response) {
+                $('input').val(response.telegram2);
+            }
+        });
+        $('.telegram').click(function (e) {
+            e.preventDefault();
+            let value = $('input').val().trim();
+            if (value) {
+                $.ajax({
+                    type: "POST",
+                    url: "/manager/settings/list",
+                    data: {
+                        type: 'edit',
+                        value: value,
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        alert(response.message);
+                    }
+                });
+            } else {
+                alert("Please enter all information");
+            }
+        });
+
+
+
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#saveSocial').click(function (e) {
+                e.preventDefault();
+                $('#spinner').show();
+
+                const telegram = $('#telegram').val();
+                const whatsapp = $('#whatsapp').val();
+                const csrfToken = $('input[name="csrf_test_name"]').val();
+
+                console.log(telegram);
+                console.log(whatsapp);
+                console.log(csrfToken);
+
+                $.ajax({
+                    type: "POST",
+                    url: "/admin/manager/settings/cskh",
+                    data: {
+                        telegram: telegram,
+                        whatsapp: whatsapp,
+                        csrf_test_name: csrfToken
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $('#spinner').hide();
+                        if (response.status == true) {
+                            Swal.fire("Good job!", "Settings have been saved!", "success");
+                        } else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error",
+                                text: response.message
+                            });
+                        }
+                    },
+                    error: function (error) {
+                        console.log(error);
+                        $('#spinner').hide();
+                        Swal.fire({
+                            icon: "error",
+                            title: "Error",
+                            text: "There was an error saving the settings."
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveChanges').click(async function (e) {
+                e.preventDefault();
+                $('#spinner').show();
+
+                const image1 = $('#image1')[0].files[0];
+                const image2 = $('#image2')[0].files[0];
+                const image3 = $('#image3')[0].files[0];
+
+                let image1Base64 = null;
+                let image2Base64 = null;
+                let image3Base64 = null;
+
+                if (image1) {
+                    image1Base64 = await toBase64(image1);
+                }
+                if (image2) {
+                    image2Base64 = await toBase64(image2);
+                }
+                if (image3) {
+                    image3Base64 = await toBase64(image3);
+                }
+
+                const payload = {
+                    image1: image1Base64,
+                    image2: image2Base64,
+                    image3: image3Base64
+                };
+
+                $.ajax({
+                    url: '/api/webapi/uploadBannerImages',
+                    type: 'POST',
+                    data: JSON.stringify(payload),
+                    contentType: "application/json",
+                    success: function (response) {
+                        $('#spinner').hide();
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Images have been saved successfully.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+
+                        // Update modals with new image URLs
+                        $('#image1Modal img').attr('src', image1Base64);
+                        $('#image2Modal img').attr('src', image2Base64);
+                        $('#image3Modal img').attr('src', image3Base64);
+                    },
+                    error: function (xhr, status, error) {
+                        $('#spinner').hide();
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'There was an error saving the images.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+
+        function toBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = error => reject(error);
+            });
+        }
+
+    </script>
+</body>
+
+</html>

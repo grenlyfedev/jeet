@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html style="font-size: 650%;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <style class="vjs-styles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjs-fluid {
+            padding-top: 56.25%
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Pays</title>
+    <script>// setInterval(function () { debugger }, 100);</script>
+    <link href="/css/wallet/chunk-libs.aac02ba1.css" rel="stylesheet">
+    <link href="/css/wallet/app.30ec9887.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/wallet/chunk-6e8d5c6e.0fc0ae11.css">
+    <style type="text/css">
+        @font-face {
+            font-family: Roboto;
+            src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf");
+        }
+
+        #copied {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 12px;
+            padding: 10px;
+            position: fixed;
+            z-index: 200000;
+            left: 55%;
+            bottom: 50px;
+            font-size: 14px;
+        }
+
+
+
+        #copied.show {
+            visibility: visible;
+            margin-bottom: 310px;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <div>
+        <div data-v-5f23d35a="" class="app-container">
+            <div data-v-cbb7dde6="" data-v-5f23d35a="" class="app-container">
+                <!---->
+                <div data-v-400f7872="" data-v-cbb7dde6=""><span data-v-400f7872=""
+                        class="container-row bg-color"></span>
+                    <div data-v-400f7872="" class="container-row top-box">
+                        <div data-v-400f7872="" onclick="window.location.href='/wallet/recharge'"
+                            class="container-row top-box-btn"><img data-v-400f7872=""
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAeCAMAAAASJ24jAAAANlBMVEVHcEwbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxutgMUJAAAAEXRSTlMA6t7NHIhz9i1dSwQNm648ocu+ZZ8AAABsSURBVBjTjdDLEsAQDAXQUOpVNP//s01WImqG3blmyA2APM2m2YgoXclN2JOvsnW5yfYZ92zjhhM5aMfhTEbhzu7DkZ2FA1lUcMpg6f0sG4V5gPXLdaizRFc9S7xa2C6RS/9LXk5AJ1MA1dQPI/kIDZxwT7wAAAAASUVORK5CYII="
+                                class="top-box-btn-icon">
+                            <div data-v-400f7872="" class="top-box-btn-title">Back</div>
+                        </div>
+                        <div data-v-400f7872="" class="container-row top-box-logo-box">
+                            <!-- <img data-v-400f7872=""
+                                src="/images/tlogo.e9040472.png" class="top-box-logo-img"> -->
+                            
+                            </div>
+                    </div><span data-v-400f7872="" class="container-row split-top-box"></span>
+                    <div data-v-400f7872="" class="container-column info-box">
+                        <div data-v-400f7872="" class="container-row info-title-box">
+                            <div data-v-400f7872="" class="info-title-box-title">Wow Pay Information</div>
+                            <div data-v-400f7872="" class="container-row info-title-right-box">
+                                <div data-v-400f7872="" onclick="popup()" class="info-title-right-box-title">How it
+                                    works ?</div>
+                            </div>
+                        </div>
+                        <div data-v-400f7872="" class="container-column info-amount-box"
+                            style="background: url('/images/back.png');">
+                            <div data-v-400f7872="" class="container-row info-amount-title-box">
+                                <div data-v-400f7872="" class="info-amount-title-box-text">Payment Amount</div>
+                            </div>
+                            <div data-v-400f7872="" class="container-row info-amount-value-box">
+                                <div data-v-400f7872="" id="amount" class="info-amount-value-box-text"> <%= amount %> ₹</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="container-wowpay"></div>
+
+     
+                </div>
+      
+            </div>
+        </div>
+    </div>
+    <div class="mint-indicator" style="display: none;">
+        <div class="mint-indicator-wrapper" style="padding: 15px;"><span class="mint-indicator-spin">
+                <div class="mint-spinner-snake"
+                    style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;">
+                </div>
+            </span> <span class="mint-indicator-text" style="display: none;"></span></div>
+        <div class="mint-indicator-mask"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/client.js"></script>
+    <script>
+        function popup() {
+            document.getElementById("pop").style.display = "";
+        }
+        function popclose() {
+            document.getElementById("pop").style.display = "none";
+        }
+
+        function copyToClipboard(text) {
+            var inputc = document.body.appendChild(document.createElement("input"));
+            inputc.value = text.innerHTML.trim();
+            inputc.focus();
+            inputc.select();
+            document.execCommand('copy');
+            inputc.parentNode.removeChild(inputc);
+            var x = document.getElementById("copied");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+        function check() {
+            if (document.getElementById("upi-input").value.length == '12') {
+                $('.submit').prop('disabled', false);
+                console.log("correct utr");
+            } else {
+                $('.submit').prop('disabled', true);
+                console.log("incorrect utr");
+            }
+        }
+        setInterval(check, 1000);
+
+
+    </script>
+
+
+<script>
+    var styleObject = {
+        // Define your style objects
+    };
+    var apiKey = "<%= settings.wowPayAccount %>";
+
+    var options = {
+        api_key: apiKey, // Replace with your Wowpay API key
+        amount: 50000, // Amount is in currency subunits. Default currency is INR.
+        currency: "MYR", // Currency code
+        order_id: `WP${Math.floor(100000 + Math.random() * 900000)}`, // Generate order ID
+        // Add other options as needed
+        onPaymentSuccess: (res) => {
+            alert("Payment successful");
+            console.log(res, "on success");
+        },
+        onPaymentFailure: (res) => {
+            alert("Payment failed");
+            console.log(res, "on failed");
+        },
+        // Add customer and order info
+    };
+
+    var createCreditCard = new WowPay({ ...options })
+        .create("CreditCard")
+        .mount("container-wowpay");
+</script>
+
+
+<script>
+    // Other JavaScript functions
+
+    // Handle payment success
+    function onPaymentSuccess(response) {
+        alert(response.wowpay_order_id);
+        alert(response.wowpay_signature);
+    }
+
+    // Handle payment failure
+    function onPaymentFailure(response) {
+        alert(response.wowpay_order_id);
+        alert(response.wowpay_signature);
+    }
+</script>
+
+
+</body>
+
+</html>

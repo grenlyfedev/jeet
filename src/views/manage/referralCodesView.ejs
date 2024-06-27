@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Referral Code View</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+  <style>
+    .block-click {
+      pointer-events: none;
+    }
+  </style>
+    <style>
+      body{
+      margin-top:20px;
+      color: #1a202c;
+      text-align: left;
+      background-color: #e2e8f0;    
+  }
+  .main-body {
+      padding: 15px;
+  }
+  .card {
+      box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  }
+  
+  .card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: #fff;
+      background-clip: border-box;
+      border: 0 solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+  }
+  
+  .card-body {
+      flex: 1 1 auto;
+      min-height: 1px;
+      padding: 1rem;
+  }
+  
+  .gutters-sm {
+      margin-right: -8px;
+      margin-left: -8px;
+  }
+  
+  .gutters-sm>.col, .gutters-sm>[class*=col-] {
+      padding-right: 8px;
+      padding-left: 8px;
+  }
+  .mb-3, .my-3 {
+      margin-bottom: 1rem!important;
+  }
+  
+  .bg-gray-300 {
+      background-color: #e2e8f0;
+  }
+  .h-100 {
+      height: 100%!important;
+  }
+  .shadow-none {
+      box-shadow: none!important;
+  }
+    </style>
+
+<style>
+  body {
+font-family: 'Source Sans Pro', sans-serif;
+/* Adjust font size and other styles as needed */
+}
+
+.card-header {
+background-color: azure;
+}
+
+thead {
+background-color: azure;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+font-weight: 700;
+}
+
+/* Add more styles as needed */
+
+
+    /* .form-group {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #2ecc71;
+    }
+
+    .form-group button {
+        margin-top: 30px;
+    } */
+</style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Include navigation -->
+    <%- include('nav') %>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <!-- Content header -->
+        </section>
+
+        <section class="content">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-title">Code Information</h5>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <!-- Display user info here -->
+          
+
+                  <p> User ID: <button class="btn btn-default">
+                    <div data-v-7b283485="" class="money wm">
+                      <div data-v-7b283485="">
+                        <%= user.id %>
+                      </div>
+                    </div>
+                  </button>
+
+                </p>
+
+
+                <p> Name: <button class="btn btn-default">
+                  <div data-v-7b283485="" class="money wm">
+                    <div data-v-7b283485="">
+                      <%= user.name_user %>
+                    </div>
+                  </div>
+                </button>
+
+              </p>
+
+
+              <p> Email: <button class="btn btn-default">
+                <div data-v-7b283485="" class="money wm">
+                  <div data-v-7b283485="">
+                    <%= user.email %>
+                  </div>
+                </div>
+              </button>
+
+            </p>
+
+
+            <p> Phone: <button class="btn btn-default">
+              <div data-v-7b283485="" class="money wm">
+                <div data-v-7b283485="">
+                  <%= user.phone %>
+                </div>
+              </div>
+            </button>
+
+          </p>
+
+          <p> Invite Code: <button class="btn btn-default">
+            <div data-v-7b283485="" class="money wm">
+              <div data-v-7b283485="">
+                <%= user.invite %>
+              </div>
+            </div>
+          </button>
+
+        </p>
+          
+          <p> Referral Code: <button class="btn btn-default">
+            <div data-v-7b283485="" class="money wm">
+              <div data-v-7b283485="">
+                <%= user.code %>
+              </div>
+            </div>
+          </button>
+
+        </p>
+                </div>
+                <div class="col-md-6">
+                  <!-- Display user info here -->
+                  <p> Money: <button class="btn btn-success">
+                      <div data-v-7b283485="" class="money wm">
+                        <div data-v-7b283485="">
+                          <%= user.money %><span data-v-7b283485="" class="p-l-10">₹</span>
+                        </div>
+                      </div>
+                    </button>
+
+                  </p>
+                  <p>Bonus Money: <button class="btn btn-success">
+                      <div data-v-7b283485="" class="money wm">
+                        <div data-v-7b283485="">
+                          <%= user.bonusMoney %><span data-v-7b283485="" class="p-l-10">₹</span>
+                        </div>
+                      </div>
+                    </button>
+
+                  </p>
+                  <p>Total Deposits: <button class="btn btn-success">
+                    <div data-v-7b283485="" class="money wm">
+                      <div data-v-7b283485="">
+                        <%= user.totalDeposits %><span data-v-7b283485="" class="p-l-10">₹</span>
+                      </div>
+                    </div>
+                  </button>
+
+                </p>
+
+                  <p>Referral Bonus Money: <button class="btn btn-success">
+                    <div data-v-7b283485="" class="money wm">
+                      <div data-v-7b283485="">
+                        <%= user.referralBonus %><span data-v-7b283485="" class="p-l-10">₹</span>
+                      </div>
+                    </div>
+                  </button>
+
+                </p>
+
+                            <!-- Display user info here -->
+                            <p> Winning Money: <button class="btn btn-success">
+                              <div data-v-7b283485="" class="money wm">
+                                <div data-v-7b283485="">
+                                  <%= user.money %><span data-v-7b283485="" class="p-l-10">₹</span>
+                                </div>
+                              </div>
+                            </button>
+        
+                          </p>
+
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+
+              <!-- Recharges table -->
+              <div class="card mt-3">
+                <div class="card-header">
+                  <h5 class="card-title">Referrals</h5>
+                </div>
+                <div class="card-body">
+                  <!-- Recharges table -->
+                  <table class="table table-striped projects" id="table1">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center">Client ID</th>
+                            <th class="text-center">Mobile</th>
+                            <!-- <th class="text-center">Total Referrals</th> -->
+                            <th class="text-center">Total Deposits</th>
+                            <th class="text-center">Referral Bonus</th>
+                            <th class="text-center">Bonus Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% referrals.forEach((referral, index) => { %>
+                            <tr class="text-center">
+                                <td><%= index + 1 %></td>
+                                <td><b style="color: #2003db"><%= referral.referred_name_user %></b></td>
+                                <td><b style="color: #2003db"><%= referral.referred_phone %></b></td>
+                         
+                                <!-- <td><b><%= referral.totalReferrals %></b></td> -->
+                                <td><b><%= referral.referred_totalDeposits %></b></td>
+                                <td><b><%= referral.bonus %></b></td>
+                                <td><b>
+                                    <% if (referral.created_at) { %>
+                                        <%= new Date(referral.created_at).toLocaleString('en-US', {
+                                          year: 'numeric',
+                                          month: 'short',
+                                          day: '2-digit',
+                                          hour: '2-digit',
+                                          minute: '2-digit',
+                                          hour12: false // Use 24-hour format
+                                        }) %>
+                                      <% } else { %>
+                                        <!-- Handle case when date is not available -->
+                                        N/A
+                                      <% } %>
+                                
+                                
+                                </b></td>
+                                <!-- <td class="project-state">
+                                    <button class="btn btn-success toggle-btn <%= referral.referralCodeStatus == 1 ? 'active' : 'inactive' %>"
+                                        data-id="<%= referral.id %>" data-status="<%= referral.referralCodeStatus %>">
+                                        <%= referral.referralCodeStatus == 1 ? 'Active' : 'Inactive' %>
+                                    </button>
+                                </td> -->
+                  
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+                
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+
+
+      </div>
+      </section>
+  </div>
+  </div>
+  <!-- Include necessary scripts -->
+
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/adminlte.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script src="/js/admin/admin.js"></script>
+  <script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+  <script>
+    $('#dataTable').DataTable( {
+    responsive: true,
+            buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
+   
+} )
+  </script>
+  <script>
+    function toTitleCase(str) {
+        return str.toLowerCase().replace(/\b\w/g, function (char) {
+            return char.toUpperCase();
+        });
+    }
+</script>
+
+</body>
+
+</html>

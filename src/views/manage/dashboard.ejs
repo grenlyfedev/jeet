@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" data-change="1">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Area</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/css/pages__parity.css">
+    <link rel="stylesheet" href="/css/vantjs.css">
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <script src="https://cdn.socket.io/4.4.1/socket.io.min.js" integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/admin.css">
+
+    <style>
+        /* Existing styles */
+        .box-xs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 18px !important;
+            height: 18px;
+            border: 1px solid #bbb;
+            border-radius: 18px;
+            margin-right: 4px;
+            color: #bbb;
+            background-color: #fff;
+        }
+
+        .active {
+            background-color: #007bff !important;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        #list-orders .item {
+            padding: 5px 0;
+            text-align: center;
+        }
+
+        .box .li[data-v-a9660e98] {
+            display: block;
+            height: 13px;
+            width: 13px;
+            border-radius: 50%;
+            margin: 0 0.13333rem;
+        }
+
+        .block-click {
+            pointer-events: none;
+        }
+
+        .van-col .goItem .c-tc .green {
+            background-color: #5cba47;
+        }
+
+        .van-col .goItem .c-tc .red {
+            background-color: #fb4e4e;
+        }
+
+        .van-col .goItem .c-tc .violet {
+            background-color: #eb43dd;
+        }
+
+        .van-col .c-tc .green {
+            color: #5cba47;
+        }
+
+        .van-col .c-tc .red {
+            color: #fb4e4e;
+        }
+
+        .van-col .c-tc .violet {
+            color: #eb43dd;
+        }
+
+        .goItem .c-row-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .game {
+            background-color: #e67e22 !important;
+            cursor: pointer;
+        }
+
+        .cursor-pointer {
+            cursor: pointer;
+        }
+
+        .active-game {
+            color: rgb(230, 126, 34);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
+    <div class="wrapper">
+        <%- include('nav') %>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Dashboard </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/members">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-users fa-3x" style="color: rgb(196, 215, 28);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-users">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Total Users</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-users fa-3x" style="color: rgb(196, 215, 28);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-unverified-users">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Unverified Users</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/members">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-users fa-3x" style="color: rgb(196, 215, 28);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-active-users">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Total Active Users</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/fundRequests">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-users fa-3x" style="color: rgb(28, 212, 215);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-pending-fund-requests">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Total Pending Fund Requests Users</h3>
+                                </div>
+                            </a>
+                        </div>
+
+
+                                            
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/fundRequests">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-users fa-3x" style="color: rgb(28, 212, 215);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="todays-fund-requests">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Today's Fund Requests</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                                                                    
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/withdraw">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-users fa-3x" style="color: rgb(28, 212, 215);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number" id="total-pending-withdrawal-requests">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>Total Pending Withdrawal Requests</h3>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/withdraw">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number" id="todays-withdrawals">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>Today's Withdrawals</h3>
+                                </div>
+                            </a>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <a id="cardbox1" href="/admin/manager/withdraw">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number" id="total-pending-withdrawal-amount">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>Total Pending Withdrawal Amount</h3>
+                                </div>
+                            </a>
+                        </div>
+
+
+
+
+
+                        <!-- <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number" id="total-pending-withdrawal-amount">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>Total Pending Withdrawal Amount</h3>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <hr />
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"   id="total-5d-bet-amount">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Total 5d Bet Amount</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-k3-bet-amount">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Total k3 Bet Amount</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-wingo-bet-amount">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Total Wingo Bet Amount</h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                                            
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="total-aviator-bet-amount">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Total Aviator Bet Amount</h3>
+                                </div>
+                            </div>
+                        </div>
+
+           
+                    </div>
+
+                    <hr />
+
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"   id="cumulative_deposits">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Cumulative Deposits</h3>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"   id="cumulative_withdrawals">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Cumulative Withdrawals</h3>
+                                </div>
+                            </div>
+                        </div> 
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="cumulative_winning_bonuses">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Cumulative Winning Bonuses</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"  id="cumulative_referral_bonuses">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3> Cumulative referral Bonuses </h3>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"   id="total_gift_cards">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Total Gift Cards</h3>
+                                </div>
+                            </div>
+                        </div>                        
+
+                        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3">
+                            <div id="cardbox1">
+                                <div class="statistic-box bg-dark m-2 p-2">
+                                    <i class="fa fa-money fa-3x" style="color: rgb(28, 161, 88);"></i>
+                                    <div class="counter-number pull-right">
+                                        <span class="count-number"   id="total_gift_cards_not_redeemed">0</span>
+                                        <span class="slight"><i class="fa fa-play fa-rotate-270"> </i>
+                                        </span>
+                                    </div>
+                                    <h3 class="p-1"></h3>  Total Gift Cards Not Used</h3>
+                                </div>
+                            </div>
+                        </div>  
+
+           
+                    </div>
+                </div>
+            </section>
+        </div>
+        <a id="back-to-tops" href="#" class="btn btn-primary back-to-top" role="button" aria-label="Scroll to top">
+            <i class="fas fa-chevron-up"></i>
+        </a>
+    </div>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="/dist/js/adminlte.js"></script>
+    <script src="/plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="/plugins/raphael/raphael.min.js"></script>
+    <script src="/k3/admin/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $.ajax({
+                url: '/api/webapi/admin/dashboard', // Your endpoint to get the data
+                method: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    console.log('Gotten data');
+                    console.log(data);
+                    // Update the display with the data received
+                    $('#total-users').text(data.totalUsers);
+                    $('#total-unverified-users').text(data.totalUnverifiedUsers);
+                    $('#total-active-users').text(data.totalActiveUsers);
+                    $('#total-pending-fund-requests').text(data.totalPendingFundRequests);
+                    $('#todays-fund-requests').text(data.todaysFundRequests);
+                    $('#total-pending-withdrawal-requests').text(data.totalPendingWithdrawalRequests);
+                    $('#todays-withdrawals').text(data.todaysWithdrawals);
+                    $('#total-pending-withdrawal-amount').text(data.totalPendingWithdrawalAmount);
+                    $('#total-5d-bet-amount').text(data.total5dBetAmount);
+                    $('#total-k3-bet-amount').text(data.totalK3BetAmount);
+                    $('#total-wingo-bet-amount').text(data.totalWingoBetAmount);
+                    $('#total-aviator-bet-amount').text(data.totalAviatorBetAmount);
+                    $('#cumulative_deposits').text(data.CumulativeDeposits);
+                    $('#cumulative_winning_bonuses').text(data.CumulativeWinningBonuses);
+                    $('#cumulative_referral_bonuses').text(data.CumulativeReferralBonuses);
+                    $('#cumulative_withdrawals').text(data.CumulativeWithdrawals);
+                    $('#total_gift_cards').text(data.TotalGiftCards);
+                    $('#total_gift_cards_not_redeemed').text(data.TotalGiftCardsNotRedeemed);
+
+                },
+                error: function (error) {
+                    console.log('Error fetching data:', error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

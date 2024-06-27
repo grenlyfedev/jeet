@@ -1,0 +1,455 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payment Settings</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .card-header {
+            background-color: azure;
+        }
+
+        thead {
+            background-color: azure;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <%- include('nav') %>
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <div class="container">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1>Payment Settings</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+    
+                  
+
+                <div class="container-fluid">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header">
+                            <h3 class="card-title">Payment Settings</h3>
+                            <div class="card-tools">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                                        <i class="fas fa-cog"></i>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                        <a class="dropdown-item" href="#" data-func="unpin">Unpin</a>
+                                        <a class="dropdown-item" href="#" data-func="minimize">Minimize</a>
+                                        <a class="dropdown-item" href="#" data-func="expand">Fullscreen</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                   
+
+
+                            <form id="payment_settings" name="payment_settings" method="post" class="form-horizontal new-added-form"  enctype="multipart/form-data" novalidate="novalidate">
+
+                                <input type="hidden" name="csrf_test_name" value="50505bea30cfda3a70267c2b9c9de27d">
+
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">
+                                        <h4>Payment :</h4>
+                                    </label>
+                                    <div class="col-md-5">
+                                        <label for="minimum_amount">Minimum Recharge Amount (int)</label>
+                                        <input type="text" class="form-control" id="minimum_amount"
+                                            name="minimum_amount" placeholder="Minimum Recharge Amount (int)"
+                                            value="100">
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <label for="minimum_withdraw">Minimum Withdraw Amount (int)</label>
+                                        <input type="text" class="form-control" id="minimum_withdraw"
+                                            name="minimum_withdraw" placeholder="Minimum Withdraw Amount (int)"
+                                            value="200000">
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">
+                                        <h4>Bet Setting :</h4>
+                                    </label>
+                                    <div class="col-md-5">
+                                        <label for="minimum_bet_amt">Minimum Bet Amount</label>
+                                        <input type="text" class="form-control" id="minimum_bet_amt"
+                                            name="minimum_bet_amt" placeholder="Minimum Betting Amount" value="100">
+                                        <div class="error" id="minimum_bet_amt-error"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-2 col-form-label">
+                                        <h4>Referral Setting :</h4>
+                                    </label>
+                                    <div class="col-md-5">
+                                        <label for="referral_bonus">Referral Bonus in %</label>
+                                        <input type="text" class="form-control" id="referral_bonus"
+                                            name="referral_bonus" placeholder="Referral Bonus" value="<%= settings.referralBonus%>">
+                                        <div class="error" id="referral_bonus-error"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-12 col-form-label">
+                                        <h3>Bank Details :</h3>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <label for="bank_name">Bank Name *</label>
+                                        <select class="form-control" id="bank_name" name="bank_name">
+                                            <option value="">Select</option>
+                                            <option value="1">Bank of Baroda</option>
+                                            <option value="2">Bank of India</option>
+                                            <option value="3">Bank of Maharashtra</option>
+                                            <option value="4" selected>Canara Bank</option>
+                                            <option value="5">Central Bank of India</option>
+                                            <option value="6">Indian Bank</option>
+                                            <option value="7">Indian Overseas Bank</option>
+                                            <option value="8">Punjab & Sind Bank</option>
+                                            <option value="9">Punjab National Bank</option>
+                                            <option value="10">State Bank of India</option>
+                                            <option value="11">UCO Bank</option>
+                                            <option value="12">Union Bank of India</option>
+                                            <option value="13">Axis Bank Ltd.</option>
+                                            <option value="14">Bandhan Bank Ltd.</option>
+                                            <option value="15">CSB Bank Ltd.</option>
+                                            <option value="16">City Union Bank Ltd.</option>
+                                            <option value="17">DCB Bank Ltd.</option>
+                                            <option value="18">Dhanlaxmi Bank Ltd.</option>
+                                            <option value="19">Federal Bank Ltd.</option>
+                                            <option value="20">HDFC Bank Ltd</option>
+                                            <option value="21">ICICI Bank Ltd.</option>
+                                            <option value="22">Induslnd Bank Ltd</option>
+                                            <option value="23">IDFC First Bank Ltd.</option>
+                                            <option value="24">Jammu & Kashmir Bank Ltd.</option>
+                                            <option value="25">Karnataka Bank Ltd.</option>
+                                            <option value="26">Karur Vysya Bank Ltd.</option>
+                                            <option value="27">Kotak Mahindra Bank Ltd</option>
+                                            <option value="28">Nainital Bank Ltd.</option>
+                                            <option value="29">RBL Bank Ltd.</option>
+                                            <option value="30">South Indian Bank Ltd.</option>
+                                            <option value="31">Tamilnad Mercantile Bank Ltd.</option>
+                                            <option value="32">YES Bank Ltd.</option>
+                                            <option value="33">IDBI Bank Limited</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="account_holder_name">Account Holder Name</label>
+                                        <input type="text" class="form-control" id="account_holder_name"
+                                            name="account_holder_name" placeholder="Account Holder Name" value="Name">
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                    <div class="col-md-6 mt-2">
+                                        <label for="account_number">Account Number</label>
+                                        <input type="text" class="form-control" id="account_number"
+                                            name="account_number" placeholder="Account Number" value="0123456789">
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                    <div class="col-md-6 mt-2">
+                                        <label for="ifsc">IFSC Code</label>
+                                        <input type="text" class="form-control" id="ifsc" name="ifsc"
+                                            placeholder="IFSC Code" value="ASD****">
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group row">
+                                    <label class="col-md-12 col-form-label">
+                                        <h3>UPI Checkout :</h3>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <label for="upi_id">UPI Token</label>
+                                        <input type="text" class="form-control" id="upi_token" name="upiToken"
+                                            placeholder="Enter UPI Token" value="<%= settings.upiToken %>" /><br />
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                             
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-md-12 col-form-label">
+                                        <h3>Manual UPI Details :</h3>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <label for="upi-id">UPI ID</label>
+                                        <input type="text" class="form-control" id="upi_id" name="upiId"
+                                            placeholder="Enter UPI ID" value="<%= settings.upiId %>" /><br />
+
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="upi-qr">QR Code</label>
+                                        <input type="file" class="form-control" id="upiQr" name="upiQr" id="upiQr"
+                                            accept="image/*" placeholder="Upload QR Code Image" /><br />
+                                        <button type="button" class="btn btn-info mt-2" data-toggle="modal"
+                                            data-target="#upiQRModal">
+                                            View Saved UPI QR
+                                        </button>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <label class="col-md-12 col-form-label">
+                                        <h3>Manual USDT Details :</h3>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <label for="usdt-id">USDT ID</label>
+                                        <input type="text" class="form-control" id="usdt_id" name="usdtId"
+                                            placeholder="Enter USDT ID" value="<%= settings.usdtId %>" /><br />
+
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="usdt-qr">USDT QR Code</label>
+                                        <input type="file" class="form-control" id="usdtQr" name="usdtQr" id="usdtQr"
+                                            accept="image/*" placeholder="Upload QR Code Image" /><br />
+                                        <button type="button" class="btn btn-info mt-2" data-toggle="modal"
+                                            data-target="#usdtQRModal">
+                                            View Saved USDT QR
+                                        </button>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-12 col-form-label">
+                                        <h3>Wow Pay :</h3>
+                                    </label>
+                                    <div class="col-md-6">
+                                        <label for="upi_id">Token</label>
+                                        <input type="text" class="form-control" id="wowpay" name="wowpayAccount"
+                                            placeholder="Wow Pay Account" value="<%= settings.wowPayAccount %>" /><br />
+                                        <div class="error" id="page_title-error"></div>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row mt-4">
+                                    <div class="col-sm-6 offset-sm-2">
+                                        <button type="submit" class="btn btn-warning btn-block" id="saveChanges">
+                                            <div id="spinner" class="spinner-border text-primary" role="status" style="display: none;">
+                                                <span class="sr-only">Loading...</span>
+                                              </div>
+                                            Save Changes</button>
+                                     
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UPI QR Code Modal -->
+            <div class="modal fade" id="upiQRModal" tabindex="-1" aria-labelledby="upiQRModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="upiQRModalLabel">UPI QR Code</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="<%= settings.qrCodeUrl %>" alt="Saved QR Code" id="saved-upi-qr-code"
+                                style="max-width: 40%; height: 200px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- USDT QR Code Modal -->
+            <div class="modal fade" id="usdtQRModal" tabindex="-1" aria-labelledby="usdtQRModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="usdtQRModalLabel">USDT QR Code</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <img src="<%= settings.usdtQrCodeUrl %>" alt="Saved QR Code" id="saved-usdt-qr-code"
+                                style="max-width: 40%; height: 200px;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/dist/js/adminlte.min.js"></script>
+    <script src="/js/admin/admin.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#saveChanges').click(async function (e) {
+                e.preventDefault();
+                // Show spinner
+                $('#spinner').show();
+                // Fetch authentication token from cookie
+                const authToken = document.cookie.split(';')
+                    .map(cookie => cookie.trim())
+                    .find(cookie => cookie.startsWith('auth='));
+    
+                // Fetch token from cookie
+                const token = document.cookie.split(';')
+                    .map(cookie => cookie.trim())
+                    .find(cookie => cookie.startsWith('token='));
+    
+                let upiQR = $('#upiQr')[0];
+                let qrCodeUrl = upiQR.files[0];
+    
+                let usdtQR = $('#usdtQr')[0];
+                let usdtQrCodeUrl = usdtQR.files[0];
+    
+                // Initialize variables for Base64 encoded files
+                let upiBase64File = null;
+                let usdtBase64File = null;
+    
+                // Convert file to Base64 if available
+                if (qrCodeUrl) {
+                    upiBase64File = await toBase64(qrCodeUrl);
+                }
+    
+                if (usdtQrCodeUrl) {
+                    usdtBase64File = await toBase64(usdtQrCodeUrl);
+                }
+    
+                // Extract form data
+                let upiId = $('#upi_id').val().trim();
+                let usdtId = $('#usdt_id').val().trim();
+                let wowPayAccount = $('#wowpay').val().trim();
+                let bankName = $('#bank_name').val().trim();
+                let accountHolderName = $('#account_holder_name').val().trim();
+                let accountNumber = $('#account_number').val().trim();
+                let ifsc = $('#ifsc').val().trim();
+                let minDeposit = $('#minimum_amount').val().trim();
+                let minWithdraw = $('#minimum_withdraw').val().trim();
+                let minBetAmount = $('#minimum_bet_amt').val().trim();
+                let upiToken = $('#upi_token').val().trim(); 
+                let referralBonus = $('#referral_bonus').val().trim(); 
+
+                // Construct payload object
+                let payload = {
+                    upiId: upiId,
+                    usdtId: usdtId,
+                    token: token,
+                    auth: authToken,
+                    wowPayAccount: wowPayAccount,
+                    bankName: bankName,
+                    accountHolderName: accountHolderName,
+                    accountNumber: accountNumber,
+                    ifsc: ifsc,
+                    upiToken: upiToken,
+                    minDeposit: minDeposit,
+                    minBetAmount: minBetAmount,
+                    minWithdraw: minWithdraw,
+                    referralBonus: referralBonus,
+                    upiQrCodeImage: upiBase64File,
+                    usdtQrCodeImage: usdtBase64File
+                };
+    
+                console.log(payload);
+    
+                // Send AJAX request to update payment settings
+                $.ajax({
+                    url: '/api/webapi/updatePaymentSettings',
+                    type: 'POST',
+                    data: JSON.stringify(payload),
+                    contentType: "application/json",
+                    success: function (response) {
+                        $('#spinner').hide();
+                        Swal.fire({
+                            title: 'Success!',
+                            text: 'Payment settings have been saved successfully.',
+                            icon: 'success',
+                            confirmButtonText: 'OK'
+                        });
+                    },
+                    error: function (xhr, status, error) {
+                        $('#spinner').hide();
+                        Swal.fire({
+                            title: 'Error!',
+                            text: 'There was an error saving the payment settings.',
+                            icon: 'error',
+                            confirmButtonText: 'OK'
+                        });
+                    }
+                });
+            });
+        });
+    
+        // Function to set QR code image source and show modal
+        function showQRCodeModal(imageSrc, modalId) {
+            var modal = $(modalId);
+            modal.find('img').attr('src', imageSrc);
+            modal.modal('show');
+        }
+
+        function toBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+    
+        // Set click event handlers for view buttons
+        $('#upi-qr-view-btn').click(function () {
+            showQRCodeModal('<%= settings.qrCodeUrl %>', '#upiQRModal');
+        });
+    
+        $('#usdt-qr-view-btn').click(function () {
+            showQRCodeModal('<%= settings.usdtQrCodeUrl %>', '#usdtQRModal');
+        });
+    </script>
+    
+</body>
+
+</html>

@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html translate="no" data-dpr="1" style="font-size: 48.16px">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+  <title>PlayWin</title>
+  <link href="/css/home/chunk-vendors.css" rel="stylesheet" />
+  <link href="/css/home/app.css" rel="stylesheet" />
+  <link href="/css/home/chunk.css" rel="stylesheet" />
+  <link href="/css/home/chunk2.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="/images2/myjeet_win_logo.ico" type="image/x-icon" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #0c0c0f;
+      padding: 0;
+      margin: 0;
+    }
+
+    .van-notice-bar {
+      position: relative;
+      height: auto;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      /* Add padding to ensure text is not cut off */
+    }
+
+    .van-notice-bar__wrap {
+      width: 100%;
+      /* Ensure it takes the full width */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Center align the content vertically */
+    }
+
+    .van-notice-bar__content {
+      transition: transform 1s ease-in-out;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+  <script>
+    function getCookie(cname) {
+      const name = cname + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const cookieArray = decodedCookie.split(";");
+
+      for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) === 0) {
+          return cookie.substring(name.length, cookie.length);
+        }
+      }
+
+      return null; // Return null if the cookie is not found
+    }
+    var token = getCookie("token");
+
+    // var aviatorUrl = `http://localhost:3000/?token=${token}`;
+    // var aviatorUrl = `http://localhost:3000/?token=${token}`;
+    var aviatorUrl = `http://aviator.playdreamgame.com/?token=${token}`;
+    function aviatorClick() {
+      if (token != null) {
+        console.log(aviatorUrl);
+        window.location.href = aviatorUrl;
+      } else {
+        window.location.replace('/login')
+      }
+    }
+  </script>
+</head>
+
+<body style="font-size: 12px" class="">
+  <div id="app">
+    <div data-v-432e6ed0="" class="home mian game">
+      <div data-v-106b99c8="" data-v-432e6ed0="" class="navbar">
+        <div data-v-106b99c8="" class="navbar-left">
+          <div data-v-432e6ed0="" data-v-106b99c8="" class="c-row c-row-middle-center">
+            <img data-v-432e6ed0="" data-v-106b99c8="" height="45px" width="45px" src="/images2/logo.png"
+              class="down" />
+          </div>
+        </div>
+        <div data-v-106b99c8="" class="navbar-title">
+          <!---->
+          <div data-v-432e6ed0="" data-v-106b99c8="" class="c-row c-row-middle-center">
+            <!-- <img
+                data-v-432e6ed0=""
+                data-v-106b99c8=""
+                height="38px"
+                width="100px"
+                src="/images2/logo.png"
+                class="logo"
+                style="height: 0.80333rem !important"
+              /> -->
+            <p style="
+                  color: #efd58c;
+                  letter-spacing: 0.6px;
+                  font-family: cursive;
+                ">
+              PlayWin
+            </p>
+          </div>
+        </div>
+        <div data-v-106b99c8="" class="navbar-right" onclick="location.href='<%=app%>'">
+          <div data-v-432e6ed0="" data-v-106b99c8="" class="c-row c-row-middle-center">
+            <!-- <a data-v-432e6ed0="" data-v-106b99c8="" href="" class="c-row c-row-middle-center">
+							<img data-v-432e6ed0="" data-v-106b99c8="" height="25px" width="25px" src="/images/down.png"
+								class="down">
+						</a> -->
+            <!-- <img
+                data-v-432e6ed0=""
+                data-v-106b99c8=""
+                height="25px"
+                width="25px"
+                src="/images/down.png"
+                class="down"
+              /> -->
+          </div>
+        </div>
+      </div>
+      <div data-v-432e6ed0="" class="banner">
+        <div data-v-432e6ed0="" class="van-swipe">
+          <div class="van-swipe__track list-banner" style="
+                width: 1448px;
+                transition-duration: 0ms;
+                transform: translateX(0px);
+              ">
+            <div data-v-432e6ed0="" class="van-swipe-item" style="width: 482px">
+              <img data-v-432e6ed0="" src="<%= images.image1Url %>" class="img" />
+            </div>
+
+            <div data-v-432e6ed0="" class="van-swipe-item" style="width: 482px">
+              <img data-v-432e6ed0="" src="<%= images.image2Url %>" class="img" />
+            </div>
+
+            <div data-v-432e6ed0="" class="van-swipe-item" style="width: 482px">
+              <img data-v-432e6ed0="" src="<%= images.image3Url %>" class="img" />
+            </div>
+            <!-- <div data-v-432e6ed0="" class="van-swipe-item" style="width: 482px;">
+							<img data-v-432e6ed0="" src="/images/bannertop4.jpg" class="img">
+						</div> -->
+          </div>
+          <div class="van-swipe__indicators">
+            <i class="van-swipe__indicator" style=""></i>
+            <i class="van-swipe__indicator"></i>
+          </div>
+        </div>
+      </div>
+      <!-- sliding text -->
+      <div data-v-432e6ed0="" class="notice m-1">
+        <div data-v-432e6ed0="" class="notice-box c-row c-row-between">
+          <div data-v-432e6ed0="" role="alert" class="van-notice-bar rounded">
+            <i class="van-icon van-icon-volume-o van-notice-bar__left-icon">
+              <!---->
+            </i>
+            <div role="marquee" class="van-notice-bar__wrap">
+              <div class="van-notice-bar__content text-[0.35rem]" id="notice-content">
+                <!-- Messages will be injected here -->
+              </div>
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="flex items-center gap-x-1 bg-[#89E203] rounded-lg px-1">
+            <img data-v-432e6ed0="" src="/images/notice-right.svg" class="w-[10px] " />
+            <span data-v-432e6ed0="" class="text-[0.35rem] text-white">
+              Details
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- end of sliding section -->
+
+      <div data-v-432e6ed0="" class="home-com">
+        <div data-v-432e6ed0="" class="van-tabs van-tabs--line home-tab action">
+          <!-- <div class="van-tabs__wrap van-hairline--top-bottom">
+            <div role="tablist" class="van-tabs__nav van-tabs__nav--line">
+              <div role="tab" class="van-tab testing-list-game">
+                <span class="van-tab__text van-tab__text--ellipsis">
+                  <div data-v-432e6ed0="">
+                    <img data-v-432e6ed0="" src="/images2/g1-bg.jpg" class="img" />
+                  </div>
+                </span>
+              </div>
+              <div role="tab" class="van-tab testing-list-game">
+                <span class="van-tab__text van-tab__text--ellipsis">
+                  <div data-v-432e6ed0="">
+                    <img data-v-432e6ed0="" src="/images2/g2-bg.jpg" class="img" />
+                  </div>
+                </span>
+              </div>
+              <div role="tab" class="van-tab testing-list-game">
+                <span class="van-tab__text van-tab__text--ellipsis">
+                  <div data-v-432e6ed0="">
+                    <img data-v-432e6ed0="" src="/images2/g3-bg.jpg" class="img" />
+                  </div>
+                </span>
+              </div>
+              <div role="tab" class="van-tab testing-list-game">
+                <span class="van-tab__text van-tab__text--ellipsis">
+                  <div data-v-432e6ed0="">
+                    <img data-v-432e6ed0="" src="/images2/g4-bg.jpg" class="img" />
+                  </div>
+                </span>
+              </div>
+              <div class="van-tabs__line" style="
+                    width: 56.5px;
+                    transform: translateX(56.5px) translateX(-50%);
+                  "></div>
+            </div>
+          </div> -->
+          <div class="container mx-auto">
+
+            <!-- First row with 2 columns -->
+            <div class="grid grid-cols-2 gap-1">
+              <div
+                class="col-span-1 flex items-end justify-between bg-gradient-to-r from-teal-500 to-slate-500 rounded p-1">
+                <img src="/gameCategories/game1.png" class="w-[80px] h-full" />
+                <p class="text-white text-[0.335rem] font-bold">Popular</p>
+              </div>
+              <div
+                class="col-span-1 flex items-end justify-between bg-gradient-to-r from-teal-500 to-slate-500 rounded p-1">
+                <img src="/gameCategories/game3.png" class="w-[80px] h-full" />
+                <p class="text-white text-[0.335rem] font-bold">Lottery</p>
+              </div>
+            </div>
+            <!-- Second row with 3 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1">
+              <!-- First Image Block -->
+              <div
+                class="relative flex flex-col items-center bg-gradient-to-b from-yellow-300 to-amber-900 rounded p-1">
+                <img src="/gameCategories/casino.png" class="w-full mb-1 h-auto object-contain" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold"> Casino</p>
+              </div>
+              <!-- Second Image Block -->
+              <div
+                class="relative flex flex-col items-center bg-gradient-to-b from-slate-500 to-purple-500 rounded p-1">
+                <img src="/gameCategories/sports.png" class="w-full mb-1 h-auto object-contain" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Sports</p>
+              </div>
+              <!-- Third Image Block -->
+              <div
+                class="relative flex flex-col items-center bg-gradient-to-t from-slate-500 to-orange-500 rounded p-1">
+                <img src="/gameCategories/aviator.png" class="w-full mb-1 h-auto object-contain" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Aviator</p>
+              </div>
+            </div>
+            <!-- Second row with 4 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1 ">
+              <!-- First Image Block -->
+              <div
+                class="relative flex flex-col items-center bg-gradient-to-t from-slate-500 to-orange-500 rounded p-1">
+                <img src="/gameCategories/rummy.png" class="w-full mb-1 h-auto object-contain" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Rummy</p>
+              </div>
+              <!-- Second Image Block -->
+              <div
+                class="relative flex flex-col items-center bg-gradient-to-t from-slate-500 to-purple-500 rounded p-1">
+                <img src="/gameCategories/fishing.png" class="w-full mb-1 h-auto object-contain" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Fishing</p>
+              </div>
+              <!-- Third Image Block -->
+              <div
+                class="relative flex flex-col items-center bg-gradient-to-b from-yellow-300 to-amber-900 rounded p-1">
+                <img src="/gameCategories/live_casino.png" class="w-full mb-1 h-auto object-contain" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Live Casino</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- lottery -->
+          <div class="container mx-auto mt-2">
+            <div class="flex items-center justify-between">
+              <p class="text-[0.35rem] font-bold rounded p-1 text-gray-900 bg-[#EFD58C]">Lottery</p>
+              <p class="text-[0.25rem] font-bold rounded p-1 text-gray-300 border border-[#EFD58C]">All ></p>
+            </div>
+            <!-- First row with 2 columns -->
+            <div class="grid grid-cols-2 gap-1 mt-1">
+              <!-- WIN GO Block -->
+              <a href="/win"
+                class="relative flex flex-col items-center bg-gradient-to-b from-[#D39360] to-[#403635] rounded p-1">
+                <div class="info i3">
+                  <div class="name text-[#89E203] tracking-wider text-[0.3rem] font-bold">WIN GO</div>
+                  <div class="des text-white text-[0.3rem] font-bold">Guess green/purple/red to win the game</div>
+                  <img width="120px" height="85px" src="/images/logo-wingo.webp"
+                    class="img m-r-5 w-full h-auto object-contain mb-1" />
+                </div>
+                <div class="absolute bottom-0 text-[#89E203] tracking-wider text-[0.3rem] font-bold">WIN GO</div>
+              </a>
+              <!-- 5D Lotre Block -->
+              <a href="/5d"
+                class="relative flex flex-col items-center bg-gradient-to-l from-gray-700 to-gray-900 rounded p-1">
+                <div class="info i2">
+                  <div class="name text-[#89E203] tracking-wider text-[0.3rem] font-bold">5D Lotre</div>
+                  <div class="des text-white text-[0.3rem] font-bold">Guess the number/big/small/odd/even</div>
+                  <img width="120px" height="85px" src="/images/logo-lottery.webp"
+                    class="img m-r-5 w-full h-auto object-contain mb-1" />
+                </div>
+                <div class="absolute bottom-0 text-[#89E203] tracking-wider text-[0.3rem] font-bold">5D Lotre</div>
+              </a>
+            </div>
+            <!-- Fourth row with 2 columns -->
+            <div class="grid grid-cols-2 gap-1 mt-1">
+              <!-- K3 Lotre Block -->
+              <a href="/k3"
+                class="relative flex flex-col items-center bg-gradient-to-r from-gray-700 to-gray-900 rounded p-1">
+                <div class="info i4">
+                  <div class="name text-[#89E203] tracking-wider text-[0.3rem] font-bold">K3 Lotre</div>
+                  <div class="des text-white text-[0.3rem] font-bold">Guess the number/big/small/odd/even</div>
+                  <img width="120px" height="85px" src="/images/logo-k333.webp"
+                    class="img m-r-5 w-full h-auto object-contain mb-1" />
+                </div>
+                <div class="absolute bottom-0 text-[#89E203] tracking-wider text-[0.3rem] font-bold">K3 Lotre</div>
+              </a>
+              <!-- Aviator Block -->
+              <div onclick="{aviatorClick()}"
+                class="relative flex flex-col items-center bg-gradient-to-t from-[#7952F9] to-gray-900 rounded p-1">
+                <div class="info i4">
+                  <div class="name text-[#89E203] tracking-wider text-[0.3rem] font-bold">Aviator</div>
+                  <div class="des text-white text-[0.3rem] font-bold">Bet, Play, Win Big Now.</div>
+                  <img width="120px" height="85px" src="/images/plane.png"
+                    class="img m-r-5 w-full h-auto object-contain mb-1" style="margin-top: 12px" />
+                </div>
+                <div class="absolute bottom-0 text-[#89E203] tracking-wider text-[0.3rem] font-bold">Aviator</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Modal Structure -->
+          <div id="comingSoonModal"
+            class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+            <div class="bg-white rounded-lg p-4">
+              <p class="text-black text-center font-bold">Coming Soon</p>
+              <button onclick="hideModal()" class="mt-4 bg-[#EFD58C] text-gray-900 rounded p-1 w-full">Close</button>
+            </div>
+          </div>
+          <!-- casino -->
+          <div class="container mx-auto my-2">
+            <div class="flex items-center justify-between">
+              <p class="text-[0.35rem] font-bold rounded p-1 text-gray-900 bg-[#EFD58C]">Casino</p>
+              <p class="text-[0.25rem] font-bold rounded p-1 text-gray-300 border border-[#EFD58C]">All ></p>
+            </div>
+            <!-- First row with 2 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1">
+              <div class="rounded">
+                <img src="/gameCategories/auto_roulette.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Second Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/AmericanTable.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Third Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/AndarBahar.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+            </div>
+            <!-- Second row with 4 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1">
+              <!-- First Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/crazy_time.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Second Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/DragonTiger.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Third Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/SuperSicBo.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+            </div>
+          </div>
+          <!-- end casino -->
+
+          <!-- Sports -->
+          <div class="container mx-auto mb-2 z-10">
+            <div class="flex items-center justify-between">
+              <p class="text-[0.35rem] font-bold rounded p-1 text-gray-900 bg-[#EFD58C]">Sports</p>
+              <p class="text-[0.25rem] font-bold rounded p-1 text-gray-300 border border-[#EFD58C]">All ></p>
+            </div>
+            <!-- First row with 2 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1 z-10">
+              <div class="relative flex flex-col items-center bg-gradient-to-t from-[#EFD58B] to-[#36971A] rounded p-1">
+                <img src="/gameCategories/ea.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Soccer</p>
+              </div>
+              <!-- Second Image Block -->
+              <div class="relative flex flex-col items-center bg-gradient-to-b from-[#EFD58B] to-[#36971A] rounded p-1">
+                <img src="/gameCategories/cricket_player.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Cricket</p>
+              </div>
+              <!-- Third Image Block -->
+              <div class="relative flex flex-col items-center bg-gradient-to-t from-[#EFD58B] to-[#36971A] rounded p-1">
+                <img src="/gameCategories/ag.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Sports</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container mx-auto mb-2">
+            <div class="flex items-center justify-between">
+              <p class="text-[0.35rem] font-bold rounded p-1 text-gray-900 bg-[#EFD58C]">Fishing</p>
+              <p class="text-[0.25rem] font-bold rounded p-1 text-gray-300 border border-[#EFD58C]">All ></p>
+            </div>
+            <!-- First row with 2 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1">
+              <div class="rounded">
+                <img src="/gameCategories/bombing_.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Second Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/f1.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Third Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/jackpot_f.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+            </div>
+            <!-- Second row with 4 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1">
+              <!-- First Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/all_star_f.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Second Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/dynosour_tycoon.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+              <!-- Third Image Block -->
+              <div class="rounded">
+                <img src="/gameCategories/dynosour1_tycoon.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+              </div>
+            </div>
+          </div>
+
+
+          <div class="container mx-auto mb-2 z-10">
+            <div class="flex items-center justify-between">
+              <p class="text-[0.35rem] font-bold rounded p-1 text-gray-900 bg-[#EFD58C]">Rummy</p>
+              <p class="text-[0.25rem] font-bold rounded p-1 text-gray-300 border border-[#EFD58C]">All ></p>
+            </div>
+            <!-- First row with 2 columns -->
+            <div class="grid grid-cols-3 gap-1 mt-1 z-10">
+              <div class="relative flex flex-col items-center bg-gradient-to-b from-[#EFD58B] to-[#1CB1A3] rounded p-1">
+                <img src="/gameCategories/rummy.png" class="w-full mb-1 h-auto object-contain rounded"
+                  onclick="showModal()" />
+                <p class="absolute bottom-0 text-white text-[0.31rem] font-bold">Rummy</p>
+              </div>
+            </div>
+          </div>
+
+          <!--  -->
+          <div class=" bg-gradient-to-t from-[#F2D991] to-[#F2D991]  rounded p-1 my-2">
+            <div class="grid grid-cols-3 gap-1 mt-1 z-10">
+              <div class="flex flex-col items-center gap-2" onclick="openMyNetwork()">
+                <img src="/gameCategories/subordinate1.png" class="w-[45px] h-[45px] mb-1" />
+                <p class=" text-center text-white text-[0.28rem] rounded-[4px] font-small bg-[#5BE1E8] py-1 w-full">
+                  My Network
+                </p>
+              </div>
+              <div class="flex flex-col items-center gap-2" onclick="openTeamNetwork()">
+                <img src="/gameCategories/subordinate.png" class="w-[45px] h-[45px] mb-1" />
+                <p class=" text-center text-white text-[0.28rem] rounded-[4px] font-small bg-[#5BE1E8] py-1 w-full">
+                  Team Network
+                </p>
+              </div>
+              <div class="flex flex-col items-center gap-2" onclick="openRebateRatio()">
+                <img src="/gameCategories/subordinate.png" class="w-[45px] h-[45px] mb-1" />
+                <p class="text-center text-white text-[0.28rem] rounded-[4px] font-small bg-[#5BE1E8] py-1 w-full">
+                  Rebate Ratio
+                </p>
+              </div>
+
+            </div>
+            <div class="flex items-center justify-center mt-2">
+              <p class="text-white text-[0.3rem] p-1 rounded-[4PX] bg-[#89E203] font-bold">BONUS - RS 6789075.00</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <!---->
+
+
+      <!-- <div data-v-432e6ed0="" class="running-time">
+        <p data-v-432e6ed0="" class="running-title c-tc">Website Runtime</p>
+        <div data-v-432e6ed0="" class="c-row c-row-between list-flip_nums" style="padding: 0px 33px 30px">
+          <div data-v-432e6ed0="" class="flip-num">
+            <div data-v-432e6ed0="" class="top">00</div>
+            <div data-v-432e6ed0="" class="bottom">Days</div>
+            <div data-v-432e6ed0="" class="bottom-card">
+              <div data-v-432e6ed0="" class="back">
+                <p data-v-432e6ed0="">00</p>
+              </div>
+              <div data-v-432e6ed0="" class="front c-tc">Days</div>
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="flip-num">
+            <div data-v-432e6ed0="" class="top">00</div>
+            <div data-v-432e6ed0="" class="bottom">Hours</div>
+            <div data-v-432e6ed0="" class="bottom-card">
+              <div data-v-432e6ed0="" class="back">
+                <p data-v-432e6ed0="" class="c-tc">00</p>
+              </div>
+              <div data-v-432e6ed0="" class="front c-tc">Hours</div>
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="flip-num">
+            <div data-v-432e6ed0="" class="top">00</div>
+            <div data-v-432e6ed0="" class="bottom c-tc">Minutes</div>
+            <div data-v-432e6ed0="" class="bottom-card">
+              <div data-v-432e6ed0="" class="back">
+                <p data-v-432e6ed0="" class="c-tc">00</p>
+              </div>
+              <div data-v-432e6ed0="" class="front c-tc">Minutes</div>
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="flip-num">
+            <div data-v-432e6ed0="" class="top">00</div>
+            <div data-v-432e6ed0="" class="bottom c-tc">Seconds</div>
+            <div data-v-432e6ed0="" class="bottom-card">
+              <div data-v-432e6ed0="" class="back c-tc">
+                <p data-v-432e6ed0="" class="c-tc">00</p>
+              </div>
+              <div data-v-432e6ed0="" class="front c-tc">Seconds</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <div data-v-432e6ed0="" class="web-info c-row c-row-between">
+        <div data-v-432e6ed0="" class="item c-tc">
+          <div data-v-432e6ed0="" class="c-row c-row-cetner">
+            <div data-v-432e6ed0="" class="img van-image" style="width: 40px; height: 40px">
+              <img src="/images/u_home.png" class="van-image__img" />
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="num">121745</div>
+          <div data-v-432e6ed0="" class="txt">Users</div>
+        </div>
+        <div data-v-432e6ed0="" class="item c-tc">
+          <div data-v-432e6ed0="" class="c-row c-row-cetner">
+            <div data-v-432e6ed0="" class="img van-image" style="width: 40px; height: 40px">
+              <img src="/images/q_home.png" class="van-image__img" />
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="num">6788716050</div>
+          <div data-v-432e6ed0="" class="txt">Bets</div>
+        </div>
+        <div data-v-432e6ed0="" class="item c-tc">
+          <div data-v-432e6ed0="" class="c-row c-row-cetner">
+            <div data-v-432e6ed0="" class="img van-image" style="width: 40px; height: 40px">
+              <img src="/images/us_home.png" class="van-image__img" />
+            </div>
+          </div>
+          <div data-v-432e6ed0="" class="num">11345</div>
+          <div data-v-432e6ed0="" class="txt">Online Users</div>
+        </div>
+      </div>
+      <div data-v-432e6ed0="" class="rank-box">
+        <div data-v-432e6ed0="" class="rank-tit">Withdrawal Chart</div>
+        <div data-v-e52eeae0="" data-v-432e6ed0="" class="RankList">
+          <div data-v-e52eeae0="" class="van-swipe" style="height: 100%">
+            <div class="van-swipe__track van-swipe__track--vertical" style="
+                  height: 462px;
+                  transition-duration: 500ms;
+                  transform: translateY(-358px);
+                " id="top-recharge">
+              <!---->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!---->
+      <div data-v-432e6ed0="" id="moveBox" class="moveBox" style="display: none">
+        <div data-v-432e6ed0="" class="moveHead c-row c-row-between c-row-middle">
+          <div data-v-432e6ed0="" class="close">Close</div>
+          <div data-v-432e6ed0="">
+            <span data-v-432e6ed0="">Full Screen</span>
+          </div>
+        </div>
+        <div data-v-432e6ed0="" class="long">
+          <div data-v-432e6ed0="" class="van-tabs van-tabs--line">
+            <div class="van-tabs__wrap van-hairline--top-bottom">
+              <div role="tablist" class="van-tabs__nav van-tabs__nav--line">
+                <div role="tab" aria-selected="true" class="van-tab van-tab--active">
+                  <span class="van-tab__text van-tab__text--ellipsis">Latest dragon bed</span>
+                </div>
+                <div role="tab" class="van-tab">
+                  <span class="van-tab__text van-tab__text--ellipsis">My Bets</span>
+                </div>
+                <div class="van-tabs__line"></div>
+              </div>
+            </div>
+            <div class="van-tabs__content">
+              <div data-v-432e6ed0="" role="tabpanel" class="van-tab__pane" style="">
+                <div data-v-432e6ed0="" class="longlist"></div>
+              </div>
+              <div data-v-432e6ed0="" role="tabpanel" class="van-tab__pane" style="display: none">
+                <!---->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      <div data-v-7692a079="" data-v-432e6ed0="" class="Loading c-row c-row-middle-center">
+        <div data-v-7692a079="" class="van-loading van-loading--circular">
+          <span data-v-7692a079="" class="van-loading__spinner van-loading__spinner--circular" style="color: #efd58c">
+            <svg data-v-7692a079="" viewBox="25 25 50 50" class="van-loading__circular">
+              <circle data-v-7692a079="" cx="50" cy="50" r="20" fill="none"></circle>
+            </svg>
+          </span>
+        </div>
+      </div>
+      <%- include('../nav') -%>
+    </div>
+  </div>
+  <div class="van-overlay" style="z-index: 2001; display: none"></div>
+  <div role="dialog" class="van-dialog" style="z-index: 2002; display: none" aria-labelledby="Reminder">
+    <div class="van-dialog__header">Reminder</div>
+    <div class="van-dialog__content">
+      <div class="van-dialog__message van-dialog__message--has-title">
+        <font face="Arial">Reminder : It reminds customers to copy the exact random amount
+          shown by the system when making the deposit and paste it into the
+          payment description to ensure the automatic credit of points or
+          funds. Additionally, it advises against reserving the transfer with
+          the bank and warns that the company will not be responsible for any
+          loss resulting from incorrect transfers !</font><br />
+      </div>
+    </div>
+    <div class="van-hairline--top van-dialog__footer">
+      <button class="van-button van-button--default van-button--large van-dialog__confirm">
+        <div class="van-button__content">
+          <span class="van-button__text">Confirm</span>
+        </div>
+      </button>
+    </div>
+    <!-- Modal Structure -->
+    <div id="comingSoonModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+      <div class="bg-white rounded-lg p-4">
+        <p class="text-black text-center font-bold">Coming Soon</p>
+        <button onclick="hideModal()" class="mt-4 bg-[#EFD58C] text-gray-900 rounded p-1 w-full">Close</button>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/js/client.js"></script>
+  <script>
+    $(document).ready(function () {
+      function alertMess(text, sic) {
+        $("body").append(
+          `
+					<div data-v-1dcba851="" class="msg">
+						<div data-v-1dcba851="" class="msg-content v-enter-active v-enter-to" style=""> ${text} </div>
+					</div>
+					`
+        );
+        setTimeout(() => {
+          $(".msg .msg-content").removeClass("v-enter-active v-enter-to");
+          $(".msg .msg-content").addClass("v-leave-active v-leave-to");
+          setTimeout(() => {
+            $(".msg").remove();
+          }, 100);
+          sic.removeClass("block-click");
+        }, 1000);
+      }
+      // $('.gameList .list-games:eq(2), .testing-list-game').click(function (e) {
+      // 	e.preventDefault();
+      // 	$(this).addClass('block-click');
+      // 	alertMess('Currently under development', $(this));
+      // });
+      let getWBody = $(".navbar").width();
+      let getswipe = $("#swipe_van-swipe").width();
+      $(".list-banner .van-swipe-item").css("width", `${getWBody}px`);
+      $("#swipe_van-swipe .van-swipe__track .van-swipe-item").css(
+        "width",
+        `${getswipe}px`
+      );
+
+      // // let formSlide = document.querySelector(".van-notice-bar__content");
+      // // if (formSlide) {
+      // //   formSlide.style =
+      // //     "transition-duration: 44.0815s; transform: translateX(-2204.07px);";
+      // // }
+      // let formSlide = document.querySelector(".van-notice-bar__content");
+      // if (formSlide) {
+      //   formSlide.style.transform = "translateY(-100%)"; // Move the text upwards
+      // }
+
+      $("#tab_support .item").click(function (e) {
+        e.preventDefault();
+        $("#tab_support .item").removeClass("action");
+        let elementThis = $(this).addClass("action");
+      });
+      $("#tab_support .item:eq(0)").click(function (e) {
+        e.preventDefault();
+        $("#show-support .van-swipe-item .van-ellipsis").text(
+          "Choose a game"
+        );
+        $("#show-support .van-swipe-item .van-multi-ellipsis--l2").text(
+          "You can choose to play lottery games every 1 minute, 3 minutes, 5 minutes, and 10 minutes."
+        );
+      });
+
+      $("#tab_support .item:eq(1)").click(function (e) {
+        e.preventDefault();
+        let action = $(this).children().children().children();
+        action.attr("src", "/images/support2.png");
+        $("#show-support .van-swipe-item .van-ellipsis").text(
+          "Choose number"
+        );
+        $("#show-support .van-swipe-item .van-multi-ellipsis--l2").text(
+          "Choose your lucky number or color"
+        );
+      });
+
+      $("#tab_support .item:eq(2)").click(function (e) {
+        e.preventDefault();
+        let action = $(this).children().children().children();
+        action.attr("src", "/images/support3.png");
+        $("#show-support .van-swipe-item .van-ellipsis").text("Place a bet");
+        $("#show-support .van-swipe-item .van-multi-ellipsis--l2").text(
+          "Choose the amount of money you want to bet and confirm"
+        );
+      });
+
+      $("#tab_support .item:eq(3)").click(function (e) {
+        e.preventDefault();
+        let action = $(this).children().children().children();
+        action.attr("src", "/images/support4.png");
+        $("#show-support .van-swipe-item .van-ellipsis").text(
+          "Win the Prize"
+        );
+        $("#show-support .van-swipe-item .van-multi-ellipsis--l2").text(
+          "When you choose a lucky number for the current round, the system will automatically add the prize money to your balance"
+        );
+      });
+
+      let count = 0;
+      let element = document.querySelector(".van-swipe__track");
+      setInterval(() => {
+        let getWBody = $(".navbar").width();
+        $(`.van-swipe__indicator`).removeClass(
+          "van-swipe__indicator--active"
+        );
+        $(`.van-swipe__indicator`).css("backgroundColor", "");
+        $(`.van-swipe__indicator:eq(${count})`).addClass(
+          "van-swipe__indicator--active"
+        );
+        $(`.van-swipe__indicator:eq(${count})`).css(
+          "backgroundColor",
+          "#efd58c"
+        );
+        if (element) {
+          if (count == 0) {
+            element.style = `width: 1448px; transition-duration: 500ms; transform: translateX(-${getWBody}px);`;
+          } else if (count == 1) {
+            element.style = `width: 1448px; transition-duration: 500ms; transform: translateX(-${getWBody * 2
+              }px);`;
+          } else if (count == 2) {
+            count = -1;
+            element.style = `width: 1448px; transition-duration: 500ms; transform: translateX(-${0}px);`;
+          }
+          // else if (count == 3) {
+
+          // 	element.style = `width: 1448px; transition-duration: 0ms; transform: translateX(0px);`;
+          // }
+        }
+        count++;
+      }, 2500);
+
+      function cownDownTimer() {
+        let countDownDate = new Date(
+          "2020-07-16T23:59:59.9999999+01:00"
+        ).getTime();
+        setInterval(function () {
+          let now = new Date().getTime();
+          let distance = now - countDownDate;
+          let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          let hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+          );
+          let minutes = Math.floor(
+            (distance % (1000 * 60 * 60)) / (1000 * 60)
+          );
+          let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+          $(".list-flip_nums .flip-num:eq(0) .top").text(
+            days < 10 ? `0${days}` : days
+          );
+          $(".list-flip_nums .flip-num:eq(0) .bottom-card").removeClass(
+            "flipX"
+          );
+          $(".list-flip_nums .flip-num:eq(0) .back .c-tc").text(
+            days + 1 < 10 ? `0${days + 1}` : days + 1
+          );
+          if (seconds >= 59 && minutes >= 59 && hours >= 23) {
+            setTimeout(() => {
+              $(".list-flip_nums .flip-num:eq(0) .bottom-card").addClass(
+                "flipX"
+              );
+            }, 100);
+          }
+
+          $(".list-flip_nums .flip-num:eq(1) .top").text(
+            hours < 10 ? `0${hours}` : hours
+          );
+          $(".list-flip_nums .flip-num:eq(1) .bottom-card").removeClass(
+            "flipX"
+          );
+          $(".list-flip_nums .flip-num:eq(1) .back .c-tc").text(
+            hours + 1 < 10 ? `0${hours + 1}` : hours + 1
+          );
+          if (seconds >= 59 && minutes >= 59) {
+            setTimeout(() => {
+              $(".list-flip_nums .flip-num:eq(1) .bottom-card").addClass(
+                "flipX"
+              );
+            }, 100);
+          }
+
+          $(".list-flip_nums .flip-num:eq(2) .top").text(
+            minutes < 10 ? `0${minutes}` : minutes
+          );
+          $(".list-flip_nums .flip-num:eq(2) .bottom-card").removeClass(
+            "flipX"
+          );
+          $(".list-flip_nums .flip-num:eq(2) .back .c-tc").text(
+            minutes + 1 < 10 ? `0${minutes + 1}` : minutes + 1
+          );
+          if (seconds >= 59) {
+            setTimeout(() => {
+              $(".list-flip_nums .flip-num:eq(2) .bottom-card").addClass(
+                "flipX"
+              );
+            }, 100);
+          }
+
+          $(".list-flip_nums .flip-num:eq(3) .bottom-card").removeClass(
+            "flipX"
+          );
+          $(".list-flip_nums .flip-num:eq(3) .top").text(
+            seconds < 10 ? `0${seconds}` : seconds
+          );
+          $(".list-flip_nums .flip-num:eq(3) .back .c-tc").text(
+            seconds + 1 < 10 ? `0${seconds + 1}` : seconds + 1
+          );
+          setTimeout(() => {
+            $(".list-flip_nums .flip-num:eq(3) .bottom-card").addClass(
+              "flipX"
+            );
+          }, 100);
+        }, 1000);
+      }
+      cownDownTimer();
+    });
+  </script>
+
+  <script>
+    const messages = [
+      "Announcement: Welcome To PlayWin.",
+      "If you need any help contact our ",
+      "customer support team. Thanks",
+      "Reminder: Don't forget to check",
+      "our latest updates and offers!",
+      "Info: Our new game is launching next week. Stay tuned!",
+    ];
+
+    let currentIndex = 0;
+    const contentElement = document.getElementById('notice-content');
+
+    function displayNextMessage() {
+      // Update the content with the next message
+      contentElement.innerText = messages[currentIndex];
+
+      // Wait for a short delay before starting transition
+      setTimeout(() => {
+        contentElement.style.transform = 'translateY(-100%)';
+      }, 2000);
+
+      // Reset the transform and prepare for the next message
+      setTimeout(() => {
+        contentElement.style.transition = 'none'; // Disable transition for the reset
+        contentElement.style.transform = 'translateY(100%)'; // Move content below the visible area
+
+        // Wait for a very short delay before re-enabling transition and sliding in next message
+        setTimeout(() => {
+          contentElement.style.transition = 'transform 1s ease-in-out'; // Re-enable transition
+          contentElement.style.transform = 'translateY(0)'; // Slide content into view
+        }, 50);
+      }, 5000);
+
+      // Move to the next message or loop back to the first message
+      currentIndex = (currentIndex + 1) % messages.length;
+    }
+
+    // Initialize the first message
+    displayNextMessage();
+
+    // Set an interval to display the next message every 5 seconds
+    setInterval(displayNextMessage, 5000);
+  </script>
+  <script>
+    $(window).on("load", function () {
+      $(".Loading").fadeOut(0);
+    });
+    function makeid(length) {
+      var result = "";
+      var characters =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      var charactersLength = characters.length;
+      for (var i = 0; i < length; i++) {
+        result += characters.charAt(
+          Math.floor(Math.random() * charactersLength)
+        );
+      }
+      return result;
+    }
+
+    function randMoney(max, min) {
+      var result = Math.floor(Math.random() * (max - min + 1)) + min;
+      return result;
+    }
+
+    let wingo = "";
+    let k5d = "";
+    let k3 = "";
+    let top_nap = "";
+    let name = "";
+    let money = 0;
+    function CreatMemJoin() {
+      for (let i = 0; i < 4; i++) {
+        name = makeid(5);
+        money = randMoney(99, 1000);
+        wingo += `
+				<div data-v-39efd474="" class="van-swipe-item" style="height: 40px;">
+					<div data-v-39efd474="" class="swiper-item">
+						<div data-v-39efd474="" class="c-row c-row-between c-row-middle item">
+							<img data-v-39efd474="" src="/images/avatar.cfa8dd9d.svg" class="img">
+							<div data-v-39efd474="" class="info c-row c-row-between">
+								<div data-v-39efd474="" class="m-l-10 name">Member${name}</div>
+								<div data-v-39efd474="" class="c-row c-row-middle-center">
+									<span data-v-39efd474="" class="u-p-r-10">Bet </span>
+									<span data-v-39efd474="" class="price"> ${money}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				`;
+        name = makeid(5);
+        money = randMoney(199, 10000);
+        k5d += `
+				<div data-v-39efd474="" class="van-swipe-item" style="height: 40px;">
+					<div data-v-39efd474="" class="swiper-item">
+						<div data-v-39efd474="" class="c-row c-row-between c-row-middle item">
+							<img data-v-39efd474="" src="/images/avatar.cfa8dd9d.svg" class="img">
+							<div data-v-39efd474="" class="info c-row c-row-between">
+								<div data-v-39efd474="" class="m-l-10 name">Member${name}</div>
+								<div data-v-39efd474="" class="c-row c-row-middle-center">
+									<span data-v-39efd474="" class="u-p-r-10">Bet </span>
+									<span data-v-39efd474="" class="price"> ${money}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				`;
+
+        name = makeid(5);
+        money = randMoney(199, 10000);
+        k3 += `
+				<div data-v-39efd474="" class="van-swipe-item" style="height: 40px;">
+					<div data-v-39efd474="" class="swiper-item">
+						<div data-v-39efd474="" class="c-row c-row-between c-row-middle item">
+							<img data-v-39efd474="" src="/images/avatar.cfa8dd9d.svg" class="img">
+							<div data-v-39efd474="" class="info c-row c-row-between">
+								<div data-v-39efd474="" class="m-l-10 name">Member${name}</div>
+								<div data-v-39efd474="" class="c-row c-row-middle-center">
+									<span data-v-39efd474="" class="u-p-r-10">Bet </span>
+									<span data-v-39efd474="" class="price"> ${money}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				`;
+      }
+      for (let i = 0; i < 4; i++) {
+        let list_recharge = "";
+        for (let i = 0; i < 4; i++) {
+          name = makeid(5);
+          money = randMoney(199, 5000);
+          const d = new Date();
+          let hour = d.getHours();
+          let minutes = d.getMinutes();
+          list_recharge += `
+					<div data-v-e52eeae0="" class="swiper-item">
+						<div data-v-e52eeae0="" class="c-row c-row-between item">
+							<img data-v-e52eeae0="" src="/images/avatar.cfa8dd9d.svg" class="img">
+							<div data-v-e52eeae0="" class="info c-row c-row-between">
+								<div data-v-e52eeae0="" class="m-l-10 name">Member${name}</div>
+								<div data-v-e52eeae0="" class="price">
+									<span data-v-e52eeae0=""> ₹ ${money}</span>
+								</div>
+								<div data-v-e52eeae0="" class="time">${hour}:${minutes}</div>
+							</div>
+						</div>
+					</div>
+					`;
+        }
+        top_nap += `
+				<div data-v-e52eeae0="" class="item van-swipe-item" style="height: 180px; transform: translateY(360px);">
+					${list_recharge}
+				</div>
+				`;
+      }
+      $("#wingo").html(wingo);
+      $("#k5d").html(k5d);
+      $("#k3").html(k3);
+      $("#top-recharge").html(top_nap);
+    }
+
+    CreatMemJoin();
+    let translate = 0;
+    let count = 0;
+    let top_recharge = -358;
+    setInterval(() => {
+      count += 1;
+      translate -= 40;
+      top_recharge -= 180;
+      $("#wingo").css({
+        transform: `translateY(${translate}px)`,
+      });
+      $("#k5d").css({
+        transform: `translateY(${translate}px)`,
+      });
+
+      $("#k3").css({
+        transform: `translateY(${translate}px)`,
+      });
+
+      $("#top-recharge").css({
+        transform: `translateY(${top_recharge}px)`,
+      });
+      if (count == 3) {
+        count = 0;
+        translate = 40;
+        top_recharge = -358;
+        CreatMemJoin();
+      }
+    }, 3000);
+  </script>
+  <!--Modal JavaScript -->
+  <script>
+    function showModal() {
+      document.getElementById('comingSoonModal').classList.remove('hidden');
+    }
+
+    function hideModal() {
+      document.getElementById('comingSoonModal').classList.add('hidden');
+    }
+  </script>
+  <script>
+    function openRebateRatio() {
+      window.location.href = 'mian/rebate_ratio';
+    }
+  </script>
+  <script>
+    function openMyNetwork() {
+      window.location.href = 'mian/my_network';
+    }
+  </script>
+  <script>
+    function openTeamNetwork() {
+      window.location.href = 'mian/team_network';
+    }
+  </script>
+
+
+</body>
+
+</html>

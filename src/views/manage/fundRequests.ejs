@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Fund Requests</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"
+    />
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <style>
+      .block-click {
+        pointer-events: none;
+      }
+    </style>
+        <style>
+          body {
+        font-family: 'Source Sans Pro', sans-serif;
+        /* Adjust font size and other styles as needed */
+    }
+    
+    .card-header {
+      background-color: azure;
+    }
+    
+    thead {
+      background-color: azure;
+    }
+    
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 700;
+    }
+    
+    /* Add more styles as needed */
+    
+    
+            /* .form-group {
+                margin-top: 20px;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 5px #2ecc71;
+            }
+    
+            .form-group button {
+                margin-top: 30px;
+            } */
+        </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    <!-- Navigation -->
+    <%- include('nav') %>
+    <div class="content-wrapper">
+        <!-- Content Header -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>List of Requests</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+          <div class="col-md-3">
+            <h4 style="text-align: center;">Search</h4>
+          </div>
+          <div class="col-md-8">
+            <div class="form-group" style="text-align: start;">
+              <input type="text" id="search" placeholder="Enter account to search" class="form-control">
+            </div>
+          </div>
+        </div>
+
+        <!-- Main content -->
+        <section class="content">
+            <!-- Default box -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">List of Requests</h3>
+                    <div class="card-tools">
+                        <button
+                          type="button"
+                          class="btn btn-tool"
+                          data-card-widget="collapse"
+                          title="Collapse"
+                        >
+                            <i class="fas fa-minus"></i>
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-tool"
+                          data-card-widget="remove"
+                          title="Remove"
+                        >
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body p-0" style="overflow-y: hidden">
+
+    
+                    <table class="table table-striped projects" id="table1">
+                        <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th class="text-center">Member ID</th>
+
+                            <th class="text-center">Mobile</th>
+                            <th class="text-center">Type</th>
+
+                            <th class="text-center">Amount</th>
+                            <th class="text-center">UTR NO</th>
+                            <th class="text-center">Screenshot</th>
+
+                            <th class="text-center">Status</th>
+                            <th class="text-center">Action</th>
+
+                            <th class="text-center">State</th>
+                            <th class="text-center">Date</th>
+                            <th class="text-center">Remark</th>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <% transactions.forEach((transaction, index) => { %>
+                            <tr class="text-center" id="row">
+                              <td><%= index + 1 %></td>
+                              <td><%= transaction.client_id %></td>
+                              <td><%= transaction.mobile %></td>
+                              <td><%= transaction.typeID %></td>
+                              <td><%= transaction.amount %></td>
+                              <td><%= transaction.utr %></td>
+                              <td>
+                                <button class="btn btn-warning" data-toggle="modal" data-target="#imageModal" data-image="<%= transaction.image %>">View</button>
+                              </td>
+                              <td class="text-center" id="statusView-<%= transaction.id %>">
+                                <button class="btn btn-<%= transaction.status === 'approved' ? 'success' : transaction.status === 'rejected' ? 'danger' : 'warning' %>" disabled>
+                                    <%= transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) %>
+                                </button>
+                            </td>
+
+                            <td class="text-center" >
+                              <select class="form-control status-select" id="status_<%= transaction.id %>" data-id="<%= transaction.id %>">
+                                  <option value="pending" <%= transaction.status === 'pending' ? 'selected' : '' %>>Select</option>
+                                  <option value="approved" <%= transaction.status === 'approved' ? 'selected' : '' %>>Approved</option>
+                                  <option value="rejected" <%= transaction.status === 'rejected' ? 'selected' : '' %>>Rejected</option>
+                              </select>
+                          </td>
+                              <td id="statusView-<%= transaction.id %>"><%= transaction.statusElement %></td>
+                              <td>
+                                <%= transaction.request_date ? new Date(transaction.request_date).toLocaleString('en-US', {
+                                  year: 'numeric',
+                                  month: 'short',
+                                  day: '2-digit',
+                                  hour: '2-digit',
+                                  minute: '2-digit',
+                                  hour12: false // Use 24-hour format
+                                }) : 'N/A' %>
+                              </td>
+                              <td class="text-center d-flex">
+                                <input type="text" class="form-control remark-input" id="remark_<%= transaction.id %>" value="<%= transaction.remark %>">
+                                <button class="btn btn-default btn-save-remark" data-id="<%= transaction.id %>"><i class="fa fa-check" style="color: #19875;"></i></button>
+                              </td>
+                            </tr>
+                          <% }); %>
+                        </tbody>
+                      
+                        
+                        
+                    </table>
+                </div>
+                <!-- <nav
+                  aria-label="Page navigation example"
+                  style="margin-top: 20px; display: flex; justify-content: center"
+                >
+                    <ul class="pagination table1">
+                        <li class="page-item previous" id="previous">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <div id="numbers" style="display: flex">
+                            <li class="page-item">
+                                <a class="page-link active text-white" id="text-page"></a>
+                            </li>
+                        </div>
+                        <li class="page-item next" id="next">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav> -->
+            </div>
+        </section>
+    </div>
+</div>
+
+<!-- Modal Structure -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="imageModalLabel">ScreenShot Image</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="Image" class="img-fluid">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Include necessary JavaScript -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/dist/js/adminlte.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+<script src="/js/admin/admin.js"></script>
+<script>
+    $("#search").on("keyup", function () {
+      var value = $(this).val().toLowerCase();
+      $("tbody tr").filter(function () {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
+  </script>
+
+
+
+  <script>
+
+        // Function to display success notification using SweetAlert
+        const showSuccessNotification = (message) => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Success',
+            text: message,
+        });
+    };
+
+    // Function to display error notification using SweetAlert
+    const showErrorNotification = (message) => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: message,
+        });
+    };
+
+      // Fetch authentication token from cookie
+      const authToken = document.cookie.split(';')
+        .map(cookie => cookie.trim())
+        .find(cookie => cookie.startsWith('auth='));
+
+    // Fetch token from cookie
+    const token = document.cookie.split(';')
+        .map(cookie => cookie.trim())
+        .find(cookie => cookie.startsWith('token='));
+
+
+    let pageno = 0;
+    let limit = 20;
+    let page = 1;
+ 
+    $("#search").keypress(function (event) {
+      var keycode = event.keyCode ? event.keyCode : event.which;
+      var value = $("#search").val().trim();
+      if (keycode == "13") {
+        $.ajax({
+          type: "POST",
+          url: "/api/webapi/searchFundRequests",
+          data: {
+            phone: value,
+            token: token, auth: authToken,
+          },
+          dataType: "json",
+          success: function (response) {
+            if (response.status === true) return Render(response.datas);
+          },
+        });
+      }
+    });
+
+    $("#next").click(function (e) {
+      pageno += limit;
+      e.preventDefault();
+      $.ajax({
+        type: "POST",
+        url: "/api/webapi/admin/listFundRequests",
+        data: {
+          typeid: "1",
+          pageno: pageno,
+          limit: limit,
+          language: "vi",
+          token: token, auth: authToken,
+        },
+        dataType: "json",
+        success: function (response) {
+          if (response.datas.length == 0) {
+            $("#next").addClass("block-click");
+            return (pageno -= limit);
+          }
+          $("#text-page").text(++page + " / " + response.page_total);
+          if (response.status === true) return Render(response.datas);
+        },
+      });
+    });
+
+    $("#previous").click(function (e) {
+      e.preventDefault();
+      $("#next").removeClass("block-click");
+      pageno -= limit;
+      if (pageno < 0) return (pageno = 0);
+      $.ajax({
+        type: "POST",
+        url: "/api/webapi/admin/listFundRequests",
+        data: {
+          typeid: "1",
+          pageno: pageno,
+          limit: limit,
+          language: "vi",
+          token: token, auth: authToken,
+        },
+        dataType: "json",
+        success: function (response) {
+          $("#text-page").text(--page + " / " + response.page_total);
+          if (response.status === true) return Render(response.datas);
+        },
+      });
+    });
+
+    $("body").on("change", ".status-select", function() {
+        const id = $(this).attr("id").split("_")[1];
+        const status = $(this).val();
+
+        $.ajax({
+            type: "POST",
+            url: "/api/webapi/admin/updateFundRequestStatus",
+            data: { requestId: id, action: status },
+            dataType: "json",
+            success: function(response) {
+                if (response.status === true) {
+                    const newStatus = status === "approved" ? "approved" : "rejected";
+                    const newButtonStyle = status === "approved" ? "success" : "danger";
+                    const newCapitalizedState = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+
+                    const newButton = `<button class="btn btn-${newButtonStyle} status-btn" data-id="${id}" data-status="${newStatus}">${newCapitalizedState}</button>`;
+                    $(`#statusView-${id}`).html(newButton);
+
+                    // Show success notification
+                    showSuccessNotification(response.message);
+                } else {
+                    // Show error notification
+                    showErrorNotification(response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                // Show error notification
+                showErrorNotification("Failed to update status.");
+                // console.error("Error:", error);
+            }
+        });
+    });
+
+
+
+  </script>
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#imageModal').on('show.bs.modal', function (event) {
+      const button = $(event.relatedTarget); // Button that triggered the modal
+      const imageUrl = button.data('image'); // Extract info from data-* attributes
+      const modal = $(this);
+      modal.find('#modalImage').attr('src', imageUrl);
+    });
+  });
+  </script>
+  
+
+
+<script>
+  $(document).ready(function() {
+      // Function to update remark
+      function updateRemark(requestID, tableName, remark) {
+          // Fetch authentication token from cookie
+          const authToken = document.cookie.split(';')
+              .map(cookie => cookie.trim())
+              .find(cookie => cookie.startsWith('auth='));
+
+          // Fetch token from cookie
+          const token = document.cookie.split(';')
+              .map(cookie => cookie.trim())
+              .find(cookie => cookie.startsWith('token='));
+
+          // Send AJAX request to update remark
+          $.ajax({
+              type: "POST",
+              url: "/api/webapi/admin/updateRemark",
+              data: {
+                  requestId: requestID,
+                  tableName: tableName,
+                  remark: remark,
+                  token: token,
+                  auth: authToken,
+              },
+              dataType: "json",
+              success: function(response) {
+                  if (response.status === true) {
+                      // Show success notification
+                      const remarkInput = $(`#remark_${requestID}`);
+                      const parentTd = remarkInput.parent();
+                      parentTd.html(`<p>${remark}</p><button class="btn btn-default btn-edit-remark" data-id="${requestID}"><i class="fa fa-edit" style="color: #19875;"></i></button>`);
+                      Swal.fire('Success', response.message, 'success');
+                  } else {
+                      // Show error notification
+                      Swal.fire('Error', 'Could not update remark', 'error');
+                  }
+              },
+              error: function(xhr, status, error) {
+                  // Show error notification
+                  Swal.fire('Error', 'Could not update remark', 'error');
+              }
+          });
+      }
+
+      // Event listener for save remark button
+      $('.btn-save-remark').click(function() {
+          const id = $(this).data('id');
+          const remark = $('#remark_' + id).val();
+          updateRemark(id, 'fund_requests', remark);
+      });
+
+      // Event listener for edit remark button
+      $(document).on('click', '.btn-edit-remark', function() {
+          const id = $(this).data('id');
+          const parentTd = $(this).parent();
+          const remarkText = parentTd.find('p').text();
+          const remarkInput = `<input type="text" class="form-control remark-input" id="remark_${id}" value="${remarkText}">  
+          <button class="btn btn-default btn-save-remark" data-id="remark_${id}"><i class="fa fa-check" style="color: #19875;"></i></button>
+`;
+          parentTd.html(remarkInput);
+      });
+
+      // Event listener for status select dropdown
+      $('.status-select').change(function() {
+          // your existing code for updating status
+      });
+  });
+</script>
+
+
+</body>
+</html>

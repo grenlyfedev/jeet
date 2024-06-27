@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Profile View</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
+
+  <style>
+    body{
+    color: #1a202c;
+    text-align: left;
+    background-color: #e2e8f0;    
+}
+.main-body {
+    padding: 15px;
+}
+.card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+}
+
+.gutters-sm {
+    margin-right: -8px;
+    margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+    padding-right: 8px;
+    padding-left: 8px;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+    background-color: #e2e8f0;
+}
+.h-100 {
+    height: 100%!important;
+}
+.shadow-none {
+    box-shadow: none!important;
+}
+  </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <%- include('nav') %>
+      <div class="content-wrapper">
+        <section class="content-header">
+          <div class="container-fluid">
+            <div class="row mb-2">
+              <div class="col-sm-6">
+                <h1>Profile View</h1>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="content">
+          <div class="container-fluid">
+            <div class="main-body">
+              
+      
+        
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                  <div class="card">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <div class="mt-3">
+                                <h4><%= user.name_user %></h4>
+                                <p class="text-secondary mb-1">Level:
+                                    <% if (user.level == 1) { %>
+                                        <button class="btn btn-success level-btn">Admin</button>
+                                    <% } else if (user.level == 2) { %>
+                                        <button class="btn btn-warning level-btn">Agent</button>
+                                    <% } else { %>
+                                        <button class="btn btn-info level-btn">User</button>
+                                    <% } %>
+                                </p>
+                       
+                                <!-- Add selection form input -->
+                                <div class="mt-3">
+                                  <label for="levelSelect" class="form-label">Set Level:</label>
+                                  <select id="levelSelect" class="form-select">
+                                    <option value="">Select</option>
+                                      <option value="1">Admin</option>
+                                      <option value="2">Agent</option>
+                                      <option value="3">User</option>
+                                  </select>
+                              </div>
+                              
+
+                                <!-- <p class="text-secondary mb-1">Balance: <%= user.money %> </p>
+                                <p class="text-muted font-size-sm">Bonus Balance: <%= user.total_money %> </p>
+                             -->
+                              </div>
+                        </div>
+                    </div>
+                </div>
+                
+                  <div class="card mt-3">
+                    <!-- <ul class="list-group list-group-flush">
+                
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter mr-2 icon-inline text-info"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>Twitter</h6>
+                        <span class="text-secondary"></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram mr-2 icon-inline text-danger"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>Instagram</h6>
+                        <span class="text-secondary"></span>
+                      </li>
+                      <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                        <h6 class="mb-0"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h4a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2h-4V12H7v8H3a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h4v8h11V4h-4a2 2 0 0 1-2-2V0h4a2 2 0 0 1 2 2v2h0"></path></svg>Facebook</h6>
+                        <span class="text-secondary"></span>
+                      </li>
+                    </ul> -->
+                  </div>
+                </div>
+                <div class="col-md-8">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                    
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">ID</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.name_user %>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.email %>
+                        </div>
+                      </div>
+                      <hr>
+             
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Phone</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.phone %>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">User Referral Code</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.invite %>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Referred By Code</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.code %>
+                        </div>
+                      </div>
+                      <hr>
+
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">IP Address</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.ip_address%>
+                        </div>
+                      </div>
+                      <hr>
+
+                      
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Active</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <% if (user.status === 1) { %>
+                            <button class="btn btn-success">Active</button>
+                          <% } else { %>
+                            <button class="btn btn-danger">Inactive</button>
+                          <% } %>
+                      
+                        </div>
+                      </div>
+                      
+                      <hr>
+                      <!-- <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">IP Address</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <%= user.ip_address %>
+                        </div>
+                      </div>
+                    
+                      <hr> -->
+                      <div class="row">
+                        <div class="col-sm-12">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+    
+                  <!-- <div class="row gutters-sm">
+                    <div class="col-sm-12 mb-3">
+                      <div class="card h-100">
+                        <div class="card-body">
+                          <h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">GAMES</i> Status</h6>
+                          <small>Aviator</small>
+                          <div class="progress mb-3" style="height: 5px">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <small>5d</small>
+                          <div class="progress mb-3" style="height: 5px">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <small>K3</small>
+                          <div class="progress mb-3" style="height: 5px">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <small>Wingo</small>
+                          <div class="progress mb-3" style="height: 5px">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 0%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                  
+                        </div>
+                      </div>
+                    </div>
+               
+                  </div> -->
+    
+    
+    
+                </div>
+              </div>
+    
+            </div>
+  
+          </div>
+   
+        </section>
+
+      </div>
+  </div>
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/adminlte.min.js"></script>
+  <script src="/js/admin/admin.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script>
+      $(document).ready(function() {
+          // Event listener for selection change
+          $('#levelSelect').change(function() {
+              // Get the selected level
+              let newLevel = $(this).val();
+              // Get the user ID
+              let userId = '<%= user.id %>'; // Assuming user ID is available in your server-side template
+  
+              // Make AJAX call to updateUserLevel
+              $.ajax({
+                  type: "POST",
+                  url: "/api/webapi/admin/updateUserLevel",
+                  data: {
+                      userId: userId,
+                      newLevel: newLevel
+                  },
+                  dataType: "json",
+                  success: function(response) {
+                      // Update the level display button
+                      let levelBtn = $('.level-btn');
+                      if (newLevel == 1) {
+                          levelBtn.removeClass('btn-warning btn-info').addClass('btn-success').text('Admin');
+                      } else if (newLevel == 2) {
+                          levelBtn.removeClass('btn-success btn-info').addClass('btn-warning').text('Agent');
+                      } else {
+                          levelBtn.removeClass('btn-success btn-warning').addClass('btn-info').text('User');
+                      }
+                      // Show success message
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Success',
+                          text: 'User level updated successfully!'
+                      });
+                  },
+                  error: function(error) {
+                      console.log(error);
+                      // Show error message
+                      Swal.fire({
+                          icon: 'error',
+                          title: 'Error',
+                          text: 'Failed to update user level. Please try again later.'
+                      });
+                  }
+              });
+          });
+      });
+  </script>
+  
+
+</html>

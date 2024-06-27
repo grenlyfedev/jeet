@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recharge List</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+  <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="/css/admin.css">
+
+  <style>
+    body {
+  font-family: 'Source Sans Pro', sans-serif;
+  /* Adjust font size and other styles as needed */
+  }
+  
+  .card-header {
+  background-color: azure;
+  }
+  
+  thead {
+  background-color: azure;
+  }
+  
+  
+  h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  }
+  
+  /* Add more styles as needed */
+  
+  
+      /* .form-group {
+          margin-top: 20px;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 5px #2ecc71;
+      }
+  
+      .form-group button {
+          margin-top: 30px;
+      } */
+  </style>
+  <script>
+    function getColorOrNumber(param) {
+  let color;
+
+  if (param === 'l') {
+    color = 'big';
+  } else if (param === 'n') {
+    color = 'small';
+  } else if (param === 't') {
+    color = 'violet';
+  } else if (param === 'd') {
+    color = 'red';
+  } else if (param === 'x') {
+    color = 'green';
+  } else if (param === '0') {
+    color = 'red-violet';
+  } else if (param === '5') {
+    color = 'green-violet';
+  } else if (!isNaN(param)) { // Check if param is a number
+    return Number(param); // Convert param to a number and return
+  } else if (parseInt(param) % 2 === 0) { // Check if param is an even number
+    color = 'red';
+  } else {
+    color = 'green';
+  }
+
+  return color;
+}
+
+  </script>
+</head>
+
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <%- include('nav') %>
+    <div class="content-wrapper">
+      <section class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1>Wingo HISTORY</h1>
+            </div>
+          </div>
+        </div>
+        <!-- /.container-fluid -->
+      </section>
+
+      <div class="form-group" style="text-align: center;">
+        <input type="text" id="search" placeholder="Enter account to search">
+      </div>
+
+      <!-- Main content -->
+      <section class="content">
+        <!-- Default box -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                <i class="fas fa-minus"></i>
+              </button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+          </div>
+          <div class="card-body p-0" style="overflow-y: hidden;">
+            <table class="table table-striped projects" id="table1">
+              <thead>
+                <tr>
+                  <th class="text-center">#</th>
+                  <th class="text-center">Member ID</th>
+
+                  <th class="text-center">Phone</th>
+                  <th class="text-center">stage</th>
+                  <th class="text-center">Bet Amount</th>
+                  <th class="text-center">Win Amount</th>
+                  <th class="text-center">Bet</th>
+                  <th class="text-center">RESULT</th>
+                  <th class="text-center">Time</th>
+                  <!-- <th class="text-center"></th> -->
+                </tr>
+              </thead>
+              <tbody>
+               
+              </tbody>
+            </table>
+          </div>
+          <nav aria-label="Page navigation example" style="margin-top: 20px;display: flex;justify-content: center;">
+            <ul class="pagination table1">
+              <li class="page-item previous">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <div id="numbers" style="display: flex;"></div>
+              <li class="page-item next">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+      </section>
+    </div>
+  <script src="/plugins/jquery/jquery.min.js"></script>
+  <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/dist/js/adminlte.min.js"></script>
+  <script src="/js/admin/admin.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+  <script src="/js/admin/tables.js"></script>
+  <script>
+    function formateT(params) {
+        let result = (params < 10) ? "0" + params : params;
+        return result;
+    }
+   
+    function timerJoin(params = '') {
+        let date = '';
+        if (params) {
+            date = new Date(Number(params));
+        } else {
+            date = new Date();
+        }
+        let years = formateT(date.getFullYear());
+        let months = formateT(date.getMonth() + 1);
+        let days = formateT(date.getDate());
+        return years + '-' + months + '-' + days;
+    }
+    function show(params) {
+      if (params.length == 0) {
+        $('tbody').html(`
+            <tr class="text-center">
+              <td colspan="9">No data...</td>
+            </tr>
+          `);
+        return;
+      }
+      let html = '';
+      params.map((data) => {
+        console.log(data);
+        html += `<tr class="text-center">
+                  <td id="${data.id}">
+                    ${data.id}
+                  </td>
+                  <td>${data.name_user}</td>
+
+                  <td>
+                    <b>${data.phone}</b>
+                  </td>
+                  <td>
+                    <b>${data.stage}</b>
+
+                  </td>
+                  <td>
+                    <b>${formatMoney(data.money)}</b>
+                  </td>
+                  <td style="min-width: 190px;">
+                    <b>${data.get}</b>
+                  </td>
+                  <td style="min-width: 190px;">
+                    <b>${getColorOrNumber(data.bet)}</b>
+                  </td>
+                  <td style="min-width: 190px;">
+                    <b>${data.result}</b>
+                  </td>
+                  <td class="project-state">
+                    <b>${timerJoin(data.time)}</b>
+
+                  </td>
+                  <!-- <td class="project-actions text-center" style="min-width: 160px;">
+                    <a class="btn btn-success btn-sm confirm-btn" href="" data="${data.id}"><i class="fa fa-check"></i></a>
+                    <!-- <a class="btn btn-info btn-sm" href="#"><i class="fas fa-pencil-alt"></i></a> -->
+                    <a class="btn btn-danger btn-sm delete-btn" href="#" data="${data.id}"><i class="fas fa-trash"></i></a>
+                   </td> -->
+                 </tr>`;
+               })
+           $('tbody').html(html);
+            }
+     $.ajax({
+       type: "GET",
+       url: "/admin/wingohistory",
+       data: {
+        
+       },
+       dataType: "json",
+       success: function (response) {
+         show(response.resultWingo)
+       }
+     });
+   </script>
+</body>
+
+</html>

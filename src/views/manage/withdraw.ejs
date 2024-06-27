@@ -1,0 +1,333 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Withdrawal Requests</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback" />
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/css/dataTables.bootstrap.min.css" />
+    <style>
+      body {
+          font-family: 'Source Sans Pro', sans-serif;
+      }
+
+      .card-header {
+          background-color: azure;
+      }
+
+      thead {
+          background-color: azure;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+          font-weight: 700;
+      }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <%- include('nav') %>
+        <div class="content-wrapper">
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 style="text-align: start;">Withdrawal Status</h1>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <h4 style="text-align: center;">Search</h4>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="form-group" style="text-align: start;">
+                            <input type="text" id="search" placeholder="Enter account to search" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-secondary card-outline">
+                    <div class="card-header bg-default">
+                        <h3 class="card-title">Withdrawal Status</h3>
+                        <div class="card-tools">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-tool dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fas fa-cog"></i>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <a class="dropdown-item" href="#" data-func="unpin">Unpin</a>
+                                    <a class="dropdown-item" href="#" data-func="minimize">Minimize</a>
+                                    <a class="dropdown-item" href="#" data-func="expand">Fullscreen</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body p-0" style="overflow-y: hidden;">
+                        <table class="table table-striped projects" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">S.No.</th>
+                                    <th class="text-center">Member ID</th>
+                                    <th class="text-center">Phone</th>
+                                    <th class="text-center">Type</th>
+                                    <th class="text-center">Amount</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Date</th>
+                                    <th class="text-center">Action</th>
+                                    <th class="text-center">Remark</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% transactions.forEach((transaction, index) => { %>
+                                    <tr>
+                                        <td class="text-center"><%= index + 1 %></td>
+                                        <td class="text-center"><%= transaction.name_user %></td>
+                                        <td class="text-center"><%= transaction.phone %></td>
+                                        <td class="text-center"><%= transaction.typeID %></td>
+                                        <td class="text-center"><%= transaction.amount %></td>
+                                        <td class="text-center" id="statusViews-<%= transaction.id %>">
+                                            <button class="btn btn-<%= transaction.status === 'approved' ? 'success' : transaction.status === 'rejected' ? 'danger' : 'warning' %>" disabled>
+                                                <%= transaction.status.charAt(0).toUpperCase() + transaction.status.slice(1) %>
+                                            </button>
+                                        </td>
+                                        <td class="text-center">
+                                            <% if (transaction.request_date) { %>
+                                              <%= new Date(transaction.request_date).toLocaleString('en-US', {
+                                                year: 'numeric',
+                                                month: 'short',
+                                                day: '2-digit',
+                                                hour: '2-digit',
+                                                minute: '2-digit',
+                                                hour12: false // Use 24-hour format
+                                              }) %>
+                                            <% } else { %>
+                                              <!-- Handle case when date is not available -->
+                                              N/A
+                                            <% } %>
+                                          </td>
+                                          
+                                        <td class="text-center" id="statusView-<%= transaction.id %>">
+                                            <select class="form-control status-select" id="status_<%= transaction.id %>" data-id="<%= transaction.id %>">
+                                                <option value="pending" <%= transaction.status === 'pending' ? 'selected' : '' %>>Select</option>
+                                                <option value="approved" <%= transaction.status === 'approved' ? 'selected' : '' %>>Approved</option>
+                                                <option value="rejected" <%= transaction.status === 'rejected' ? 'selected' : '' %>>Rejected</option>
+                                            </select>
+                                        </td>
+                                        <td class="text-center d-flex">
+                                            <input type="text" class="form-control remark-input" id="remark_<%= transaction.id %>" value="<%= transaction.remark %>">
+                                            <button class="btn btn-default btn-save-remark" data-id="<%= transaction.id %>"><i class="fa fa-check" style="color: #19875;"></i></button>
+                                            
+                                        </td>
+                                    </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/plugins/jquery/jquery.min.js"></script>
+    <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/dist/js/adminlte.min.js"></script>
+    <script src="/js/admin/admin.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script>
+
+
+        $(document).ready(function() {
+            $('.status-select').change(function() {
+                const id = $(this).data('id');
+                const status = $(this).val();
+                $.ajax({
+                    url: '/api/webapi/admin/updateWithdrawRequestStatus',
+                    method: 'POST',
+                    data: { requestId: id, status: status },
+                    success: function(response) {
+                        if (response.status === true) {
+                            Swal.fire('Success', response.message, 'success');
+                            // Update the status button and display
+                            const newStatus = status === "approved" ? "approved" : "rejected";
+                            const newButtonStyle = status === "approved" ? "success" : "danger";
+                            const newCapitalizedState = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+
+                            const newButton = `<button class="btn btn-${newButtonStyle} status-btn" data-id="${id}" data-status="${newStatus}">${newCapitalizedState}</button>`;
+
+                            // Update the status view for the specified ID with the new button
+                            // $(`#statusView-${id}`).html(newButton);
+                            $(`#statusViews-${id}`).html(newButton);
+
+                        } else {
+                            Swal.fire('Error', response.message, 'error');
+                        }
+                    },
+                    error: function() {
+                        Swal.fire('Error', 'Could not update status', 'error');
+                    }
+                });
+            });
+
+//             $('.btn-save-remark').click(function() {
+//                   function updateRemark(requestID, tableName, remark) {
+//                     // Fetch authentication token from cookie
+//                     const authToken = document.cookie.split(';')
+//                         .map(cookie => cookie.trim())
+//                         .find(cookie => cookie.startsWith('auth='));
+
+//                     // Fetch token from cookie
+//                     const token = document.cookie.split(';')
+//                         .map(cookie => cookie.trim())
+//                         .find(cookie => cookie.startsWith('token='));
+
+//                     // Send AJAX request to update remark
+//                     $.ajax({
+//                         type: "POST",
+//                         url: "/api/webapi/admin/updateRemark",
+//                         data: {
+//                             requestId: requestID,
+//                             tableName: tableName,
+//                             remark: remark,
+//                             token: token,
+//                             auth: authToken,
+//                         },
+//                         dataType: "json",
+//                         success: function(response) {
+//                             if (response.status === true) {
+//                                 // Show success notification
+//                                 // showSuccessNotification("Remark updated successfully.");
+//                                 // Find the remark input element
+//                                 const remarkInput = $(`#remark_${requestID}`);
+//                                 // Find the parent td element
+//                                 const parentTd = remarkInput.parent();
+//                                 // Replace the input with a p tag containing the remark text
+// //   
+//                                 parentTd.html(`<p>${remark}</p><button class="btn btn-default btn-edit-remark" data-id="${requestID}"><i class="fa fa-edit" style="color: #19875;"></i></button>`);
+//                                 Swal.fire('Success', response.message, 'success');
+
+//                             } else {
+//                                 // Show error notification
+//                                 // showErrorNotification("Failed to update remark.");
+//                                 Swal.fire('Error', 'Could not update remark', 'error');
+
+//                             }
+//                         },
+//                         error: function(xhr, status, error) {
+//                             // Show error notification
+//                             // showErrorNotification("Error: " + error);
+//                             Swal.fire('Error', 'Could not update remark', 'error');
+
+//                         }
+//                     });
+//                 }
+
+//                 const id = $(this).data('id');
+//                 const remark = $('#remark_' + id).val();
+//                 updateRemark(id, 'withdrawal_requests', remark)
+//                 // $.ajax({
+//                 //     url: '/api/webapi/admin/updateRemark',
+//                 //     method: 'POST',
+//                 //     data: { requestId: id, remark: remark },
+//                 //     success: function(response) {
+//                 //         if (response.status) {
+
+//                 //             Swal.fire('Success', response.message, 'success');
+
+//                 //         } else {
+//                 //             Swal.fire('Error', response.message, 'error');
+//                 //         }
+//                 //     },
+//                 //     error: function() {
+//                 //         Swal.fire('Error', 'Could not update remark', 'error');
+//                 //     }
+//                 // });
+//             });
+        });
+
+    </script>
+
+<script>
+    $(document).ready(function() {
+        // Function to update remark
+        function updateRemark(requestID, tableName, remark) {
+            // Fetch authentication token from cookie
+            const authToken = document.cookie.split(';')
+                .map(cookie => cookie.trim())
+                .find(cookie => cookie.startsWith('auth='));
+
+            // Fetch token from cookie
+            const token = document.cookie.split(';')
+                .map(cookie => cookie.trim())
+                .find(cookie => cookie.startsWith('token='));
+
+            // Send AJAX request to update remark
+            $.ajax({
+                type: "POST",
+                url: "/api/webapi/admin/updateRemark",
+                data: {
+                    requestId: requestID,
+                    tableName: tableName,
+                    remark: remark,
+                    token: token,
+                    auth: authToken,
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.status === true) {
+                        // Show success notification
+                        const remarkInput = $(`#remark_${requestID}`);
+                        const parentTd = remarkInput.parent();
+                        parentTd.html(`<p>${remark}</p><button class="btn btn-default btn-edit-remark" data-id="${requestID}"><i class="fa fa-edit" style="color: #19875;"></i></button>`);
+                        Swal.fire('Success', response.message, 'success');
+                    } else {
+                        // Show error notification
+                        Swal.fire('Error', 'Could not update remark', 'error');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Show error notification
+                    Swal.fire('Error', 'Could not update remark', 'error');
+                }
+            });
+        }
+
+        // Event listener for save remark button
+        $('.btn-save-remark').click(function() {
+            const id = $(this).data('id');
+            const remark = $('#remark_' + id).val();
+            updateRemark(id, 'withdrawal_requests', remark);
+        });
+
+        // Event listener for edit remark button
+        $(document).on('click', '.btn-edit-remark', function() {
+            const id = $(this).data('id');
+            const parentTd = $(this).parent();
+            const remarkText = parentTd.find('p').text();
+            const remarkInput = `<input type="text" class="form-control remark-input" id="remark_${id}" value="${remarkText}">  
+            <button class="btn btn-default btn-save-remark" data-id="remark_${id}"><i class="fa fa-check" style="color: #19875;"></i></button>
+`;
+            parentTd.html(remarkInput);
+        });
+
+        // Event listener for status select dropdown
+        $('.status-select').change(function() {
+            // your existing code for updating status
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html style="font-size: 650%;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <style class="vjs-styles-defaults">
+        .video-js {
+            width: 300px;
+            height: 150px;
+        }
+
+        .vjs-fluid {
+            padding-top: 56.25%
+        }
+    </style>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Pays</title>
+    <script>// setInterval(function () { debugger }, 100);</script>
+    <link href="/css/wallet/chunk-libs.aac02ba1.css" rel="stylesheet">
+    <link href="/css/wallet/app.30ec9887.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/wallet/chunk-6e8d5c6e.0fc0ae11.css">
+    <style type="text/css">
+        @font-face {
+            font-family: Roboto;
+            src: url("chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/css/Roboto-Regular.ttf");
+        }
+
+        #copied {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 12px;
+            padding: 10px;
+            position: fixed;
+            z-index: 200000;
+            left: 55%;
+            bottom: 50px;
+            font-size: 14px;
+        }
+
+
+
+        #copied.show {
+            visibility: visible;
+            margin-bottom: 310px;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+    </style>
+</head>
+
+<body style="background-color: white;">
+    <div>
+        <div data-v-5f23d35a="" class="app-container">
+            <div data-v-cbb7dde6="" data-v-5f23d35a="" class="app-container">
+                <!---->
+                <div data-v-400f7872="" data-v-cbb7dde6=""><span data-v-400f7872=""
+                        class="container-row bg-color"></span>
+                    <div data-v-400f7872="" class="container-row top-box">
+                        <div data-v-400f7872="" onclick="window.location.href='/wallet/recharge'"
+                            class="container-row top-box-btn">
+                            <img data-v-400f7872=""
+                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAeCAMAAAASJ24jAAAANlBMVEVHcEwbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxutgMUJAAAAEXRSTlMA6t7NHIhz9i1dSwQNm648ocu+ZZ8AAABsSURBVBjTjdDLEsAQDAXQUOpVNP//s01WImqG3blmyA2APM2m2YgoXclN2JOvsnW5yfYZ92zjhhM5aMfhTEbhzu7DkZ2FA1lUcMpg6f0sG4V5gPXLdaizRFc9S7xa2C6RS/9LXk5AJ1MA1dQPI/kIDZxwT7wAAAAASUVORK5CYII="
+                                class="top-box-btn-icon">
+                            <div data-v-400f7872="" class="top-box-btn-title">Back</div>
+                        </div>
+                        <div data-v-400f7872="" class="container-row top-box-logo-box">
+                            <!-- <img data-v-400f7872=""
+                                src="/images/tlogo.e9040472.png" class="top-box-logo-img"> -->
+                        </div>
+                    </div><span data-v-400f7872="" class="container-row split-top-box"></span>
+                    <div data-v-400f7872="" class="container-column info-box">
+                        <div data-v-400f7872="" class="container-row info-title-box">
+                            <div data-v-400f7872="" class="info-title-box-title">USDT Information</div>
+                            <div data-v-400f7872="" class="container-row info-title-right-box">
+                                <div data-v-400f7872="" onclick="popup()" class="info-title-right-box-title">How it
+                                    works ?</div>
+                            </div>
+                        </div>
+                        <div data-v-400f7872="" class="container-column info-amount-box"
+                            style="background: url('/images/back.png');">
+                            <div data-v-400f7872="" class="container-row info-amount-title-box">
+                                <div data-v-400f7872="" class="info-amount-title-box-text">Payment Amount</div>
+                            </div>
+                            <div data-v-400f7872="" class="container-row info-amount-value-box">
+                                <div data-v-400f7872="" id="amount" class="info-amount-value-box-text">
+                                    <%= amount %> ₹
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="copied">USDT ID Copied</div>
+                    <div data-v-400f7872="" class="container-column method-box">
+                        <div data-v-400f7872="" class="container-column method-row-box-select">
+                            <div data-v-400f7872="" class="container-row method-row-title-box">
+                                <div data-v-400f7872="" class="method-row-title-box-title">Payment Via USDT</div>
+                                <!-- <img
+                                    data-v-400f7872=""
+                                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACcAAAAnBAMAAAB+jUwGAAAALVBMVEVHcEwGWv0FWv0FWv0FWv0GWv0GWv0FWv0FWv0FWv0GWv0GWv0GWv0EWvwEWv3t0LoKAAAADnRSTlMAADBtC4H65zsVS7ZQuXsPJ7aYAAAEgSURBVCjPY2AAA8bZKeuWZE9kQAbMee/AIBlZrO5dqpGAkGneu2K4GOO+V0FgBlPUu40wQfV3gTDpuOcKEBaPnw9cE5yt8kIAYbzEE7BSxrpGJDsZ+wpBFPcTAWTXibwGkefeoDiZ550BkKwLgDhn5iSIaFwD0OGvwLp56969qwULSj1mYGB7ClbXB/JlE4jJ+oyBQe4R2Flgr4Odw/ROgGFeAkiwDxIgDSB23gSGfSB7eCFi796CbdrAkAdyATtU8DlI0C6BwQ9kjh5U8B2Y48CwDuQiO5ggSJvcAoZ3IB3zYIITgBy+B9hVYjUTq+1Y3YnVR1j9jjWUsIYn1pBnsMMWR1hjE2u8Y00h2NMS1lSHPX0yMPfBUnIzgTSPnjsAD1HOFUnUszgAAAAASUVORK5CYII="
+                                    class="method-row-title-box-icon"> -->
+                            </div>
+                            <div data-v-400f7872="" class="container-column method-row-upi-box">
+                                <div data-v-400f7872="" class="container-row method-row-upi-title-box">
+                                    <div data-v-400f7872="" class="method-row-upi-title-box-title">1.Copy USDT
+                                        Information.</div>
+                                </div>
+                       
+
+                                <div data-v-400f7872="" class="container-row method-row-upi-value-box">
+                                    <div data-v-400f7872="" id="idup" class="method-row-upi-value-box-title">  <%= settings.usdtId %>
+                                    </div><button data-v-400f7872="" onclick="copyToClipboard(idup)"
+                                        class="container-row method-row-upi-box-btn">
+                                        <div data-v-400f7872="" style="color:#4cd964;"
+                                            class="method-row-upi-box-btn-title">Copy</div>
+                                    </button>
+                                </div>
+                                <div data-v-400f7872="" class="container-row method-row-upi-value-box " style="border-color: none !important; border: none;">
+
+                                <div class="text-center">
+                                </div>
+                                </div>
+                            </div>
+                            <div data-v-400f7872="" class="container-column method-row-prompt-box">
+                                <div data-v-400f7872="" class="method-row-prompt-box-title">QR Code. <br />
+                                
+                                    <img src="<%= settings.qrCodeUrl %>" alt="QR Code" id="saved-qr-code" style="max-width: 80%; height: 250px;" />
+
+                                
+                                </div>
+                                <div data-v-400f7872="" class="method-row-prompt-box-title">2.Transfer the amount you
+                                    want to recharge to us by USDT transfer.</div>
+                                <div data-v-400f7872="" class="method-row-prompt-box-title">3.Please enter Ref No. to
+                                    complete the recharge.</div>
+
+                                    <div data-v-400f7872="" class="method-row-prompt-box-title">4.Upload screenshot of the payment.</div>
+                            </div>
+
+            
+
+                            <form id="payment" method="post" action="">
+                                <div class="row">
+                                    <div class="col-12" style="margin-top: 20px;" >
+                                        <input id="screenshot-input" name="screenshot" autocomplete="off" type="file"
+                                        placeholder="SCREEN SHOT" class="input-box-input-box-input">
+                                    </div>
+                                    <div class="col-12" style="margin-top: 20px;" >
+                                        <div data-v-400f7872="" class="container-row input-box-input-box">
+                                            <input data-v-400f7872="" id="upi-input" value="" name="utr" autocomplete="off"
+                                                placeholder="UTR NO." class="input-box-input-box-input" >
+                                           
+                                   
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-12" style="margin-top: 20px;" >
+
+                                        <div data-v-400f7872="" class="container-row input-box-input-box">
+                                    
+                                           
+                                            <button data-v-400f7872="" id="myBtn" disabled="disabled"
+                                                class="container-row input-box-btn submit"
+                                                style="color:#4cd964;font-weight: bold;font-size: 20px;">
+        
+                                                Submit
+                                            </button>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+            
+                            </form>
+                            
+
+
+                            <div data-v-400f7872="" class="container-row input-prompt-box">
+                                <div data-v-400f7872="" class="input-prompt-box-title">Please enter the REF NO/Reference
+                                    NO/UTR (12-digit number) of your transfer and we will finish your recharge as soon
+                                    as possible.</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+       
+                <div data-v-cbb7dde6="" style="display: none;">Please do not modify the information</div>
+            </div>
+        </div>
+    </div>
+    <div class="mint-indicator" style="display: none;">
+        <div class="mint-indicator-wrapper" style="padding: 15px;"><span class="mint-indicator-spin">
+                <div class="mint-spinner-snake"
+                    style="border-top-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-bottom-color: rgb(204, 204, 204); height: 32px; width: 32px;">
+                </div>
+            </span> <span class="mint-indicator-text" style="display: none;"></span></div>
+        <div class="mint-indicator-mask"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/client.js"></script>
+    <script>
+        function popup() {
+            document.getElementById("pop").style.display = "";
+        }
+        function popclose() {
+            document.getElementById("pop").style.display = "none";
+        }
+
+        function copyToClipboard(text) {
+            var inputc = document.body.appendChild(document.createElement("input"));
+            inputc.value = text.innerHTML.trim();
+            inputc.focus();
+            inputc.select();
+            document.execCommand('copy');
+            inputc.parentNode.removeChild(inputc);
+            var x = document.getElementById("copied");
+            x.className = "show";
+            setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
+        }
+       
+    function check() {
+        if ($('#upi-input').val().length === 12) {
+            $('.submit').prop('disabled', false);
+            console.log("correct utr");
+        } else {
+            $('.submit').prop('disabled', true);
+            console.log("incorrect utr");
+        }
+    }
+    setInterval(check, 1000);
+
+    $('.submit').click(async function(e) {
+        e.preventDefault();
+        $(this).prop('disabled', true);
+        // Fetch authentication token from cookie
+        const authToken = document.cookie.split(';')
+            .map(cookie => cookie.trim())
+            .find(cookie => cookie.startsWith('auth='));
+
+        // Fetch token from cookie
+        const token = document.cookie.split(';')
+            .map(cookie => cookie.trim())
+            .find(cookie => cookie.startsWith('token='));
+
+
+        // Show spinner
+        $('#spinner').css('display', 'block');
+
+ 
+
+
+        let utr = $('#upi-input').val().trim();
+        // let money = $('#money-input').val().trim();
+
+        let fileInput = $('#screenshot-input')[0];
+        
+    // Check if utr is present and is not of length 12
+    if (utr && utr.length !== 12) {
+        alert("Invalid UTR NO.");
+
+        // $('#notification').css('display', 'block');
+        // $('#notification').text('UTR must be 12 characters long.');
+        // $('#spinner').css('display', 'none');
+        return;
+    }
+
+    // Check if no file is selected
+    if (!fileInput.files.length) {
+        alert("Please upload a screenshot.");
+        // $('#spinner').css('display', 'none');
+        return;
+    }
+
+        let file = fileInput.files[0];
+        let money = <%= amount %>;
+        
+        // Convert file to Base64
+        let base64File = await toBase64(file);
+        
+        let payload = {
+            utr: utr,
+            money: money,
+            token: token,
+            auth: authToken,
+            type: 'USDT',
+            screenshot: base64File
+        };
+        
+        // Debugging: Check the payload contents
+        console.log(payload);
+
+        $.ajax({
+            type: "POST",
+            url: "/api/webapi/recharge",
+            data: JSON.stringify(payload),
+            contentType: "application/json",
+            success: function(response) {
+                console.log(response);
+                // Hide spinner on success
+                $('#spinner').css('display', 'none');
+
+                if (response.status) {
+                    $("#result").css("display", "");
+                    alert(response.message);
+                    setInterval(() => {
+                        window.location.href = "/wallet/recharge";
+                    }, 2000);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(status);
+                console.log(error);
+                // Hide spinner on error
+                $('#spinner').css('display', 'none');
+                $(this).prop('disabled', false);
+
+                // Show error notification
+                $('#notification').css('display', 'block');
+                $('#notification').text('Error: ' + xhr.responseText);
+            }
+        });
+    });
+
+    function toBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+    </script>
+
+    </script>
+
+</body>
+
+</html>
