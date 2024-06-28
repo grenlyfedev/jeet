@@ -12,6 +12,7 @@
   <link href="/css/wallet/chunk_2-1.css" rel="stylesheet" />
   <link href="/css/wallet/chunk_2-2.css" rel="stylesheet" />
   <link href="/css/wallet/chunk_2-3.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="shortcut icon" href="/images2/kpcgaming_platform_logo.jpg" type="image/x-icon" />
   <style>
     html,
@@ -79,7 +80,7 @@
                 </div>
                 <div data-v-7b283485="" class="item">
                   <div data-v-7b283485="">Winning Balance</div>
-                  <!---->
+
                   <div data-v-7b283485="" class="main">₹ 0.00</div>
                 </div>
               </div>
@@ -97,7 +98,8 @@
                 </div>
               </div>
             </div>
-            <div data-v-7b283485="" class="c-row c-row-between total-btn m-t-30"
+
+            <!-- <div data-v-7b283485="" class="c-row c-row-between total-btn m-t-30"
               style="display: flex; justify-content: center; gap: 4px;">
               <div data-v-7b283485="" class="item c-row c-row-center" onclick="location.href='/wallet/recharge'">
                 <div data-v-7b283485="" class="li">DEPOSIT</div>
@@ -105,40 +107,143 @@
               <div data-v-7b283485="" class="item c-row c-row-center" onclick="location.href='/wallet/withdrawal'">
                 <div data-v-7b283485="" class="li">WITHDRAWAL</div>
               </div>
-              <!-- <div
-                  data-v-7b283485=""
-                  class="item c-row c-row-center"
-                 
-                >
-                  <div data-v-7b283485="" class="li">RECHARGE</div>
-                </div> -->
-            </div>
+            </div> -->
           </div>
-          <div data-v-7b283485="" class="list m-t-15">
-            <div data-v-7b283485="" class="item c-row c-row-between" onclick="location.href='/wallet/rechargerecord'">
-              <div data-v-7b283485="" class="c-row c-row-middle">
-                <img data-v-7b283485="" width="35px" height="35px" src="/icons2/deposit_history.png" class="chackImg" />
-                <span data-v-7b283485="" class="name">Deposit History</span>
+          <div data-v-7b283485="" class=" mt-2">
+            <div class="grid grid-cols-2 gap-1">
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justify-center bg-gradient-to-l from-[#D2B66E] to-black rounded-[8px] p-1"
+                onclick="location.href='/wallet/recharge'">
+                <img src="/images/deposit_tr.png" alt="Deposit Icon" class="w-3 h-3 mb-1">
+                <div data-v-7b283485="" class="text-center text-[0.3rem] text-white">DEPOSIT</div>
               </div>
-              <div data-v-7b283485="">
-                <i data-v-7b283485="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 16px">
-                  <!---->
-                </i>
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justify-center bg-gradient-to-r from-[#D2B66E] to-black rounded-[8px] p-1"
+                onclick="location.href='/wallet/withdrawal'">
+                <img src="/images/withdrawBlue_tr.png" alt="Withdraw Icon" class="w-3 h-3 mb-1">
+                <div data-v-7b283485="" class="text-center text-[0.3rem] text-white">WITHDRAWAL</div>
               </div>
-            </div>
-            <div data-v-7b283485="" class="item c-row c-row-between" onclick="location.href='/wallet/withdrawalrecord'">
-              <div data-v-7b283485="" class="c-row c-row-middle">
-                <img data-v-7b283485="" width="35px" height="35px" src="/icons2/withdraw_history.png"
-                  class="chhackImg" />
-                <span data-v-7b283485="" class="name">Withdrawal History</span>
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justify-center bg-gradient-to-b from-[#D2B66E] to-black rounded-[8px] p-1"
+                onclick="location.href='/wallet/rechargerecord'">
+                <img src="/images/rechargeHistory_tr.png" alt="Deposit History Icon" class="w-3 h-3 mb-1">
+                <div data-v-7b283485="" class="text-center text-[0.3rem] text-white">DEPOSIT HISTORY</div>
               </div>
-              <div data-v-7b283485="">
-                <i data-v-7b283485="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 16px">
-                  <!---->
-                </i>
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justify-center bg-gradient-to-b from-[#D2B66E] to-black rounded-[8px] p-1"
+                onclick="location.href='/wallet/withdrawalrecord'">
+                <img src="/images/withdrawHistory_tr.png" alt="Withdraw History Icon" class="w-3 h-3 mb-1">
+                <div data-v-7b283485="" class="text-center text-[0.3rem] text-white">WITHDRAW HISTORY</div>
               </div>
             </div>
           </div>
+
+        </div>
+        <div class="container mx-auto ">
+
+          <!-- First row with 3 columns -->
+          <div class="grid grid-cols-3 gap-1 p-2">
+            <!-- First Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/rummy.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">Lottery</p>
+            </div>
+            <!-- Second Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/fishing.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">TB_Chess</p>
+            </div>
+            <!-- Third Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/live_casino.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">Wickets9</p>
+            </div>
+            <!-- First Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/rummy.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">JILI</p>
+            </div>
+            <!-- Second Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/fishing.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">PG</p>
+            </div>
+            <!-- Third Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/live_casino.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">DG</p>
+            </div>
+            <!-- First Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/rummy.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">MG</p>
+            </div>
+            <!-- Second Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/fishing.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">JDB</p>
+            </div>
+            <!-- Third Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/live_casino.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">SaBa</p>
+            </div>
+            <!-- First Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/rummy.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">CQ9</p>
+            </div>
+            <!-- Second Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/fishing.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">TB</p>
+            </div>
+            <!-- Third Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/live_casino.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">EVO_Video</p>
+            </div>
+            <!-- First Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/rummy.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">AG_Videos</p>
+            </div>
+            <!-- Second Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/fishing.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">Card365</p>
+            </div>
+            <!-- Third Image Block -->
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/live_casino.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">V8Card</p>
+            </div>
+            <div class="relative flex flex-col justify-center items-center bg-blue-700/[0.5] rounded p-1">
+              <!-- <img src="/gameCategories/rummy.png" class="w-[40px] h-[40px] object-contain"/> -->
+              <p class="text-white text-[0.30rem] font-bold">0.00</p>
+              <p class="text-gray-400 tracking-wider text-[0.2833rem] font-medium">SEXY_Video</p>
+            </div>
+          </div>
+
+
+
+
+
         </div>
       </div>
       <%- include('../nav') -%>

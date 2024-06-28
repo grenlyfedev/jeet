@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html translate="no" data-dpr="1" style="font-size: 48.24px;">
+<html translate="no" data-dpr="1" style="font-size: 48.16px" style="min-height: 100vh">
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="robots" content="noindex,nofollow">
-    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
     <title>PlayWin</title>
+    <link href="/css/member/main.css" rel="stylesheet" />
+    <link href="/css/member/chunk-1.css" rel="stylesheet" />
+    <link href="/css/member/chunk-2.css" rel="stylesheet" />
+    <link href="/css/member/chunk-3.css" rel="stylesheet" />
+    <link href="/css/member/chunk-4.css" rel="stylesheet" />
+    <link href="/css/member/chunk-5.css" rel="stylesheet" />
+    <link href="/css/member/chunk-6.css" rel="stylesheet" />
+    <link href="/css/member/chunk-7.css" rel="stylesheet" />
+
+
     <link href="/css/promotion/app.css" rel="stylesheet" />
     <link href="/css/promotion/chunk-0_1.css" rel="stylesheet" />
     <link href="/css/promotion/chunk-0_2.css" rel="stylesheet" />
@@ -15,10 +25,8 @@
     <link href="/css/promotion/chunk-0_5.css" rel="stylesheet" />
     <link href="/css/promotion/chunk-0_6.css" rel="stylesheet" />
     <link rel="shortcut icon" href="/images2/myjeet_win_logo.ico" type="image/x-icon">
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <style>
         html,
         body {
@@ -28,6 +36,7 @@
             padding: 0;
             margin: 0;
         }
+
         canvas {
             height: 130px;
         }
@@ -87,255 +96,367 @@
 
 
         /* Remove border-radius from top-left and bottom-left corners */
-.btna {
-    border-radius: 0.25rem; /* Keep the default border-radius */
-}
+        .btna {
+            border-radius: 0.25rem;
+            /* Keep the default border-radius */
+        }
 
-/* Remove border-radius from top-left corner */
-.btna:not(:last-child) {
-    border-top-left-radius: 0;
-}
+        /* Remove border-radius from top-left corner */
+        .btna:not(:last-child) {
+            border-top-left-radius: 0;
+        }
 
-/* Remove border-radius from bottom-left corner */
-.btna:not(:first-child) {
-    border-bottom-left-radius: 0;
-}
-
-
-/* Remove border-radius from top-right and bottom-right corners of input field */
-.form-controla {
-    border-radius: 0.25rem; /* Keep the default border-radius */
-}
-
-/* Remove border-radius from top-right corner */
-.form-controla:not(:last-child) {
-    border-top-right-radius: 0;
-}
-
-/* Remove border-radius from bottom-right corner */
-.form-controla:not(:first-child) {
-    border-bottom-right-radius: 0;
-}
+        /* Remove border-radius from bottom-left corner */
+        .btna:not(:first-child) {
+            border-bottom-left-radius: 0;
+        }
 
 
+        /* Remove border-radius from top-right and bottom-right corners of input field */
+        .form-controla {
+            border-radius: 0.25rem;
+            /* Keep the default border-radius */
+        }
+
+        /* Remove border-radius from top-right corner */
+        .form-controla:not(:last-child) {
+            border-top-right-radius: 0;
+        }
+
+        /* Remove border-radius from bottom-right corner */
+        .form-controla:not(:first-child) {
+            border-bottom-right-radius: 0;
+        }
     </style>
 </head>
 
-<body style="font-size: 12px;">
+<body>
     <div id="app">
-        <div data-v-7c8bbbf4="" class="mian">
+        <div data-v-8cd483ca="" class="mian page">
             <div data-v-106b99c8="" data-v-7c8bbbf4="" class="navbar">
                 <div data-v-106b99c8="" class="navbar-left"></div>
-                <div data-v-106b99c8="" class="navbar-title" style="color:#EFD586; letter-spacing: 0.9px;">PROMOTION AGENT</div>
+                <div data-v-106b99c8="" class="navbar-title" style="color:#EFD586; letter-spacing: 0.9px;">PROMOTION
+                    AGENT</div>
                 <div data-v-106b99c8="" class="navbar-right" onclick="location.href='/promotion/bonusrecord'">
                     <div data-v-7c8bbbf4="" data-v-106b99c8="" class="c-row" style="color:#EFD586">
-                        <i data-v-7c8bbbf4="" data-v-106b99c8="" class="van-icon van-icon-notes-o" style="font-size: 25px;"></i>
+                        <i data-v-7c8bbbf4="" data-v-106b99c8="" class="van-icon van-icon-notes-o"
+                            style="font-size: 25px;"></i>
                     </div>
                 </div>
             </div>
-            <div data-v-7c8bbbf4="" class="promotion" style="border-bottom: 1px solid black">
-                <div data-v-7c8bbbf4="" class="tab" style="background-color: #EFD586;">
-                    <ul data-v-7c8bbbf4="" class="c-row c-row-between">
-                        <li data-v-7c8bbbf4="" onclick="location.href='/promotion'" class="action block-click">Overview</li>
-                        <li data-v-7c8bbbf4="" onclick="location.href='/promotion/myTeam'">My Team</li>
-                    </ul>
-                </div>
-                <div data-v-7c8bbbf4="" class="box">
-                    <div data-v-7c8bbbf4="" class="tit">Guide</div>
-                    <div data-v-7c8bbbf4="" class="info">
-                        <div style="margin-top: 20px;gap:20px;display: flex; flex-direction: column; justify-content: space-between; align-items: center;" data-v-7c8bbbf4="" class="info-data c-row c-row-between m-b-20">
-                            <div data-v-7c8bbbf4="" class="left">
-                                <h5 data-v-7c8bbbf4="" class="all" style="font-size: 0.5rem; color: #efd58c; font-weight: bold;">Total Team Members</h5>
-                                <p data-v-7c8bbbf4="" class="num" id="total_sub">0</p>
-                                <p data-v-7c8bbbf4="" class="txt" id="total_rech">Team total deposit:0</p>
-                                <p data-v-7c8bbbf4="" class="txt" id="today_rech">Team deposit commission: 0</p>
-                            </div>
-                            <div data-v-7c8bbbf4="" class="right" style="height: 60%;">
-                                <p data-v-7c8bbbf4="" class="txt" style="font-size: 0.5rem; line-height: 25px;">Team Total Betting:<br><span style="font-size: .43333rem !important;" data-v-7c8bbbf4="" class="num" id="total_with">0</span></p>
-                                <br><br>
-                                <p data-v-7c8bbbf4="" class="txt" roses_f style="font-size: 0.5rem; line-height: 25px;">Team Betting Commission:<br><span style="font-size: .43333rem !important; margin-top: 5px;" data-v-7c8bbbf4="" class="num" id="today_with">0</span></p>
-                            </div>
+            <div data-v-8cd483ca="" class="menu-box ">
+                <div class="bg-[#D5B971] flex flex-col">
+                    <div data-v-8cd483ca="" class="bg-[#D5B971]">
+                        <div class="flex flex-col justify-center gap-1 items-center">
+                            <h4 class="text-[0.4167rem] text-[#3F3F3F]">0</h4>
+                            <p
+                                class="text-[0.3125rem] font-bold tracking-wider text-[#D0B26B] bg-[#3F3F3F] rounded px-1">
+                                Yesterday's total commission</p>
+                            <p class="text-[#3F3F3F] text-[0.321rem] font-bold tracking-wide">Upgrade the level to
+                                increase
+                                commission income</p>
                         </div>
-                        <div style="padding: 0 15px; margin-top: 30px; display: flex;justify-content: center;" data-v-7c8bbbf4="" class="info-img c-row c-row-between">
-                            <div data-v-7c8bbbf4="" class="btn-list c-row c-row-middle-center" style="width: 70%;">
-                                <div data-v-7c8bbbf4="" class="btn-box">
-                                    <form id="referralCodeForm" style="margin-bottom: 20px;">
-                                        <div class="input-group mb-3">
-
-                                            
-                                            <input type="text" id="referralCodeInput" class="form-control form-controla" placeholder="Enter Referral Code"  aria-label="Referral Code" style="font-size: small; color:#0c0c0f;">
-
-                                            <button style="
-                                            width: 25%;
-                                            display: flex;
-                                            align-items: center;
-                                            padding: 0px;
-                                            margin: 0px;
-                                            justify-content: center;
-                                            color: green;
-                                        "  class="btn btn-default btn-save-code btna" data-id="5"><i class="fa fa-check" style="color: #19875;"></i></button>
-                                        </div>
-                                    </form>
-                                    <div data-v-7c8bbbf4="" class="btn m-b-10 c-row c-row-middle-center tag-read btnC" data-clipboard-text="" style="cursor: pointer;">Copy Link</div>
-                                    <!-- <div data-v-7c8bbbf4="" data-clipboard-text="" class="btn m-b-10 c-row c-row-middle-center tag-read btnC" style="cursor: pointer;">Copy Link</div> -->
+                    </div>
+                    <div style=" padding: 0;">
+                        <div class="grid grid-cols-2 bg-[#8C7F5A] gap-1 relative rounded m-2 p-0">
+                            <div class="col-span-2 grid grid-cols-2">
+                                <div data-v-7c8bbbf4=""
+                                    class="flex justify-center rounded-t items-center col-span-1 bg-[#292929]">
+                                    <p data-v-7c8bbbf4="" class="">My Network</p>
+                                </div>
+                                <div data-v-7c8bbbf4=""
+                                    class="flex justify-center rounded-t items-center col-span-1 bg-[#292929]">
+                                    <p data-v-7c8bbbf4="" class="">Team Network</p>
+                                </div>
+                            </div>
+                            <div data-v-7c8bbbf4="" class="flex flex-col py-1 items-center col-span-1 gap-2">
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="total_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team total deposit</p>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="today_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team deposit commission</p>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="total_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team total deposit</p>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="today_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team deposit commission</p>
+                                </div>
+                            </div>
+                            <div data-v-7c8bbbf4="" class="flex flex-col py-1 items-center col-span-1 gap-2">
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="total_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team total deposit</p>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="total_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team deposit commission</p>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="total_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team total deposit</p>
+                                </div>
+                                <div class="flex flex-col justify-center items-center">
+                                    <p data-v-7c8bbbf4="" class="text-[0.32rem] font-bold text-gray-100" id="total_rech">0</p>
+                                    <p data-v-7c8bbbf4="" class="text-[0.3rem] font-bold text-gray-100">Team deposit commission</p>
                                 </div>
                             </div>
                         </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flex flex-col m-2 gap-1 pb-2">
+                    <div class="grid grid-cols-3 items-center w-full gap-x-2 pt-2">
+                        <div class="col-span-2 flex items-center">
+                            <input type="text" id="referralCodeInput"
+                                class="p-1 w-[70%] border border-gray-300 rounded-l"
+                                placeholder="Enter Referral Code" aria-label="Referral Code"
+                                style="font-size: small; color:#0c0c0f;">
+                            <button
+                                class="w-1/4 flex items-center justify-center p-1 text-green-600 bg-white border border-gray-300 rounded-r btn-save-code"
+                                data-id="5">
+                                <i class="fa fa-check" style="color: #19875;"></i>
+                            </button>
+                        </div>
+                        <div class="col-span-1 flex items-center justify-center cursor-pointer bg-[#EFD58C] rounded py-1 px-2 text-[0.3rem] text-gray-700 hover:bg-gray-300 btnC"
+                            data-clipboard-text="">
+                            Copy Link
+                        </div>
                     </div>
                 </div>
-           </div>
-           <%- include('../nav') -%>
-       <div data-v-7692a079="" data-v-3966082f="" class="Loading c-row c-row-middle-center">
-           <div data-v-7692a079="" class="van-loading van-loading--circular">
-               <span data-v-7692a079="" class="van-loading__spinner van-loading__spinner--circular" style="color: #efd58c;">
-                   <svg data-v-7692a079="" viewBox="25 25 50 50" class="van-loading__circular">
-                       <circle data-v-7692a079="" cx="50" cy="50" r="20" fill="none"></circle>
-                   </svg>
-               </span>
-           </div>
+                
+                
+
+                <div class="flex flex-col m-2 gap-1">
+                    <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded"
+                        onclick="location.href='/mian/subordinate_data'">
+                        <div data-v-21f3500a="" class="c-row c-row-middle">
+                            <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png"
+                                class="img" /><span data-v-21f3500a="" class="name">Subordinate data </span>
+                        </div>
+                        <div data-v-21f3500a="" class="c-row c-row-middle">
+                            <i data-v-21f3500a="" class="van-icon van-icon-arrow"
+                                style="color: #efd58c; font-size: 20px">
+                                <!---->
+                            </i>
+                        </div>
+                    </div>
+                    <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded"
+                        onclick="location.href='/mian/commission_data'">
+                        <div data-v-21f3500a="" class="c-row c-row-middle">
+                            <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png"
+                                class="img" /><span data-v-21f3500a="" class="name">Commission detail</span>
+                        </div>
+                        <div data-v-21f3500a="" class="c-row c-row-middle">
+                            <i data-v-21f3500a="" class="van-icon van-icon-arrow"
+                                style="color: #efd58c; font-size: 20px">
+                                <!---->
+                            </i>
+                        </div>
+                    </div>
+                    <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded"
+                        onclick="location.href='/mian/forgot'">
+                        <div data-v-21f3500a="" class="c-row c-row-middle">
+                            <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png"
+                                class="img" /><span data-v-21f3500a="" class="name">Rebate ration</span>
+                        </div>
+                        <div data-v-21f3500a="" class="c-row c-row-middle">
+                            <i data-v-21f3500a="" class="van-icon van-icon-arrow"
+                                style="color: #efd58c; font-size: 20px">
+                                <!---->
+                            </i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col m-2 gap-1 mt-4">
+                    <!-- promotion Data -->
+                    <div class="grid grid-cols-2 gap-1  bg-[#EFD58C]/[0.5] rounded p-1">
+                        <div class="col-span-2">
+                            <p>Promotion Data</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-gray-900 rounded-[8px] p-2">
+                            <p class="text-[0.3rem] text-white">0</p>
+                            <p class="text-[0.25rem] text-white text-center">This week</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-gray-900 rounded-[8px] p-2">
+                            <p class="text-[0.3rem] text-white">0</p>
+                            <p class="text-[0.25rem] text-white text-center">Total commission</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-gray-900 rounded-[8px] p-2">
+                            <p class="text-[0.3rem] text-white">0</p>
+                            <p class="text-[0.25rem] text-white text-center">My Network</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center justify-center bg-gradient-to-r from-gray-700 to-gray-900 rounded-[8px] p-2">
+                            <p class="text-[0.3rem] text-white">0</p>
+                            <p class="text-[0.25rem] text-white text-center">Team Network</p>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <%- include('../nav') -%>
+            </div>
+        </div>
+        <div class="van-overlay" style="z-index: 2001; display: none"></div>
+        <div role="dialog" class="van-dialog" style="z-index: 2002; display: none" aria-labelledby="Lời nhắc">
+            <div class="van-dialog__header">Reminder</div>
+            <div class="van-dialog__content">
+                <div class="van-dialog__message van-dialog__message--has-title">
+                    Do you want to sign out?
+                </div>
+            </div>
+            <div class="van-hairline--top van-dialog__footer van-dialog__footer--buttons">
+                <button class="van-button van-button--default van-button--large van-dialog__cancel">
+                    <div class="van-button__content">
+                        <span class="van-button__text">Cancel</span>
+                    </div>
+                </button>
+                <button class="van-button van-button--default van-button--large van-dialog__confirm van-hairline--left">
+                    <div class="van-button__content">
+                        <span class="van-button__text">Confirm</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="/js/client.js"></script>
+        <script>
+            $(document).ready(function () {
+                function alertMess(text, element) {
+                    $('body').append(
+                        `<div data-v-1dcba851="" class="msg">
+                            <div data-v-1dcba851="" class="msg-content v-enter-active v-enter-to" style=""> ${text} </div>
+                        </div>`
+                    );
+                    setTimeout(() => {
+                        $('.msg .msg-content').removeClass('v-enter-active v-enter-to');
+                        $('.msg .msg-content').addClass('v-leave-active v-leave-to');
+                        setTimeout(() => {
+                            $('.msg').remove();
+                        }, 1000); // Changed duration for better visibility
+                        element.removeClass('block-click');
+                    }, 2000); // Changed duration for better visibility
+                }
+        
+                // Handle Copy Referral Code button click
+                $('.btnC').click(function (e) {
+                    e.preventDefault();
+                    $(this).addClass('block-click');
+                    var clipboardText = $(this).attr('data-clipboard-text');
+                    console.log('Copying text:', clipboardText);
+                    var tempTextArea = $('<textarea>');
+                    tempTextArea.val(clipboardText);
+                    tempTextArea.css({ position: 'fixed', top: '0', left: '0', opacity: '0' });
+                    $('body').append(tempTextArea);
+                    tempTextArea[0].select();
+                    var successful = document.execCommand('copy');
+                    tempTextArea.remove();
+                    if (successful) {
+                        alertMess('Copy successful', $(this));
+                    } else {
+                        alertMess('Copy failed', $(this));
+                    }
+                });
+        
+                // Handle Save button click
+                $('.btn-save-code').click(function (e) {
+                    e.preventDefault();
+                    var newCode = $('#referralCodeInput').val();
+                    if (newCode) {
+                        // AJAX request to update the referral code
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/webapi/updateReferralCode",
+                            data: { code: newCode }, // Send the new referral code to the server
+                            dataType: "json",
+                            success: function (response) {
+                                console.log('Server response:', response);
+                                if (response.status) { // Check if status is true
+                                    // Update the references locally
+                                    $('.btnC').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${response.code}`);
+                                    alertMess('Referral code updated', $('.btn-save-code'));
+                                } else {
+                                    alertMess('Failed to update referral code', $('.btn-save-code'));
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                console.log('Error:', error);
+                                alertMess('An error occurred. Try again with a different code', $('.btn-save-code'));
+                            }
+                        });
+                    } else {
+                        alertMess('Please enter a referral code', $('.btn-save-code'));
+                    }
+                });
+            });
+        </script>
+        
+        <script>
+            function RosesRender(datas) {
+                let html = datas.map((e) => {
+                    let html = '';
+                    return html += `<div data-v-7c8bbbf4="" class="bd van-row">
+               <div data-v-7c8bbbf4="" class="c-tc van-ellipsis van-col van-col--6">Level ${e.level}</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--4">${e.f1}%</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--4">${e.f2}%</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--5">${e.f3}%</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--5">${e.f4}%</div>
+           </div>`;
+                });
+                $('.table:eq(1) .box').append(html);
+
+                $('.table:eq(1) .box').append(`
+       <div data-v-7c8bbbf4="" class="bd van-row">
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--6">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--4">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--4">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--5">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--5">...</div>
        </div>
-       </div>
-       <!---->
-       
-   </div>
-</div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.js"></script>
-<script src="/js/client.js"></script>
-<script>
-   $(document).ready(function() {
-       function alertMess(text, sic) {
-           $('body').append(
-               `
-<div data-v-1dcba851="" class="msg">
-<div data-v-1dcba851="" class="msg-content v-enter-active v-enter-to" style=""> ${text} </div>
-</div>
-`
-           );
-           setTimeout(() => {
-               $('.msg .msg-content').removeClass('v-enter-active v-enter-to');
-               $('.msg .msg-content').addClass('v-leave-active v-leave-to');
-               setTimeout(() => {
-                   $('.msg').remove();
-               }, 100);
-               sic.removeClass('block-click');
-           }, 1000);
-       }
-
-       // Handle Copy Referral Code button click
-       $('.btn-box .btnC').click(function(e) {
-            e.preventDefault();
-            $(this).addClass('block-click');
-            var clipboardText = $(this).attr('data-clipboard-text');
-            console.log(clipboardText);
-            var tempTextArea = $('<textarea>');
-            tempTextArea.val(clipboardText);
-            tempTextArea.css({position: 'fixed', top: '0', left: '0', opacity: '0'});
-            $('body').append(tempTextArea);
-            tempTextArea[0].select();
-            document.execCommand('copy');
-            alertMess('Copy successful', $(this));
-        });
-
-
-     // Handle Save button click
-     $('.btn-save-code').click(function(e) {
-        e.preventDefault();
-        var newCode = $('#referralCodeInput').val();
-        if (newCode) {
-            // AJAX request to update the referral code
+       `);
+            }
             $.ajax({
                 type: "POST",
-                url: "/api/webapi/updateReferralCode",
-                data: { code: newCode }, // Send the new referral code to the server
+                url: "/api/webapi/promotion",
+                data: {},
                 dataType: "json",
-                success: function(response) {
-                    console.log(response);
-                    if (response.status) { // Check if status is true
-                        // Update the references locally
-                        $('.btn-box .btn:eq(0)').attr('data-clipboard-text', response.code);
-                        $('.btn-box .btn:eq(1)').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${response.code}`);
-                        alertMess('Referral code updated', $('#referralCodeForm'));
-                    } else {
-                        alertMess('Failed to update referral code', $('#referralCodeForm'));
+                success: function (response) {
+                    $('.Loading').fadeOut(0);
+                    $('#total_sub').text(response.invite.f1);
+                    $('#today_sub').text(response.invite.roses_today);
+                    $('#total_with').text(response.invite.f1_today);
+                    $('#today_with').text((1 / 1000) * response.invite.f1_today);
+
+                    $('#total_rech').text(response.invite.roses_f1);
+                    $('#today_rech').text((1 / 100) * response.invite.roses_f1);
+
+                    if (response.status === false) return location.href = '/home';
+                    RosesRender(response.level);
+                    $('.btn-box .btn:eq(0)').attr('data-clipboard-text', response.info[0].code);
+                    $('.btn-box .btn:eq(1)').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${response.info[0].code}`);
+                    $('#qrcode').attr('title', 'http://' + window.location.hostname + `/register?r_code=${response.info[0].code}`);
+                    function makeCode() {
+                        // qrcode.makeCode(window.location.hostname + `/register?r_code=${response.info[0].code}`);
                     }
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                    alertMess('An Error occurred. Try Again with a different code', $('#referralCodeForm'));
-                    console.error(xhr.responseText);
+                    makeCode();
                 }
             });
-        } else {
-            alertMess('Please enter a referral code', $('#referralCodeForm'));
-        }
-    });
-    //    // Handle Save button click
-    //    $('#referralCodeForm').submit(function(e) {
-    //         e.preventDefault();
-    //         var newCode = $('#referralCodeInput').val();
-    //         if (newCode) {
-    //             $('.btn-box .btn:eq(0)').attr('data-clipboard-text', newCode);
-    //             $('.btn-box .btn:eq(1)').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${newCode}`);
-    //             alertMess('Referral code updated', $('#referralCodeForm'));
-    //         } else {
-    //             alertMess('Please enter a referral code', $('#referralCodeForm'));
-    //         }
-    //     });
+        </script>
 
-   });
-</script>
-<script>
-   function RosesRender(datas) {
-       let html = datas.map((e) => {
-           let html = '';
-           return html += `<div data-v-7c8bbbf4="" class="bd van-row">
-                   <div data-v-7c8bbbf4="" class="c-tc van-ellipsis van-col van-col--6">Level ${e.level}</div>
-                   <div data-v-7c8bbbf4="" class="c-tc van-col van-col--4">${e.f1}%</div>
-                   <div data-v-7c8bbbf4="" class="c-tc van-col van-col--4">${e.f2}%</div>
-                   <div data-v-7c8bbbf4="" class="c-tc van-col van-col--5">${e.f3}%</div>
-                   <div data-v-7c8bbbf4="" class="c-tc van-col van-col--5">${e.f4}%</div>
-               </div>`;
-       });
-       $('.table:eq(1) .box').append(html);
-
-       $('.table:eq(1) .box').append(`
-           <div data-v-7c8bbbf4="" class="bd van-row">
-               <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--6">...</div>
-               <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--4">...</div>
-               <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--4">...</div>
-               <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--5">...</div>
-               <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--5">...</div>
-           </div>
-           `);
-   }
-   $.ajax({
-       type: "POST",
-       url: "/api/webapi/promotion",
-       data: {},
-       dataType: "json",
-       success: function (response) {
-           $('.Loading').fadeOut(0);
-           $('#total_sub').text(response.invite.f1);
-           $('#today_sub').text(response.invite.roses_today);
-           $('#total_with').text(response.invite.f1_today);
-           $('#today_with').text((1/1000)*response.invite.f1_today);
-
-           $('#total_rech').text("Team total recharge: " + response.invite.roses_f1);
-           $('#today_rech').text("Team Recharge commission: " + (1/100)*response.invite.roses_f1);
-
-           if (response.status === false) return location.href = '/home';
-           RosesRender(response.level);
-           $('.btn-box .btn:eq(0)').attr('data-clipboard-text', response.info[0].code);
-           $('.btn-box .btn:eq(1)').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${response.info[0].code}`);
-           $('#qrcode').attr('title', 'http://' + window.location.hostname + `/register?r_code=${response.info[0].code}`);
-           function makeCode() {
-               // qrcode.makeCode(window.location.hostname + `/register?r_code=${response.info[0].code}`);
-           }
-           makeCode();
-       }
-   });
-</script>
 </body>
 
 </html>
