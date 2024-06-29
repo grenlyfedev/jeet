@@ -12,7 +12,7 @@
   <link href="/css/member/chunk-2.css" rel="stylesheet" />
   <link href="/css/member/chunk-3.css" rel="stylesheet" />
   <link href="/css/member/chunk-4.css" rel="stylesheet" />
-  <link href="/css/member/chunk-5.css" rel="stylesheet" />
+  <link href="/css/member/chunk-4.css" rel="stylesheet" />
   <link href="/css/member/chunk-6.css" rel="stylesheet" />
   <link href="/css/member/chunk-7.css" rel="stylesheet" />
   <link rel="shortcut icon" href="/images2/kpcgaming_platform_logo.jpg" type="image/x-icon" />
@@ -76,7 +76,7 @@
                 <div data-v-8cd483ca="" class="des u-m-b-15">
                   Main Balance
                 </div>
-                <div data-v-8cd483ca="" class="c-row c-row-middle c-row-center p-t-5">
+                <div data-v-8cd483ca="" class="c-row c-row-middle c-row-center p-t-4">
                   <div data-v-8cd483ca="" class="money">
                     <div data-v-8cd483ca="">
                       <!---->
@@ -98,7 +98,7 @@
                 <div data-v-8cd483ca="" class="des u-m-b-15">
                   Winning Balance
                 </div>
-                <div data-v-8cd483ca="" class="c-row c-row-middle c-row-center p-t-5">
+                <div data-v-8cd483ca="" class="c-row c-row-middle c-row-center p-t-4">
                   <div data-v-8cd483ca="" class="money">
                     <div data-v-8cd483ca="">
                       <!---->
@@ -119,16 +119,155 @@
                 </div>
               </div>
             </div>
-            <div data-v-8cd483ca="" class="c-row c-row-between m-t-10 infoBtn">
+            <!-- <div data-v-8cd483ca="" class="c-row c-row-between m-t-10 infoBtn">
               <div data-v-8cd483ca="" class="item c-row c-row-center" onclick="location.href='/wallet/withdrawal'">
                 <div data-v-8cd483ca="" class="li">Withdraw</div>
               </div>
               <div data-v-8cd483ca="" class="item c-row c-row-center" onclick="location.href='/wallet/recharge'">
                 <div data-v-8cd483ca="" class="li">Recharge</div>
               </div>
+            </div> -->
+
+            <div class="grid grid-cols-3 gap-1 mt-2">
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justify-start"
+                onclick="location.href='/wallet/recharge'">
+                <img src="/images/deposit_tr.png" alt="Deposit Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                <div data-v-7b283485="" class="text-center text-[0.2850rem] tracking-wider font-medium text-gray-200">Deposit</div>
+              </div>
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justify-start"
+                onclick="location.href='/wallet/withdrawal'">
+                <img src="/images/withdrawBlue_tr.png" alt="Withdraw Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                <div data-v-7b283485="" class="text-center text-[0.2850rem] tracking-wider font-medium text-gray-200">Withdraw</div>
+              </div>
+              <div data-v-7b283485=""
+                class="item c-row c-row-center flex flex-col items-center justifystart"
+                onclick="location.href='#'">
+                <img src="/images/withdrawHistory_tr.png" alt="Withdraw History Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                <div data-v-7b283485="" class="text-center text-[0.2850rem] tracking-wider font-medium text-gray-200">VIP</div>
+              </div>
             </div>
           </div>
         </div>
+
+        <div class="flex flex-col m-2 gap-1">
+          <% if (level==1) { %>
+          <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded"
+          onclick="location.href='/admin/manager/dashboard'">
+              <div data-v-21f3500a="" class="c-row c-row-middle">
+                <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png" class="img" />
+                <span data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Administrator Area</span>
+              </div>
+              <div data-v-21f3500a="" class="c-row c-row-middle">
+                  <i data-v-21f3500a="" class="van-icon van-icon-arrow"
+                      style="color: #efd58c; font-size: 20px">
+                      <!---->
+                  </i>
+              </div>
+          </div>
+          <% } %>
+          <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded" onclick="showComingSoon()">
+            <div data-v-21f3500a="" class="c-row c-row-middle">
+              <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/gift.png" class="img" /><span
+                data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Notifications</span>
+            </div>
+            <div data-v-21f3500a="" class="c-row c-row-middle">
+              <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                <!---->
+              </i>
+            </div>
+          </div>
+     
+
+              <% if (level==2) { %>
+                <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded"
+                  onclick="location.href='/mian/subordinate_data'">
+                  <div data-v-21f3500a="" class="c-row c-row-middle">
+                    <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/deposit_history.png" class="img" />
+                    <span data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Subordinate Data</span>
+                  </div>
+                  <div data-v-21f3500a="" class="c-row c-row-middle">
+                    <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                      <!---->
+                    </i>
+                  </div>
+                </div>
+                <% } %>
+                  <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded"
+                    onclick="location.href='/mian/commission_data'">
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/deposit_history.png"
+                        class="img" />
+                      <span data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Commission Details</span>
+                    </div>
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                        <!---->
+                      </i>
+                    </div>
+                  </div>
+                  <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded" onclick="location.href='/mian/forgot'">
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png" class="img" /><span
+                        data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Security and Safety</span>
+                    </div>
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                        <!---->
+                      </i>
+                    </div>
+                  </div>
+                  <!---->
+                  <!---->
+                  <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded" onclick="location.href='/redenvelopes'">
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/gift.png" class="img" /><span
+                        data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Redeem Code</span>
+                    </div>
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                        <!---->
+                      </i>
+                    </div>
+                  </div>
+
+                  
+                  <!-- <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded" onclick="location.href='/wallet'">
+                        <div data-v-21f3500a="" class="c-row c-row-middle"><img data-v-21f3500a="" width="24px"
+                                height="24px" src="/images/s3.png" class="img"><span data-v-21f3500a=""
+                                class="name">Wallet</span>
+                        </div>
+                        <div data-v-21f3500a="" class="c-row c-row-middle"><i data-v-21f3500a=""
+                                class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px;">
+                       
+                            </i></div>
+                    </div> -->
+                  <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded" onclick="location.href='/about'">
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/big_guide.png" class="img" /><span
+                        data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">About Us</span>
+                    </div>
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                        <!---->
+                      </i>
+                    </div>
+                  </div>
+                  <div data-v-21f3500a="" class="bg-[#EFD58C]/[0.5] flex justify-between items-center p-1 rounded" onclick="location.href='/keFuMenu'">
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/cus_service.png"
+                        class="img" /><span data-v-21f3500a="" class="text-[0.3125rem] text-gray-100 font-bold tracking-wide ">Customer Support Online 24/7</span>
+                    </div>
+                    <div data-v-21f3500a="" class="c-row c-row-middle">
+                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
+                        <!---->
+                      </i>
+                    </div>
+                  </div>
+      </div>
+
+
         <!---->
         <!-- <div
             data-v-8cd483ca=""
@@ -166,105 +305,7 @@
                     </div>
                 </div> -->
         <div data-v-21f3500a="" data-v-8cd483ca="" class="list">
-          <!---->
-          <!---->
-          <% if (level==1) { %>
-            <div data-v-21f3500a="" class="item c-row c-row-between" onclick="location.href='/admin/manager/dashboard'">
-              <div data-v-21f3500a="" class="c-row c-row-middle">
-                <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png" class="img" />
-                <span data-v-21f3500a="" class="name">Administrator Area</span>
-              </div>
-              <div data-v-21f3500a="" class="c-row c-row-middle">
-                <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                  <!---->
-                </i>
-              </div>
-            </div>
-            <% } %>
-
-              <% if (level==2) { %>
-                <div data-v-21f3500a="" class="item c-row c-row-between"
-                  onclick="location.href='/mian/subordinate_data'">
-                  <div data-v-21f3500a="" class="c-row c-row-middle">
-                    <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/deposit_history.png" class="img" />
-                    <span data-v-21f3500a="" class="name">Subordinate Data</span>
-                  </div>
-                  <div data-v-21f3500a="" class="c-row c-row-middle">
-                    <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                      <!---->
-                    </i>
-                  </div>
-                </div>
-                <% } %>
-                  <div data-v-21f3500a="" class="item c-row c-row-between"
-                    onclick="location.href='/mian/commission_data'">
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/deposit_history.png"
-                        class="img" />
-                      <span data-v-21f3500a="" class="name">Commission Details</span>
-                    </div>
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                        <!---->
-                      </i>
-                    </div>
-                  </div>
-                  <div data-v-21f3500a="" class="item c-row c-row-between" onclick="location.href='/mian/forgot'">
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/setting.png" class="img" /><span
-                        data-v-21f3500a="" class="name">Security and Safety</span>
-                    </div>
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                        <!---->
-                      </i>
-                    </div>
-                  </div>
-                  <!---->
-                  <!---->
-                  <div data-v-21f3500a="" class="item c-row c-row-between" onclick="location.href='/redenvelopes'">
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/gift.png" class="img" /><span
-                        data-v-21f3500a="" class="name">Redeem Code</span>
-                    </div>
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                        <!---->
-                      </i>
-                    </div>
-                  </div>
-                  <!-- <div data-v-21f3500a="" class="item c-row c-row-between" onclick="location.href='/wallet'">
-                        <div data-v-21f3500a="" class="c-row c-row-middle"><img data-v-21f3500a="" width="24px"
-                                height="24px" src="/images/s3.png" class="img"><span data-v-21f3500a=""
-                                class="name">Wallet</span>
-                        </div>
-                        <div data-v-21f3500a="" class="c-row c-row-middle"><i data-v-21f3500a=""
-                                class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px;">
-                       
-                            </i></div>
-                    </div> -->
-                  <div data-v-21f3500a="" class="item c-row c-row-between" onclick="location.href='/about'">
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/big_guide.png" class="img" /><span
-                        data-v-21f3500a="" class="name">About Us</span>
-                    </div>
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                        <!---->
-                      </i>
-                    </div>
-                  </div>
-                  <div data-v-21f3500a="" class="item c-row c-row-between" onclick="location.href='/keFuMenu'">
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <img data-v-21f3500a="" width="24px" height="24px" src="/icons2/cus_service.png"
-                        class="img" /><span data-v-21f3500a="" class="name">Customer Support Online 24/7</span>
-                    </div>
-                    <div data-v-21f3500a="" class="c-row c-row-middle">
-                      <i data-v-21f3500a="" class="van-icon van-icon-arrow" style="color: #efd58c; font-size: 20px">
-                        <!---->
-                      </i>
-                    </div>
-                  </div>
+         
 
                 
         </div>
@@ -415,6 +456,11 @@
       e.preventDefault();
       unsetCookie();
     });
+
+
+    function showComingSoon(){
+      alert("This feature is under scheduled maintainance")
+    }
   </script>
 </body>
 
