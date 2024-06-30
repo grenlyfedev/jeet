@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html translate="no" data-dpr="1" style="font-size: 48.16px" style="min-height: 100vh">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+    <title>PlayWin</title>
+    <link href="/css/member/main.css" rel="stylesheet" />
+    <link href="/css/member/chunk-1.css" rel="stylesheet" />
+    <link href="/css/member/chunk-2.css" rel="stylesheet" />
+    <link href="/css/member/chunk-3.css" rel="stylesheet" />
+    <link href="/css/member/chunk-4.css" rel="stylesheet" />
+    <link href="/css/member/chunk-5.css" rel="stylesheet" />
+    <link href="/css/member/chunk-6.css" rel="stylesheet" />
+    <link href="/css/member/chunk-7.css" rel="stylesheet" />
+
+
+    <link href="/css/promotion/app.css" rel="stylesheet" />
+    <link href="/css/promotion/chunk-0_1.css" rel="stylesheet" />
+    <link href="/css/promotion/chunk-0_2.css" rel="stylesheet" />
+    <link href="/css/promotion/chunk-0_3.css" rel="stylesheet" />
+    <link href="/css/promotion/chunk-0_4.css" rel="stylesheet" />
+    <link href="/css/promotion/chunk-0_5.css" rel="stylesheet" />
+    <link href="/css/promotion/chunk-0_6.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="/images2/myjeet_win_logo.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            width: 100%;
+            background-color: #0c0c0f;
+            padding: 0;
+            margin: 0;
+        }
+
+        canvas {
+            height: 130px;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .input-group .form-control {
+            height: 40px;
+            width: 100%;
+            padding: 10px 15px;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            outline: none;
+            transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .input-group .form-control:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+        .input-group .btn {
+            height: 40px;
+            padding: 0 15px;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+            background-color: #f8f9fa;
+            color: #495057;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        }
+
+        .input-group .btn:hover {
+            background-color: #e2e6ea;
+            border-color: #dae0e5;
+            color: #212529;
+        }
+
+        .input-group .btn:active {
+            background-color: #dae0e5;
+            border-color: #d3d9df;
+            color: #212529;
+        }
+
+        .input-group .btn:focus {
+            border-color: #80bdff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+            outline: none;
+        }
+
+
+        /* Remove border-radius from top-left and bottom-left corners */
+        .btna {
+            border-radius: 0.25rem;
+            /* Keep the default border-radius */
+        }
+
+        /* Remove border-radius from top-left corner */
+        .btna:not(:last-child) {
+            border-top-left-radius: 0;
+        }
+
+        /* Remove border-radius from bottom-left corner */
+        .btna:not(:first-child) {
+            border-bottom-left-radius: 0;
+        }
+
+
+        /* Remove border-radius from top-right and bottom-right corners of input field */
+        .form-controla {
+            border-radius: 0.25rem;
+            /* Keep the default border-radius */
+        }
+
+        /* Remove border-radius from top-right corner */
+        .form-controla:not(:last-child) {
+            border-top-right-radius: 0;
+        }
+
+        /* Remove border-radius from bottom-right corner */
+        .form-controla:not(:first-child) {
+            border-bottom-right-radius: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div data-v-8cd483ca="" class="mian page">
+            <div data-v-106b99c8="" data-v-7c8bbbf4="" class="navbar">
+                <div data-v-106b99c8="" class="navbar-left"></div>
+                <div data-v-106b99c8="" class="navbar-title" style="color:#EFD586; letter-spacing: 0.9px;">Events</div>
+                <div data-v-106b99c8="" class="navbar-right" onclick="location.href='/promotion/bonusrecord'">
+                    <div data-v-7c8bbbf4="" data-v-106b99c8="" class="c-row" style="color:#EFD586">
+                        <i data-v-7c8bbbf4="" data-v-106b99c8="" class="van-icon van-icon-notes-o"
+                            style="font-size: 25px;"></i>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="p-2">
+                <p class="text-gray-300 font-medium text-[0.3125rem]">Please remember to follow the event page</p>
+                <p class="text-gray-300 font-medium text-[0.3125rem]">We will launch user feedback activities from time to time</p>
+            </div>
+
+            <div data-v-7b283485="" class=" m-2">
+                <div class="grid grid-cols-4 gap-1 bg-[#D2B66E]/[0.1] rounded px-1 py-3">
+                  <div data-v-7b283485=""
+                    class="item c-row c-row-center flex flex-col items-center justify-start"
+                    onclick="location.href='/wallet/recharge'">
+                    <img src="/images/deposit_tr.png" alt="Deposit Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                    <div data-v-7b283485="" class="text-center text-[0.2604rem] font-medium text-gray-300">Events Award</div>
+                  </div>
+                  <div data-v-7b283485=""
+                    class="item c-row c-row-center flex flex-col items-center justify-start"
+                    onclick="location.href='/wallet/withdrawal'">
+                    <img src="/images/withdrawBlue_tr.png" alt="Withdraw Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                    <div data-v-7b283485="" class="text-center text-[0.2604rem] font-medium text-gray-300">Betting Rebate</div>
+                  </div>
+                  <div data-v-7b283485=""
+                    class="item c-row c-row-center flex flex-col items-center justify-start"
+                    onclick="location.href='/wallet/rechargerecord'">
+                    <img src="/images/rechargeHistory_tr.png" alt="Deposit History Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                    <div data-v-7b283485="" class="text-center text-[0.2604rem] font-medium text-gray-300">Super Jackpot</div>
+                  </div>
+                  <div data-v-7b283485=""
+                    class="item c-row c-row-center flex flex-col items-center justify-start"
+                    onclick="location.href='/wallet/withdrawalrecord'">
+                    <img src="/images/withdrawHistory_tr.png" alt="Withdraw History Icon" class="w-4 h-4 mb-1 shadow-lg rounded shadow-[#d2b66e]/[0.5]">
+                    <div data-v-7b283485="" class="text-center text-[0.2604rem] font-medium text-gray-300">New member gift package</div>
+                  </div>
+                </div>
+              </div>
+
+
+
+            <%- include('../nav') -%>
+        </div>
+    </div>
+    <div class="van-overlay" style="z-index: 2001; display: none"></div>
+    <div role="dialog" class="van-dialog" style="z-index: 2002; display: none" aria-labelledby="Lời nhắc">
+        <div class="van-dialog__header">Reminder</div>
+        <div class="van-dialog__content">
+            <div class="van-dialog__message van-dialog__message--has-title">
+                Do you want to sign out?
+            </div>
+        </div>
+        <div class="van-hairline--top van-dialog__footer van-dialog__footer--buttons">
+            <button class="van-button van-button--default van-button--large van-dialog__cancel">
+                <div class="van-button__content">
+                    <span class="van-button__text">Cancel</span>
+                </div>
+            </button>
+            <button class="van-button van-button--default van-button--large van-dialog__confirm van-hairline--left">
+                <div class="van-button__content">
+                    <span class="van-button__text">Confirm</span>
+                </div>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/client.js"></script>
+    <script>
+        $(document).ready(function () {
+            function alertMess(text, element) {
+                $('body').append(
+                    `<div data-v-1dcba851="" class="msg">
+                            <div data-v-1dcba851="" class="msg-content v-enter-active v-enter-to" style=""> ${text} </div>
+                        </div>`
+                );
+                setTimeout(() => {
+                    $('.msg .msg-content').removeClass('v-enter-active v-enter-to');
+                    $('.msg .msg-content').addClass('v-leave-active v-leave-to');
+                    setTimeout(() => {
+                        $('.msg').remove();
+                    }, 1000); // Changed duration for better visibility
+                    element.removeClass('block-click');
+                }, 2000); // Changed duration for better visibility
+            }
+
+            // Handle Copy Referral Code button click
+            $('.btnC').click(function (e) {
+                e.preventDefault();
+                $(this).addClass('block-click');
+                var clipboardText = $(this).attr('data-clipboard-text');
+                console.log('Copying text:', clipboardText);
+                var tempTextArea = $('<textarea>');
+                tempTextArea.val(clipboardText);
+                tempTextArea.css({ position: 'fixed', top: '0', left: '0', opacity: '0' });
+                $('body').append(tempTextArea);
+                tempTextArea[0].select();
+                var successful = document.execCommand('copy');
+                tempTextArea.remove();
+                if (successful) {
+                    alertMess('Copy successful', $(this));
+                } else {
+                    alertMess('Copy failed', $(this));
+                }
+            });
+
+            // Handle Save button click
+            $('.btn-save-code').click(function (e) {
+                e.preventDefault();
+                var newCode = $('#referralCodeInput').val();
+                if (newCode) {
+                    // AJAX request to update the referral code
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/webapi/updateReferralCode",
+                        data: { code: newCode }, // Send the new referral code to the server
+                        dataType: "json",
+                        success: function (response) {
+                            console.log('Server response:', response);
+                            if (response.status) { // Check if status is true
+                                // Update the references locally
+                                $('.btnC').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${response.code}`);
+                                alertMess('Referral code updated', $('.btn-save-code'));
+                            } else {
+                                alertMess('Failed to update referral code', $('.btn-save-code'));
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.log('Error:', error);
+                            alertMess('An error occurred. Try again with a different code', $('.btn-save-code'));
+                        }
+                    });
+                } else {
+                    alertMess('Please enter a referral code', $('.btn-save-code'));
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function RosesRender(datas) {
+            let html = datas.map((e) => {
+                let html = '';
+                return html += `<div data-v-7c8bbbf4="" class="bd van-row">
+               <div data-v-7c8bbbf4="" class="c-tc van-ellipsis van-col van-col--6">Level ${e.level}</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--4">${e.f1}%</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--4">${e.f2}%</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--5">${e.f3}%</div>
+               <div data-v-7c8bbbf4="" class="c-tc van-col van-col--5">${e.f4}%</div>
+           </div>`;
+            });
+            $('.table:eq(1) .box').append(html);
+
+            $('.table:eq(1) .box').append(`
+       <div data-v-7c8bbbf4="" class="bd van-row">
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--6">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--4">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--4">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--5">...</div>
+           <div data-v-7c8bbbf4="" class="c-tc fw van-col van-col--5">...</div>
+       </div>
+       `);
+        }
+        $.ajax({
+            type: "POST",
+            url: "/api/webapi/promotion",
+            data: {},
+            dataType: "json",
+            success: function (response) {
+                $('.Loading').fadeOut(0);
+                $('#total_sub').text(response.invite.f1);
+                $('#today_sub').text(response.invite.roses_today);
+                $('#total_with').text(response.invite.f1_today);
+                $('#today_with').text((1 / 1000) * response.invite.f1_today);
+
+                $('#total_rech').text(response.invite.roses_f1);
+                $('#today_rech').text((1 / 100) * response.invite.roses_f1);
+
+                if (response.status === false) return location.href = '/home';
+                RosesRender(response.level);
+                $('.btn-box .btn:eq(0)').attr('data-clipboard-text', response.info[0].code);
+                $('.btn-box .btn:eq(1)').attr('data-clipboard-text', 'http://' + window.location.hostname + `/register?r_code=${response.info[0].code}`);
+                $('#qrcode').attr('title', 'http://' + window.location.hostname + `/register?r_code=${response.info[0].code}`);
+                function makeCode() {
+                    // qrcode.makeCode(window.location.hostname + `/register?r_code=${response.info[0].code}`);
+                }
+                makeCode();
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            function fetchMyNetworkData() {
+                $.ajax({
+                    type: "POST",
+                    url: "/api/webapi/admin/getMyNetworkData",
+                    dataType: "json",
+                    success: function (response) {
+                        $("#spinner").hide();
+                        if (response.status) {
+                            // Update the number of registered users
+                            $("#number_of_registered").text(response.users_registered);
+                            // Update the total deposits
+                            $("#total_deposited_amount").text(response.total_deposits);
+                            $("#deposited_number").text(response.deposit_number);
+                            $("#making_first_deposit").text(response.making_first_deposit);
+                        } else {
+                            console.error("Error fetching data:", response.message);
+                        }
+                    },
+                    error: function (error) {
+                        $("#spinner").hide();
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+
+            function fetchTeamNetworkData() {
+                $.ajax({
+                    type: "POST",
+                    url: "/api/webapi/getTeamNetworkData",
+                    dataType: "json",
+                    success: function (response) {
+                        $("#spinner").hide();
+                        if (response.status) {
+                            // Update the number of registered users
+                            $("#number_of_registered_team").text(response.users_registered);
+                            // Update the total deposits
+                            $("#total_deposited_amount_team").text(response.total_deposits);
+                            $("#deposited_number_team").text(response.deposit_number);
+                            $("#making_first_deposit_team").text(response.making_first_deposit);
+                        } else {
+                            console.error("Error fetching data:", response.message);
+                        }
+                    },
+                    error: function (error) {
+                        $("#spinner").hide();
+                        console.error("Error fetching data:", error);
+                    }
+                });
+            }
+
+            fetchMyNetworkData(); // Call fetchMyNetworkData function on document ready
+            fetchTeamNetworkData(); // Call fetchTeamNetworkData function on document ready
+        });
+    </script>
+</body>
+
+</html>

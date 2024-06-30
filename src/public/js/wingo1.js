@@ -162,8 +162,16 @@ socket.on("data-server", function (msg) {
         $(".num span").text(`₹ ${data.data.money_user}. `);
         $(".num1 span").text(`₹ ${data.data.bonus_money}. `);
       });
+
+      // close bet status popup
     $(".Loading").fadeOut(0);
   }, 1000);
+});
+
+document.getElementById('modalOverlay').addEventListener('click', function (e) {
+  if (e.target === this) {
+    this.style.display = 'none';
+  }
 });
 // $('body').click(function (e) {
 //     e.preventDefault();
@@ -996,6 +1004,7 @@ $.ajax({
 });
 
 function formateT(params) {
+
   let result = params < 10 ? "0" + params : params;
   return result;
 }

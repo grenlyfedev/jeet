@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html translate="no" data-dpr="1" style="font-size: 48.16px">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="noindex,nofollow" />
+  <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport" />
+  <title>PlayWin</title>
+  <link href="/css/home/chunk-vendors.css" rel="stylesheet" />
+  <link href="/css/home/app.css" rel="stylesheet" />
+  <link href="/css/home/chunk.css" rel="stylesheet" />
+  <link href="/css/home/chunk2.css" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="shortcut icon" href="/images2/myjeet_win_logo.ico" type="image/x-icon" />
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      background-color: #0c0c0f;
+      padding: 0;
+      margin: 0;
+    }
+
+    .van-notice-bar {
+      position: relative;
+      height: auto;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      /* Add padding to ensure text is not cut off */
+    }
+
+    .van-notice-bar__wrap {
+      width: 100%;
+      /* Ensure it takes the full width */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Center align the content vertically */
+    }
+
+    .van-notice-bar__content {
+      transition: transform 1s ease-in-out;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
+  <script>
+    function getCookie(cname) {
+      const name = cname + "=";
+      const decodedCookie = decodeURIComponent(document.cookie);
+      const cookieArray = decodedCookie.split(";");
+
+      for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i].trim();
+        if (cookie.indexOf(name) === 0) {
+          return cookie.substring(name.length, cookie.length);
+        }
+      }
+
+      return null; // Return null if the cookie is not found
+    }
+    var token = getCookie("token");
+
+    // var aviatorUrl = `http://localhost:3000/?token=${token}`;
+    // var aviatorUrl = `http://localhost:3000/?token=${token}`;
+    var aviatorUrl = `http://aviator.playdreamgame.com/?token=${token}`;
+    function aviatorClick() {
+      if (token != null) {
+        console.log(aviatorUrl);
+        window.location.href = aviatorUrl;
+      } else {
+        window.location.replace('/login')
+      }
+    }
+  </script>
+</head>
+
+<body style="font-size: 12px" class="">
+  <div id="app">
+    <div data-v-432e6ed0="" class="home mian game relative">
+      <div data-v-106b99c8="" data-v-432e6ed0="" class="navbar">
+        <div data-v-106b99c8="" class="navbar-left">
+          <div data-v-432e6ed0="" data-v-106b99c8="" class="c-row c-row-middle-center">
+            <img data-v-432e6ed0="" data-v-106b99c8="" height="45px" width="45px" src="/images2/logo.png"
+              class="down" />
+          </div>
+        </div>
+        <div data-v-106b99c8="" class="navbar-title">
+          <!---->
+          <div data-v-432e6ed0="" data-v-106b99c8="" class="c-row c-row-middle-center">
+            <!-- <img
+                data-v-432e6ed0=""
+                data-v-106b99c8=""
+                height="38px"
+                width="100px"
+                src="/images2/logo.png"
+                class="logo"
+                style="height: 0.80333rem !important"
+              /> -->
+            <p style="
+                  color: #efd58c;
+                  letter-spacing: 0.6px;
+                  font-family: cursive;
+                ">
+              PlayWin
+            </p>
+          </div>
+        </div>
+        <div data-v-106b99c8="" class="navbar-right" onclick="location.href='<%=app%>'">
+          <div data-v-432e6ed0="" data-v-106b99c8="" class="c-row c-row-middle-center">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- end of sliding section -->
+      <div id="comingSoonModal" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-hidden">
+        <div class="relative rounded-lg shadow-lg max-w-[340px]">
+          <img src="/gameCategories/bet_status_popup_bg.png" alt="won_banner" class="rounded-lg w-full object-cover">
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
+            <div class="flex items-center mt-3">
+              <p class="text-gray-50 text-center font-bold text-[0.4512rem]">Try again</p>
+              🙁
+            </div>
+            <div class="mb-4 mt-4">
+              <div class="flex justify-center items-center gap-x-1">
+                <p class="text-gray-200 text-center text-[0.3125rem] font-bold">Lottery:</p>
+                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]">Green + Violet</p>
+                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]">5</p>
+                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]">Big</p>
+              </div>
+            </div>
+
+            <div class="mt-7 mx-2">
+              <div class="flex  flex-col justify-center items-center gap-x-1">
+                <p class="text-green-500 text-center text-[0.5125rem] font-bold  px-1 rounded-[3px]">WIN: 15</p>
+                <p class="text-gray-800 text-center text-[0.3125rem] font-bold  px-1 rounded-[3px]">Period: 1min 202505080790</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+
+      <!---->
+
+      <%- include('../nav') -%>
+    </div>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/js/client.js"></script>
+ 
+
+ 
+</body>
+
+</html>

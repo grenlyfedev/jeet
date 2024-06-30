@@ -15,6 +15,19 @@ const homePage = async(req, res) => {
     return res.render("home/index.ejs", { app, images }); 
 }
 
+
+const homePG = async(req, res) => {
+    const [settings] = await connection.query('SELECT `app` FROM admin');
+    let app = settings[0]?.app;
+
+    // Execute the SQL query to retrieve payment settings
+    const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
+    // Extract the first row if it exists
+    const images = rows.length > 0 ? rows[0] : null;
+    return res.render("home/home.ejs", { app, images }); 
+}
+
+
 const checkInPage = async(req, res) => {
     return res.render("checkIn/checkIn.ejs"); 
 }
@@ -34,6 +47,12 @@ const addBank = async(req, res) => {
 // promotion
 const promotionPage = async(req, res) => {
     return res.render("promotion/promotion.ejs"); 
+}
+
+
+// events
+const eventsPage = async(req, res) => {
+    return res.render("events/events.ejs"); 
 }
 
 const promotionmyTeamPage = async(req, res) => {
@@ -539,8 +558,10 @@ const myProfilePage = async(req, res) => {
 
 module.exports = {
     homePage,
+    homePG,
     checkInPage,
     promotionPage,
+    eventsPage,
     walletPage,
     mianPage,
     myProfilePage,

@@ -24,12 +24,14 @@ const initWebRouter = (app) => {
     return res.redirect("/home");
   });
   router.get("/home", homeController.homePage);
+  router.get("/hom", homeController.homePG);
 
   router.get("/checkIn", middlewareController, homeController.checkInPage);
   router.get("/checkDes", middlewareController, homeController.checkDes);
   router.get("/checkRecord", middlewareController, homeController.checkRecord);
 
   router.get("/promotion", middlewareController, homeController.promotionPage);
+  router.get("/events", middlewareController, homeController.eventsPage);
   router.get(
     "/promotion/myTeam",
     middlewareController,
