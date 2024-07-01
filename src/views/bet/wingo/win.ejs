@@ -196,36 +196,38 @@
 
 
     </div>
-    <div data-v-7692a079="" data-v-a9660e98="" class="Loading c-row c-row-middle-center">
+    <div data-v-7692a079="" data-v-a9660e98="" class="Loading c-row c-row-middle-center hidden">
       <div id="modalOverlay" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 overflow-hidden">
         <div class="relative rounded-lg shadow-lg max-w-[340px]">
-          <img src="/gameCategories/bet_status_popup_bg.png" alt="won_banner" class="rounded-lg w-full object-cover">
+          <img id="backgroundImage" src="" alt="" class="rounded-lg w-full object-cover">
           <div class="absolute inset-0 flex flex-col items-center justify-center p-4 z-10">
             <div class="flex items-center mt-3">
-              <p class="text-gray-50 text-center font-bold text-[0.5025rem]">Try Again</p>
-              🙁
+              <p class="text-gray-50 text-center font-bold text-[0.5025rem]" id="win_status_text"></p>
             </div>
             <div class="mb-4 mt-4">
               <div class="flex justify-center items-center gap-x-1">
-                <p class="text-gray-200 text-center text-[0.3125rem] font-bold">Lottery:</p>
-                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]">Green</p>
-                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]">5</p>
-                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]">Big</p>
+                <p class="text-gray-200 text-center text-[0.3125rem] font-bold" id="notification_title"></p>
+                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]" id="color_result"></p>
+                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]" id="number_result"></p>
+                <p class="text-white text-center text-[0.335rem] font-bold bg-[#DFED0A]/[0.5] px-1 rounded-[3px]" id="name_result"></p>
               </div>
             </div>
-    
             <div class="mt-7 mx-2">
               <div class="flex flex-col justify-center items-center gap-x-1">
-                <p class="text-red-500 text-center text-[0.5125rem] font-bold px-1 rounded-[3px]">LOSS: 15</p>
-                <p class="text-gray-800 text-center text-[0.3125rem] font-bold px-1 rounded-[3px]">Period: 1min 202505080790</p>
+                <p class="text-center text-[0.5125rem] font-bold px-1 rounded-[3px]" id="win_status"></p>
+                <p class="text-gray-800 text-center text-[0.3125rem] font-bold px-1 rounded-[3px]"><span id="bet_period"></span></p>
+              </div>
+            </div>
+            <div class="absolute bottom-0 m-2">
+              <div class="flex flex-col justify-center items-center gap-x-1">
+                <p class="text-center text-[0.3125rem] font-bold" id="countdown">Popup closes after 3 seconds</p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
-     
+
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="/js/client.js"></script>
@@ -233,7 +235,7 @@
     integrity="sha384-fKnu0iswBIqkjxrhQCTZ7qlLHOFEgNkRmK2vaO/LbTZSXdJfAu6ewRBdwHPhBo/H"
     crossorigin="anonymous"></script>
   <script src="/js/wingo1.js"></script>
- 
+
 </body>
 
 </html>
