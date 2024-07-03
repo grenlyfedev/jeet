@@ -32,6 +32,9 @@ const initWebRouter = (app) => {
 
   router.get("/promotion", middlewareController, homeController.promotionPage);
   router.get("/events", middlewareController, homeController.eventsPage);
+  router.get("/bet_history", middlewareController, homeController.betHistoryPage);
+  router.get("/rebate_ratio", middlewareController, homeController.rebateRatioPage);
+  
   router.get(
     "/promotion/myTeam",
     middlewareController,
@@ -592,6 +595,11 @@ const initWebRouter = (app) => {
     "/admin/manager/settings",
     adminController.middlewareAdminController,
     adminController.getSettings
+  );
+  router.get(
+    "/admin/manager/rebate_ratio_manager",
+    adminController.middlewareAdminController,
+    adminController.rebateRatio
   );
   router.post(
     "/admin/manager/settings/cskh",

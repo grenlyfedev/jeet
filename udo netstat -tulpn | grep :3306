@@ -1,0 +1,14 @@
+● mysql.service - MySQL Community Server
+     Loaded: loaded (/lib/systemd/system/mysql.service; disabled; vendor preset: enabled)
+     Active: activating (start) since Wed 2024-07-03 11:23:05 UTC; 1s ago
+    Process: 4012 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+   Main PID: 4020 (mysqld)
+     Status: "Server startup in progress"
+      Error: 98 (Address already in use)
+      Tasks: 10 (limit: 9241)
+     Memory: 365.4M
+        CPU: 588ms
+     CGroup: /system.slice/mysql.service
+             └─4020 /usr/sbin/mysqld
+
+Jul 03 11:23:05 snapshot-172625178-ubuntu-8gb-nbg1-1 systemd[1]: Starting MySQL Community Server...

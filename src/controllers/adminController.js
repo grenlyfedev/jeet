@@ -1407,6 +1407,18 @@ const getSettings = async (req, res) => {
 };
 
 
+const rebateRatio = async (req, res) => {
+  try {
+    const rebate_ratio_levels = null;
+    return res.render("manage/rebateRatio.ejs", { rebate_ratio_levels });
+
+  } catch (error) {
+    console.error('Error retrieving or updating rebate ratio settings:', error);
+    return res.status(500).send(error.toString());
+  }
+};
+
+
 const AviatorCrashedPlane = async (req, res) => {
   try {
     if (req.method === "POST") {
@@ -4716,6 +4728,7 @@ module.exports = {
   paymentSettings,
   AviatorCrashedPlane,
   getSettings,
+  rebateRatio,
   saveWowpaySettings,
   saveUpiTokenSettings,
   SavePaymentSettings,

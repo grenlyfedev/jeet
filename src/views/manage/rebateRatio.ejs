@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rebate Ratio Manager</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        .card-header {
+            background-color: azure;
+        }
+
+        thead {
+            background-color: azure;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <%- include('nav') %>
+
+            <div class="content-wrapper">
+                <section class="content-header">
+                    <p class="text-[1.3225rem]">Rebate Ratio Manager</p>
+                </section>
+
+
+                <div class="mt-4 mx-2 grid sm:grid-cols-2 gap-3 ">
+                    <!-- 0 -->
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L0</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <!-- 1 -->
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L1</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L2</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L3</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L4</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L5</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L6</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L7</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L8</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L9</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                    <div class="flex flex-col rounded bg-[#1CD4D7] text-white p-1 space-y-1">
+                        <div class="flex items-center justify-between">
+                            <p class="text-white text-[1.1215rem]">
+                            <span class="text-green-900 font-bold uppercase italic">L10</span>
+                            Rebate level
+                        </p>
+                        <p class="bg-gray-800 text-white font-bold text-[0.8rem] rounded p-1 cursor-pointer">Save</p>
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">1 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">2 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">3 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">4 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">5 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                        <div class="grid sm:grid-cols-2 items-center">
+                            <p class="text-gray-900 font-medium tracking-wider text-[0.892rem]">6 level lower level
+                                commission rebate</p>
+                            <input type="text"
+                                class="text-gray-100 font-medium tracking-wider text-[0.892rem] bg-[#3F3F3F] border border-gray-600 rounded px-1 py-0.5"
+                                value="0.0%">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+            </div>
+            <script src="/plugins/jquery/jquery.min.js"></script>
+            <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script src="/dist/js/adminlte.min.js"></script>
+            <script src="/js/admin/admin.js"></script>
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+
+</body>
+
+</html>

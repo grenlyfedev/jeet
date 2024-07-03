@@ -55,6 +55,18 @@ const eventsPage = async(req, res) => {
     return res.render("events/events.ejs"); 
 }
 
+
+// betHistory
+const betHistoryPage = async(req, res) => {
+    return res.render("bet/betHistory.ejs"); 
+}
+
+
+// REBATE RATIO
+const rebateRatioPage = async(req, res) => {
+    return res.render("bet/rebateRatio.ejs"); 
+}
+
 const promotionmyTeamPage = async(req, res) => {
     return res.render("promotion/myTeam.ejs"); 
 }
@@ -562,6 +574,8 @@ module.exports = {
     checkInPage,
     promotionPage,
     eventsPage,
+    betHistoryPage,
+    rebateRatioPage,
     walletPage,
     mianPage,
     myProfilePage,

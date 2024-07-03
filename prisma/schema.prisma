@@ -392,3 +392,14 @@ model aviatoradmin {
   username String  @default("admin")
   password String? @default("admin@123")
 }
+
+model rebateratio {
+  id          Int      @id @default(autoincrement())
+  rebateLevel Int      @default(0) 
+  level1      Float?   @default(0.0) 
+  level2      Float?   @default(0.0) 
+  level3      Float?   @default(0.0) 
+  level4      Float?   @default(0.0) 
+  level5      Float?   @default(0.0) 
+  level6      Float?   @default(0.0) 
+}
