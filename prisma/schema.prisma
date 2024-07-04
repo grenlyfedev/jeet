@@ -393,6 +393,8 @@ model aviatoradmin {
   password String? @default("admin@123")
 }
 
+
+
 model rebateratio {
   id          Int      @id @default(autoincrement())
   rebateLevel Int      @default(0) 
@@ -402,4 +404,12 @@ model rebateratio {
   level4      Float?   @default(0.0) 
   level5      Float?   @default(0.0) 
   level6      Float?   @default(0.0) 
+}
+
+
+model BannerImages {
+  id        Int    @id
+  image1Url String @db.VarChar(255)
+  image2Url String @db.VarChar(255)
+  image3Url String @db.VarChar(255)
 }

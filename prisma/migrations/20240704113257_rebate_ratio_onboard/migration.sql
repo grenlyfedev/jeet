@@ -1,0 +1,487 @@
+-- CreateTable
+CREATE TABLE `paymentsettings` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `upiId` VARCHAR(255) NULL,
+    `qrCodeUrl` VARCHAR(255) NULL,
+    `wowPayAccount` VARCHAR(255) NULL,
+    `createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `5d` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `period` BIGINT NULL DEFAULT 0,
+    `result` VARCHAR(5) NOT NULL DEFAULT '0',
+    `game` INTEGER NOT NULL DEFAULT 1,
+    `status` INTEGER NULL DEFAULT 0,
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `admin` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `wingo1` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `wingo3` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `wingo5` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `wingo10` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k5d` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k5d3` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k5d5` VARCHAR(255) NULL DEFAULT '''-1''',
+    `k5d10` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k3d` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k3d3` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k3d5` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `k3d10` VARCHAR(255) NOT NULL DEFAULT '''-1''',
+    `win_rate` INTEGER NOT NULL DEFAULT 0,
+    `telegram` VARCHAR(100) NOT NULL DEFAULT '0',
+    `cskh` VARCHAR(100) NOT NULL DEFAULT '0',
+    `app` VARCHAR(255) NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `bank_recharge` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name_bank` VARCHAR(50) NOT NULL DEFAULT '0',
+    `name_user` VARCHAR(100) NOT NULL DEFAULT '0',
+    `stk` VARCHAR(100) NOT NULL DEFAULT '0',
+    `type` VARCHAR(20) NOT NULL DEFAULT 'bank',
+    `upi` VARCHAR(211) NOT NULL DEFAULT '0',
+    `time` VARCHAR(30) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `financial_details` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `phone_used` VARCHAR(50) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `type` VARCHAR(50) NOT NULL DEFAULT '0',
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `k3` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `period` BIGINT NOT NULL DEFAULT 0,
+    `result` INTEGER NOT NULL,
+    `game` INTEGER NOT NULL DEFAULT 1,
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(100) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `level` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `level` INTEGER NOT NULL DEFAULT 0,
+    `f1` VARCHAR(50) NOT NULL,
+    `f2` VARCHAR(50) NOT NULL,
+    `f3` VARCHAR(50) NOT NULL,
+    `f4` VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `minutes_1` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_product` VARCHAR(100) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(20) NOT NULL DEFAULT '0',
+    `code` VARCHAR(30) NOT NULL DEFAULT '0',
+    `invite` VARCHAR(30) NOT NULL DEFAULT '0',
+    `stage` VARCHAR(255) NOT NULL DEFAULT '0',
+    `result` INTEGER NOT NULL DEFAULT 0,
+    `more` INTEGER NOT NULL DEFAULT 0,
+    `level` INTEGER NOT NULL DEFAULT 0,
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `amount` INTEGER NOT NULL DEFAULT 0,
+    `fee` INTEGER NOT NULL DEFAULT 0,
+    `get` INTEGER NOT NULL DEFAULT 0,
+    `game` VARCHAR(50) NOT NULL DEFAULT '0',
+    `bet` VARCHAR(10) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `today` VARCHAR(50) NOT NULL DEFAULT '0',
+    `time` VARCHAR(30) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `point_list` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `telegram` VARCHAR(100) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `level` INTEGER NOT NULL DEFAULT 0,
+    `total1` INTEGER NOT NULL DEFAULT 2,
+    `total2` INTEGER NOT NULL DEFAULT 4,
+    `total3` INTEGER NULL DEFAULT 8,
+    `total4` INTEGER NOT NULL DEFAULT 16,
+    `total5` INTEGER NOT NULL DEFAULT 24,
+    `total6` INTEGER NOT NULL DEFAULT 28,
+    `total7` INTEGER NOT NULL DEFAULT 30,
+    `money_user` INTEGER NOT NULL DEFAULT 0,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `recharge` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_order` VARCHAR(100) NOT NULL DEFAULT '0',
+    `transaction_id` VARCHAR(100) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `type` VARCHAR(10) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `today` VARCHAR(50) NOT NULL DEFAULT '0',
+    `url` VARCHAR(255) NOT NULL DEFAULT '0',
+    `time` VARCHAR(30) NOT NULL DEFAULT '0',
+    `utr` VARCHAR(100) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `redenvelopes` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_redenvelope` VARCHAR(100) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `used` INTEGER NOT NULL DEFAULT 0,
+    `amount` INTEGER NOT NULL DEFAULT 0,
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `redenvelopes_used` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `phone_used` VARCHAR(50) NOT NULL DEFAULT '0',
+    `id_redenvelops` VARCHAR(50) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `refer` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `parentCommission` INTEGER NOT NULL DEFAULT 50,
+    `notReferCommission` INTEGER NOT NULL DEFAULT 50,
+    `friendCommission` INTEGER NOT NULL DEFAULT 100,
+    `mwa` INTEGER NOT NULL DEFAULT 250,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `result_5d` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_product` VARCHAR(100) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(20) NULL DEFAULT '0',
+    `code` VARCHAR(30) NOT NULL DEFAULT '0',
+    `invite` VARCHAR(30) NOT NULL DEFAULT '0',
+    `stage` BIGINT NULL DEFAULT 0,
+    `result` VARCHAR(5) NOT NULL DEFAULT '0',
+    `level` INTEGER NOT NULL DEFAULT 0,
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `price` INTEGER NOT NULL DEFAULT 0,
+    `amount` INTEGER NOT NULL DEFAULT 0,
+    `fee` INTEGER NOT NULL DEFAULT 0,
+    `get` INTEGER NOT NULL DEFAULT 0,
+    `game` INTEGER NOT NULL,
+    `join_bet` VARCHAR(10) NOT NULL DEFAULT '0',
+    `bet` VARCHAR(20) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `result_k3` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_product` VARCHAR(100) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `code` VARCHAR(50) NOT NULL DEFAULT '0',
+    `invite` VARCHAR(50) NOT NULL DEFAULT '0',
+    `stage` VARCHAR(50) NOT NULL DEFAULT '0',
+    `result` VARCHAR(5) NOT NULL DEFAULT '0',
+    `level` INTEGER NOT NULL DEFAULT 0,
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `price` INTEGER NOT NULL DEFAULT 0,
+    `amount` INTEGER NOT NULL DEFAULT 0,
+    `fee` INTEGER NOT NULL DEFAULT 0,
+    `get` INTEGER NOT NULL DEFAULT 0,
+    `game` VARCHAR(5) NOT NULL DEFAULT '0',
+    `join_bet` VARCHAR(100) NOT NULL DEFAULT '0',
+    `typeGame` VARCHAR(100) NOT NULL DEFAULT '0',
+    `bet` VARCHAR(100) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `roses` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `code` VARCHAR(50) NOT NULL DEFAULT '0',
+    `invite` VARCHAR(50) NOT NULL DEFAULT '0',
+    `f1` INTEGER NOT NULL DEFAULT 0,
+    `f2` INTEGER NOT NULL DEFAULT 0,
+    `f3` INTEGER NOT NULL DEFAULT 0,
+    `f4` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(50) NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `user_bank` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `name_bank` VARCHAR(100) NOT NULL DEFAULT '0',
+    `name_user` VARCHAR(100) NULL DEFAULT '0',
+    `account` VARCHAR(100) NOT NULL,
+    `ifsc` VARCHAR(100) NOT NULL,
+    `stk` VARCHAR(100) NOT NULL DEFAULT '0',
+    `tp` VARCHAR(100) NOT NULL DEFAULT '0',
+    `email` VARCHAR(100) NOT NULL DEFAULT '0',
+    `sdt` VARCHAR(20) NULL DEFAULT '0',
+    `tinh` VARCHAR(100) NOT NULL DEFAULT '0',
+    `chi_nhanh` VARCHAR(100) NOT NULL DEFAULT '0',
+    `time` VARCHAR(30) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `users` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_user` VARCHAR(50) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(20) NOT NULL DEFAULT '0',
+    `token` VARCHAR(500) NOT NULL DEFAULT '0',
+    `name_user` VARCHAR(50) NOT NULL DEFAULT '0',
+    `password` VARCHAR(50) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 50,
+    `total_money` INTEGER NOT NULL DEFAULT 0,
+    `roses_f1` INTEGER NOT NULL DEFAULT 0,
+    `roses_f` INTEGER NOT NULL DEFAULT 0,
+    `roses_today` INTEGER NOT NULL DEFAULT 0,
+    `level` INTEGER NOT NULL DEFAULT 0,
+    `rank` INTEGER NOT NULL DEFAULT 0,
+    `code` VARCHAR(30) NOT NULL DEFAULT '0',
+    `invite` VARCHAR(30) NOT NULL DEFAULT '0',
+    `ctv` VARCHAR(50) NOT NULL DEFAULT '0',
+    `veri` INTEGER NOT NULL DEFAULT 0,
+    `otp` VARCHAR(10) NOT NULL DEFAULT '0',
+    `ip_address` VARCHAR(50) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(50) NOT NULL DEFAULT '0',
+    `time_otp` VARCHAR(50) NOT NULL DEFAULT '0',
+    `bonus` FLOAT NOT NULL DEFAULT 0,
+    `betTime1` DATETIME(3) NULL,
+    `betTime2` DATETIME(3) NULL,
+    `bonusMoney` INTEGER NOT NULL DEFAULT 0,
+    `referredBy_ID` INTEGER NULL,
+
+    UNIQUE INDEX `users_phone_key`(`phone`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `wingo` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `period` VARCHAR(100) NOT NULL,
+    `amount` INTEGER NOT NULL DEFAULT 0,
+    `game` VARCHAR(10) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `time` VARCHAR(30) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `withdraw` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `id_order` VARCHAR(100) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `money` INTEGER NOT NULL DEFAULT 0,
+    `account` VARCHAR(100) NOT NULL,
+    `ifsc` VARCHAR(100) NOT NULL,
+    `stk` VARCHAR(100) NOT NULL DEFAULT '0',
+    `name_bank` VARCHAR(100) NOT NULL DEFAULT '0',
+    `name_user` VARCHAR(100) NOT NULL DEFAULT '0',
+    `status` INTEGER NOT NULL DEFAULT 0,
+    `today` VARCHAR(50) NOT NULL DEFAULT '0',
+    `time` VARCHAR(30) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `bank` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `account` VARCHAR(100) NOT NULL,
+    `ifsc` VARCHAR(100) NOT NULL,
+    `stk` VARCHAR(100) NOT NULL DEFAULT '0',
+    `name_bank` VARCHAR(100) NOT NULL DEFAULT '0',
+    `name_user` VARCHAR(100) NOT NULL DEFAULT '0',
+    `email` VARCHAR(191) NOT NULL DEFAULT '@',
+    `gender` VARCHAR(191) NOT NULL DEFAULT '',
+    `name` VARCHAR(191) NOT NULL DEFAULT '',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `aviatorrecharge` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `amount` VARCHAR(191) NOT NULL DEFAULT '0',
+    `customer_email` VARCHAR(191) NOT NULL,
+    `customer_mobile` VARCHAR(191) NOT NULL,
+    `customer_name` VARCHAR(191) NOT NULL,
+    `client_txn_id` INTEGER NOT NULL,
+    `createdAt` VARCHAR(191) NOT NULL,
+    `customer_vpa` VARCHAR(191) NOT NULL,
+    `ip` VARCHAR(191) NOT NULL,
+    `orderId` INTEGER NOT NULL,
+    `status` VARCHAR(191) NOT NULL,
+    `txnAt` VARCHAR(191) NOT NULL,
+    `upi_txn_id` VARCHAR(191) NOT NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `aviatorrechargesecond` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(191) NULL,
+    `email` VARCHAR(191) NULL,
+    `amount` VARCHAR(191) NOT NULL DEFAULT '0',
+    `phone` VARCHAR(20) NOT NULL DEFAULT '0',
+    `txn_id` VARCHAR(191) NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `status` VARCHAR(191) NOT NULL DEFAULT '0',
+    `screenshot` VARCHAR(191) NOT NULL,
+    `mobile` VARCHAR(191) NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `banksettings` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `key` VARCHAR(191) NOT NULL DEFAULT '',
+    `keyenable` INTEGER NOT NULL DEFAULT 0,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `crashedplane` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `nl` VARCHAR(191) NOT NULL DEFAULT '5',
+    `nh` VARCHAR(191) NOT NULL DEFAULT '10',
+    `sl` VARCHAR(191) NOT NULL DEFAULT '1',
+    `sh` VARCHAR(191) NOT NULL DEFAULT '3',
+    `sp` VARCHAR(191) NOT NULL DEFAULT '70',
+    `sm` VARCHAR(191) NOT NULL DEFAULT '1.3',
+    `ml` VARCHAR(191) NOT NULL DEFAULT '1',
+    `mh` VARCHAR(191) NOT NULL DEFAULT '2',
+    `mr` VARCHAR(191) NOT NULL DEFAULT '10',
+    `da` VARCHAR(191) NOT NULL DEFAULT '40',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `adminbank` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `bankName` VARCHAR(191) NOT NULL,
+    `accountNumber` VARCHAR(191) NOT NULL,
+    `accountHolderName` VARCHAR(191) NOT NULL,
+    `ifscCode` VARCHAR(191) NOT NULL,
+    `mobileNumber` VARCHAR(191) NOT NULL,
+    `upiId` VARCHAR(191) NOT NULL,
+    `barCode` VARCHAR(191) NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `aviator` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `betAmount` INTEGER NOT NULL,
+    `withdrawAmount` INTEGER NOT NULL DEFAULT 0,
+    `multiplier` DOUBLE NOT NULL DEFAULT 0,
+    `betTime` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `withdrawTime` DATETIME(3) NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `autoaviator` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `phone` VARCHAR(50) NOT NULL DEFAULT '0',
+    `betAmount` INTEGER NOT NULL,
+    `withdrawAmount` INTEGER NOT NULL DEFAULT 0,
+    `multiplier` DOUBLE NOT NULL DEFAULT 0,
+    `betTime` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `withdrawTime` DATETIME(3) NULL,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `bettime` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `time` VARCHAR(191) NOT NULL DEFAULT '0',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `aviatoradmin` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `username` VARCHAR(191) NOT NULL DEFAULT 'admin',
+    `password` VARCHAR(191) NULL DEFAULT 'admin@123',
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `rebateratio` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `rebateLevel` INTEGER NOT NULL DEFAULT 0,
+    `level1` DOUBLE NULL DEFAULT 0.0,
+    `level2` DOUBLE NULL DEFAULT 0.0,
+    `level3` DOUBLE NULL DEFAULT 0.0,
+    `level4` DOUBLE NULL DEFAULT 0.0,
+    `level5` DOUBLE NULL DEFAULT 0.0,
+    `level6` DOUBLE NULL DEFAULT 0.0,
+
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;

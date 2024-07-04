@@ -1386,23 +1386,49 @@ const paymentSettings = async (req, res) => {
 };
 
 
+// const getSettings = async (req, res) => {
+//   console.log('OOOOOOOOOOOOOOOOOOOOOOOOO');
+//   console.log(req.body);
+//   try {
+//     // Execute the SQL query to retrieve payment settings
+//     const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
+
+
+//     console.log(rows);
+
+//     // Extract the first row if it exists
+//     const settings = rows.length > 0 ? rows[0] : null;
+//     return res.render("manage/getSettings.ejs", { settings });
+
+//   } catch (error) {
+//     console.error('Error retrieving or updating payment settings:', error);
+//     return res.status(500).send(error.toString());
+//   }
+// };
+
 const getSettings = async (req, res) => {
-  console.log('OOOOOOOOOOOOOOOOOOOOOOOOO');
-  console.log(req.body);
+  // console.log('OOOOOOOOOOOOOOOOOOOOOOOOO');
+  // console.log(req.body);
   try {
-    // Execute the SQL query to retrieve payment settings
-    const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
+      let settings = {};
+      try {
+          // Execute the SQL query to retrieve payment settings
+          const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
+          // Extract the first row if it exists, otherwise set to an empty object
+          settings = rows.length > 0 ? rows[0] : {};
+      } catch (error) {
+          if (error.code === 'ER_NO_SUCH_TABLE') {
+              console.warn("Table 'BannerImages' doesn't exist.");
+              // You can set a default value or log the warning
+          } else {
+              throw error; // Re-throw other errors
+          }
+      }
 
-
-    console.log(rows);
-
-    // Extract the first row if it exists
-    const settings = rows.length > 0 ? rows[0] : null;
-    return res.render("manage/getSettings.ejs", { settings });
-
+      return res.render("manage/getSettings.ejs", { settings });
   } catch (error) {
-    console.error('Error retrieving or updating payment settings:', error);
-    return res.status(500).send(error.toString());
+      console.error('Error retrieving or updating payment settings:', error);
+      return res.status(500).send("Internal Server Error");
   }
 };
 

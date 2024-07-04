@@ -4,17 +4,45 @@ import md5 from "md5";
 import e from "express";
 require('dotenv').config();
 
-const homePage = async(req, res) => {
-    const [settings] = await connection.query('SELECT `app` FROM admin');
-    let app = settings[0]?.app;
+// const homePage = async(req, res) => {
+//     const [settings] = await connection.query('SELECT `app` FROM admin');
+//     let app = settings[0]?.app;
 
-    // Execute the SQL query to retrieve payment settings
-    const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
-    // Extract the first row if it exists
-    const images = rows.length > 0 ? rows[0] : null;
-    return res.render("home/index.ejs", { app, images }); 
-}
+//     // Execute the SQL query to retrieve payment settings
+//     const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
+//     // Extract the first row if it exists
+//     const images = rows.length > 0 ? rows[0] : null;
+//     return res.render("home/index.ejs", { app, images }); 
+// }
 
+
+
+const homePage = async (req, res) => {
+    try {
+        const [settings] = await connection.query('SELECT `app` FROM admin');
+        let app = settings[0]?.app;
+
+        let images = {};
+        try {
+            // Execute the SQL query to retrieve payment settings
+            const [rows] = await connection.query('SELECT * FROM BannerImages LIMIT 1');
+            // Extract the first row if it exists, otherwise set to an empty object
+            images = rows.length > 0 ? rows[0] : {};
+        } catch (error) {
+            if (error.code === 'ER_NO_SUCH_TABLE') {
+                console.warn("Table 'BannerImages' doesn't exist.");
+                // You can set a default value or log the warning
+            } else {
+                throw error; // Re-throw other errors
+            }
+        }
+
+        return res.render("home/index.ejs", { app, images });
+    } catch (error) {
+        console.error("Error fetching data: ", error);
+        return res.status(500).send("Internal Server Error");
+    }
+};
 
 const homePG = async(req, res) => {
     const [settings] = await connection.query('SELECT `app` FROM admin');
