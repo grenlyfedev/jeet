@@ -406,10 +406,3 @@ model rebateratio {
   level6      Float?   @default(0.0) 
 }
 
-
-model BannerImages {
-  id        Int    @id
-  image1Url String @db.VarChar(255)
-  image2Url String @db.VarChar(255)
-  image3Url String @db.VarChar(255)
-}
